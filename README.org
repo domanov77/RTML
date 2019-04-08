@@ -10,5 +10,5 @@
   example files (CountTournaments.R) and a compilation of ATP matches
   (due credits to Topspin1985 AKA TennisMyLife) 1968-2019.
 - The functions should interact nicely with the data from Jeff Sackman
-  (https://[[github.com/JeffSackmann/tennis_atp]])
+  ([[https://github.com/JeffSackmann/tennis_atp]])
 
