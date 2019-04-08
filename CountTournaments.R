@@ -1,8 +1,7 @@
-source("DataFunctions.R")
+source("RFun_DataPrep.R")
+source("RFun_ScrapingATP.R")
 
-
-
-system.time(dbsack <- PrepareDataSackmann(dir="SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
+system.time(dbsack <- PrepareDataSackmann(dir="~/ATP/SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
 system.time(dbtop <- PrepareDataTop())
 roger_for_sack <- SearchByPlayer("Roger Federer", data=dbsack)
 roger_for_top  <- SearchByPlayer("Roger Federer", data=dbtop)
@@ -81,11 +80,7 @@ head(tep)
 
 ### scraping tournament results from ATP website
 ## Paris 2017: https://www.atptour.com/en/scores/archive/paris/352/2017/results
-source("Scraping.R")
 res_paris_2017 <- ScrapeTourneyFromATP("https://www.atptour.com/en/scores/archive/paris/352/2017/results", id="Paris Masters")
-
-url <- "https://www.atptour.com/en/scores/archive/paris/352/2017/results"
-id <- "Paris Masters"
 
 atp2015 <- ScrapeYearATP(year=2015)
 atp2016 <- ScrapeYearATP(year=2016)
@@ -98,8 +93,7 @@ for (i in seq_along(atp2016$url)) {
 }
 atp_matches_2016 <- data.table(rbindlist(tots))
 
+atp_matches_2016_2 <- data.table(rbindlist(AllRes2016))
+all.equal(atp_matches_2016, atp_matches_2016_2)
 
-london <- ScrapeTourneyFromATP("https://www.atptour.com/en/scores/archive/london/311/2016/results")
-halle <- ScrapeTourneyFromATP(atp2016$url[37])
 
-url <- atp2016$url[37]

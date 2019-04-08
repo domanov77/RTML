@@ -1,9 +1,9 @@
 ### Functions to interrogate the databases of matches
 
-### Time-stamp: "Last modified 2019-04-05 19:58:54 delucia"
+### Time-stamp: "Last modified 2019-04-08 19:58:54 dommy"
 library(data.table)
 
-PrepareDataTop <- function(file="DataTop/20190405-DataTop.csv") {
+PrepareDataTop <- function(file="Data/20190405-DataTop.csv") {
     
     ## read the data
     read_timing <- system.time(data <- data.table::fread(file)) ## removed fill=TRUE since I corrected the database!
