@@ -6,7 +6,7 @@
   LOT in the near future, as I learn data.table and I understand which
   functionalities really matter.
 - As of today we have just a bunch of R functions with no
-  documentation whatsoever (DataFunctions.R), some sparsely commented
+  documentation whatsoever (RFun_*), some sparsely commented
   example searches (CountTournaments.R) and a compilation of ATP
   matches 1968-2019 (due credits to Topspin1985 AKA TennisMyLife and
   to Jeff Sackmann; license to be resolved).
