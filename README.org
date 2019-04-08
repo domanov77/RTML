@@ -1,2 +1,14 @@
-* Dommy's R code and data to perform tennis-related statistics
+* Dommy's R code (and some data) to perform tennis-related statistics
+
+** Update 20190508
+
+- This is an early stage work-in-progress; expect things to change A
+  LOT in the near future, as I learn data.table and I understand which
+  functionalities really matter.
+- As of today we have just a bunch of R functions with no
+  documentation whatsoever (DataFunctions.R), some sparsely commented
+  example files (CountTournaments.R) and a compilation of ATP matches
+  (due credits to Topspin1985 AKA TennisMyLife) 1968-2019.
+- The functions should interact nicely with the data from Jeff Sackman
+  (https://[[github.com/JeffSackmann/tennis_atp]])
 
