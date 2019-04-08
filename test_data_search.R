@@ -188,22 +188,3 @@ OutputTableToPng(res, "average_points_slam_nole.png")
 res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
 setorder(res2, -points)
 OutputTableToPng(res2, "average_points_slam_surf_nole.png")
-### scraping tournament results from ATP website
-## Paris 2017: https://www.atptour.com/en/scores/archive/paris/352/2017/results
-res_paris_2017 <- ScrapeTourneyFromATP("https://www.atptour.com/en/scores/archive/paris/352/2017/results", id="Paris Masters")
-
-atp2015 <- ScrapeYearATP(year=2015)
-atp2016 <- ScrapeYearATP(year=2016)
-AllRes2016 <- lapply(atp2016$url, ScrapeTourneyFromATP)
-
-tots <- vector(mode="list", length=length(atp2016$url))
-for (i in seq_along(atp2016$url)) {
-    tots[[i]] <- ScrapeTourneyFromATP(atp2016$url[i])
-    cat(paste(":: ", i, ")", atp2016$tourney_name[i], "[done] \n"))
-}
-atp_matches_2016 <- data.table(rbindlist(tots))
-
-atp_matches_2016_2 <- data.table(rbindlist(AllRes2016))
-all.equal(atp_matches_2016, atp_matches_2016_2)
-
-
