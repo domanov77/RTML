@@ -7,9 +7,9 @@
   functionalities really matter.
 - As of today we have just a bunch of R functions with no
   documentation whatsoever (RFun_*), some sparsely commented
-  example searches (CountTournaments.R) and a compilation of ATP
-  matches 1968-2019 (due credits to Topspin1985 AKA TennisMyLife and
-  to Jeff Sackmann; license to be resolved).
+  example search and webscraping from the ATP website (test_*.R) and a 
+  compilation of ATP matches 1968-2019 (due credits to Topspin1985 AKA 
+  TennisMyLife and to Jeff Sackmann; license to be resolved).
 - The functions should interact nicely with the data from Jeff
   Sackmann ([[https://github.com/JeffSackmann/tennis_atp]])
-
+- R dependencies: httr, data.table, stringi, stringr, rvest
