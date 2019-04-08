@@ -7,8 +7,8 @@
   functionalities really matter.
 - As of today we have just a bunch of R functions with no
   documentation whatsoever (DataFunctions.R), some sparsely commented
-  example files (CountTournaments.R) and a compilation of ATP matches
-  (due credits to Topspin1985 AKA TennisMyLife) 1968-2019.
-- The functions should interact nicely with the data from Jeff Sackman
+  example searches (CountTournaments.R) and a compilation of ATP matches 1968-2019
+  (due credits to Topspin1985 AKA TennisMyLife and to Jeff Sackmann; license to be resolved).
+- The functions should interact nicely with the data from Jeff Sackmann
   ([[https://github.com/JeffSackmann/tennis_atp]])
 
