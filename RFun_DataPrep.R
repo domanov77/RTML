@@ -1,6 +1,6 @@
 ### Functions to interrogate the databases of matches
 
-### Time-stamp: "Last modified 2019-04-08 19:58:54 dommy"
+### Time-stamp: "Last modified 2019-04-05 19:58:54 delucia"
 library(data.table)
 
 PrepareDataTop <- function(file="Data/20190405-DataTop.csv") {
@@ -110,4 +110,29 @@ SearchByPlayer <- function(name, data, tour) {
         dtplayer <- dtplayer[tourn==tour]
 
     return(dtplayer)
+}
+
+PlayerMatches  <- function(name, table) {
+    table[winner_name==name | loser_name==name, ]
+}
+
+
+h2h  <- function(name1, name2, table) {
+    t1 <- PlayerMatches(name1, table)
+    PlayerMatches(name2, t1)
+}
+
+
+
+OutputTableToPng <- function(table, file) {
+    require(gridExtra)
+    a <- tempfile()
+    cairo_pdf(a, height=50, width=20)
+    grid.table(as.data.frame(table))
+    dev.off()
+    system(paste0("pdftoppm -png -r 150 ",a," > ", a,".png"))
+    system(paste0("convert ",  a,".png -trim ", a,"_trim.png"))
+    file.copy(paste0(a,"_trim.png"), file, overwrite=TRUE)
+    file.remove(c(a, paste0(a,".png"),paste0(a,"_trim.png")))
+    invisible()
 }
