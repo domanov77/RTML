@@ -42,11 +42,58 @@ tbagel <- rbind(scores_win[w,], scores_los[l,])
 nrow(tbagel)
 
 ## Finali in straight sets vinte nei 1000
-fm <- tt[tourney_level=="M" & round=="F", .(year, tourney_name, winner_name, loser_name, score)]
-tfm <- fm[sapply(strsplit(fm$score, " "), length)==2,]
-tfm[year>1999,]
+fm <- tt[tourney_level=="M" & round=="F", .(year, tourney_name, winner_name, loser_name, score, best_of)]
+fm <- fm[lengths(regmatches(fm$score, gregexpr("-", fm$score)))==(fm$best_of+1)/2,]
+table <- fm[year>1999, .(year, tourney_name, winner_name, loser_name, score, best_of)]
+library(gridExtra)
+cairo_pdf("table_straight_sets.pdf", height=40, width=10)
+grid.table(as.data.frame(table))
+dev.off()
 
 
+### Most recurrent score for Federer
+wins <- tt[winner_name=="Roger Federer", .N, by=.(score, surface)] 
+setorder(wins, -N)
+ 
+wins[N>5,]
+
+### Bagels Mc
+
+## how many bagels did Mackenzie McDonald suffer?
+scores_win <- tt[winner_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+w <- grep("0-6", scores_win$score, fixed=TRUE)
+scores_los <- tt[loser_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+l <- grep("6-0", scores_los$score, fixed=TRUE)
+tbagel <- rbind(scores_win[w,], scores_los[l,])
+nrow(tbagel)
+OutputTableToPng(tbagel, "MacBagelLos.png")
+## how many bagels did Mac inflict?
+scores_win <- tt[winner_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+w <- grep("6-0", scores_win$score, fixed=TRUE)
+scores_los <- tt[loser_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+l <- grep("0-6", scores_los$score, fixed=TRUE)
+tbagel <- rbind(scores_win[w,], scores_los[l,])
+nrow(tbagel)
+OutputTableToPng(tbagel, "MacBagelWn.png")
+ 
+ 
+
+fedal <- h2h("Roger Federer", "Rafael Nadal", tt)
+fedal[, .N, by=.(winner_name, surface)]
+fedal[, .N, by=.(winner_name)]
+
+roge <- PlayerMatches("Roger Federer", tt)
+rafa <- PlayerMatches("Rafael Nadal", tt)
+nole <- PlayerMatches("Novak Djokovic", tt)
+
+
+roge[grep("W/O|RET", roge$score),.N, by=.(winner_name)]
+rafa[grep("W/O|RET", rafa$score),.N, by=.(winner_name)]
+nole[grep("W/O|RET", nole$score),.N, by=.(winner_name)]
+
+ 
+ 
+ 
 grep("Tour Finals", tt$tourney_name)
 tt[grep("^Tour Finals", tt$tourney_name),]
 ## search ALL tournaments played by ALL players in the database
@@ -77,7 +124,70 @@ tep <- sort(tep, decreasing=TRUE)
 
 head(tep)
 
+ 
+## punti ATP medi negli slam:Fe
+losses <- tt[tourney_level=="G" & (loser_name=="Roger Federer" ), ]
+wins <- tt[tourney_level=="G" & (winner_name=="Roger Federer" )&round=="F",  ]
 
+points_ <- c(R128=10, R64=45, R32=90, R16=180, QF=360, SF=720, F=1200, W=2000)
+##points_ <- c(R128=0, R64=1, R32=2, R16=3, QF=4, SF=5, F=6, W=7)
+
+losses[, points:=points_[match(losses$round , names(points_))] ]
+wins[,points:=points_[length(points_)] ]
+tots <- rbind(losses, wins)
+ tots[ , .(points=mean(points))] 
+res <- tots[ , .(points=mean(points), .N ), by=.(tourney_name)]
+setorder(res, -points)
+res
+OutputTableToPng(res, "average_points_slam_fed.png")
+
+res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
+setorder(res2, -points)
+OutputTableToPng(res2, "average_points_slam_surf_fed.png")
+
+
+
+## punti ATP medi negli slam:Nadal
+losses <- tt[tourney_level=="G" & (loser_name=="Rafael Nadal" ), ]
+wins <- tt[tourney_level=="G" & (winner_name=="Rafael Nadal" )&round=="F",  ]
+
+## points <- c(R128=10, R64=45, R32=90, R16=180, QF=360, SF=720, F=1200, W=2000)
+
+ losses[, points:=points_[match(losses$round , names(points_))] ]
+wins[,points:=points_[length(points_)] ]
+tots <- rbind(losses, wins)
+ tots[ , .(points=mean(points))] 
+
+res <- tots[ , .(points=mean(points), .N ), by=.(tourney_name)]
+setorder(res, -points)
+OutputTableToPng(res, "average_points_slam_rafa.png")
+
+res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
+setorder(res2, -points)
+OutputTableToPng(res2, "average_points_slam_surf_rafa.png")
+
+
+
+
+## punti ATP medi negli slam: Nole
+losses <- tt[tourney_level=="G" & (loser_name=="Novak Djokovic" ), ]
+wins <- tt[tourney_level=="G" & (winner_name=="Novak Djokovic" )&round=="F",  ]
+
+points <- c(R128=10, R64=45, R32=90, R16=180, QF=360, SF=720, F=1200, W=2000)
+
+points[match(losses$round , names(points))]
+losses[, points:=points[match(losses$round , names(points))] ]
+wins[,points:=2000]
+tots <- rbind(losses, wins)
+ tots[ , .(points=mean(points))] 
+
+res <- tots[ , .(points=mean(points), .N ), by=.(tourney_name)]
+setorder(res, -points)
+OutputTableToPng(res, "average_points_slam_nole.png")
+
+res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
+setorder(res2, -points)
+OutputTableToPng(res2, "average_points_slam_surf_nole.png")
 ### scraping tournament results from ATP website
 ## Paris 2017: https://www.atptour.com/en/scores/archive/paris/352/2017/results
 res_paris_2017 <- ScrapeTourneyFromATP("https://www.atptour.com/en/scores/archive/paris/352/2017/results", id="Paris Masters")
