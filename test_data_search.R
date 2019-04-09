@@ -1,5 +1,5 @@
 source("RFun_DataPrep.R")
-source("RFun_ScrapingATP.R")
+source("RFun_Scraping.R")
 
 system.time(dbsack <- PrepareDataSackmann(dir="~/ATP/SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
 system.time(dbtop <- PrepareDataTop())

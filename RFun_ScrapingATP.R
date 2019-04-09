@@ -2,7 +2,7 @@
 
 ### Time-stamp: "Last modified 2019-04-05 19:58:54 delucia"
 
-ScrapeTourneyFromATP <- function(url, id) {
+ScrapeTourney <- function(url, id) {
     require(rvest)
     require(httr)
 
@@ -58,7 +58,7 @@ ScrapeTourneyFromATP <- function(url, id) {
 
     ## if there are walkovers we have less urls than matches!
     wos <- which(tab$score!="W/O")
-    url_matches <- rep("NA", nrow(tab))
+    url_matches <- rep(NA_character_, nrow(tab))
     url_matches[wos] <- urls
     
     tab$url_matches <- url_matches
@@ -116,7 +116,7 @@ ScrapeTourneyFromATP <- function(url, id) {
 
 
 ### Function returns the tournaments urls for a given year
-ScrapeYearATP <- function(year) {
+ScrapeYear <- function(year) {
     require(rvest)
     require(httr)
 
@@ -153,6 +153,117 @@ ScrapeYearATP <- function(year) {
     return(tab)
 }
 
+### Function returns the match stats for the match pointed by the url
+ScrapeMatch <- function(url) {
+
+    ## proceed only if url is not NA
+    if (is.na(url)) {
+        return(c("w_ace"     = NA_character_,
+                 "w_df"      = NA_character_,
+                 "w_svpt"    = NA_character_,
+                 "w_1stIn"   = NA_character_,
+                 "w_1stWon"  = NA_character_,
+                 "w_2ndWon"  = NA_character_,
+                 "w_SvGms"   = NA_character_,
+                 "w_bpSaved" = NA_character_,
+                 "w_bpFaced" = NA_character_,
+                 "l_ace"     = NA_character_,
+                 "l_df"      = NA_character_,
+                 "l_svpt"    = NA_character_,
+                 "l_1stIn"   = NA_character_,
+                 "l_1stWon"  = NA_character_,
+                 "l_2ndWon"  = NA_character_,
+                 "l_SvGms"   = NA_character_,
+                 "l_bpSaved" = NA_character_,
+                 "l_bpFaced" = NA_character_,
+                 "minutes"   = NA_character_
+                 ))
+    }
+    
+    require(rvest)
+    require(httr)
+
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    page_url <- paste0("https://www.atptour.com", url)
+    
+    response <- GET(page_url, user_agent(uastring))
+    html <- read_html(response)
+  
+    time <- html_nodes(html, ".time")%>% html_text()
+    time <- gsub("[[:space:]]","", time)
+    ## convert HH:MM:SS into total minutes
+    minutes <- sum(as.integer(unlist(strsplit(time,":")))*c(60,1,0))
+
+    ## extract the big table with the entries we need
+    ## NB: we expect that the winner is ALWAYS the first player!
+    table <- html_nodes(html, "table.match-stats-table")%>% html_table() ##header=TRUE
+    table <- table[[1]]
+    fields <- table[,3]
+    service1 <- table[,1]
+    service2 <- table[,5]
+    service1 <- gsub("[[:space:]]{2,}"," ", service1)
+    service2 <- gsub("[[:space:]]{2,}"," ", service2)
+    stats <- cbind(fields, service1, service2)
+    row <- c("w_ace"     = service1[2], 
+             "w_df"      = service1[3], 
+             "w_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service1[4]),
+             "w_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[4]),
+             "w_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[5]),
+             "w_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[6]),
+             "w_SvGms"   = service1[8],
+             "w_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[7]),
+             "w_bpFaced" = gsub("^.*([[:digit:]]+)/.*$","\\1", service1[7]),
+             "l_ace"     = service2[2], 
+             "l_df"      = service2[3], 
+             "l_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service2[4]),
+             "l_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[4]),
+             "l_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[5]),
+             "l_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[6]),
+             "l_SvGms"   = service2[8],
+             "l_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[7]),
+             "l_bpFaced" = gsub("^.*([[:digit:]]+)/.*$","\\1", service2[7]),
+             "minutes"   = minutes
+             )
+    return(row)
+}
 
 
+## Function which adds the match stats to a "tourney tab", 
+## that is, the data returned by ScrapeTourney()
+## parallelization through foreach and doParallel (should be multiplatform!)
+AddMatchStats <- function(tab, cores=8) {
+    if (!"url_matches" %in% colnames(tab))
+        stop(":: AddMatchStats needs the data.table returned by ScrapeTourney()\n:: with well formed url_matches!")
+    
+    require(doParallel)
+    require(foreach)
+    cl <- makeCluster(cores)
+    registerDoParallel(cl, cores=cores)
 
+    match_stats <- foreach(i=seq_along(tab$url_matches), .combine='rbind', .export="ScrapeMatch") %dopar% {
+        cat(paste(":: ", i, ")", tab$tourney_name[i], " - ", tab$winner_name[i]," vs ", tab$loser_name[i], "[done] \n"))
+        ScrapeMatch(tab$url_matches[i])
+    }
+    
+    ## close parallelization cluster
+    stopImplicitCluster()
+    stopCluster(cl)
+
+    ## append match_stats to the tab
+    ret <- data.table(cbind(tab, match_stats))
+    ## remove the url_matches
+    ret[, url_matches:=NULL]
+    return(ret)
+    
+}
+
+
+### Function which appends a data.table of new matches 
+### (with or without stats) to the all_data db
+AppendMatches <- function(matches, db) {
+    ret <- rbindlist(list(db, matches), use.names=TRUE, fill=TRUE)
+    return(ret)
+}
+
+
+    
