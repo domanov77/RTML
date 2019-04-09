@@ -222,7 +222,7 @@ ScrapeMatch <- function(url) {
     ## Find out who actually won
     winner <- html_nodes(html, ".match-info-row")%>% html_text(trim=TRUE) 
     winner <- gsub("[[:space:]]+"," ", winner) 
-    winner <- gsub("^.*Match[[:space:]](.*?)[[:punct:]].*$","\\1",winner)
+    winner <- gsub("^.*Match[[:space:]](.*?)\\..*$","\\1",winner)
 
     player1 <- html_nodes(html, ".player-left-name")%>% html_text(trim=TRUE) 
     player1 <- gsub("[[:space:]]+"," ", player1) 
@@ -231,11 +231,15 @@ ScrapeMatch <- function(url) {
     player2 <- gsub("[[:space:]]+"," ", player2) 
 
     ## extract the big table with the entries we need
-    ind_right <- ifelse(player1==winner, 1, 5)
-    ind_left   <- ifelse(player2==winner, 1, 5)
     table <- html_nodes(html, "table.match-stats-table")%>% html_table() ##header=TRUE
     table <- table[[1]]
     fields <- table[,3]
+    
+    ## swap left and right based on the winner
+    ind_left   <- ifelse(player1==winner, 1, 5)
+    ind_right <- ifelse(player2==winner, 1, 5)
+    if (ind_left==ind_right) stop("And the winner is ", winner, "player1= ", player1, "player2= ", player2)
+    
     service1 <- table[,ind_left]
     service2 <- table[,ind_right]
     service1 <- gsub("[[:space:]]{2,}"," ", service1)
