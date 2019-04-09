@@ -12,4 +12,5 @@
   TennisMyLife and to Jeff Sackmann; license to be resolved).
 - The functions should interact nicely with the data from Jeff
   Sackmann ([[https://github.com/JeffSackmann/tennis_atp]])
-- R dependencies: httr, data.table, stringi, stringr, rvest
+- R dependencies: httr, data.table, stringi, stringr, rvest,
+  gridExtra, parallel, doParallel, foreach

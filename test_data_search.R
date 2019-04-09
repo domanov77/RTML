@@ -1,48 +1,52 @@
 source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
 
-system.time(dbsack <- PrepareDataSackmann(dir="~/ATP/SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
-system.time(dbtop <- PrepareDataTop())
-roger_for_sack <- SearchByPlayer("Roger Federer", data=dbsack)
-roger_for_top  <- SearchByPlayer("Roger Federer", data=dbtop)
+system.time(dbsack <- ReadDataSackmann(dir="~/ATP/SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
+system.time(dbtop <- ReadData())
 
-tt <- dbtop$all_data
-ss <- dbsack$all_data
-tt[tourney_level=="A", .(tourney_name, year)]
-tt[tourney_level=="F", .(tourney_name, year)]
+dbtoplist  <- SummaryData(dbtop)
+dbsacklist <- SummaryData(dbsack)
 
 
-tt[tourney_level=="G" & winner_name=="Roger Federer", .N, .(tourney_name, year)]
-tt[tourney_level=="G" & loser_name=="Roger Federer", .(tourney_name, year)]
-tt[tourney_level=="G" & round=="F", .(tourney_name, year, winner_name)]
+### THIS IS FAILING NOW
+## roger_for_sack <- SearchByPlayer("Roger Federer", data=dbsacklist)
+## roger_for_top  <- SearchByPlayer("Roger Federer", data=dbtoplist)
 
-aa <- as.data.frame(tt[tourney_name %in% c("London", "Tour Finals"), .(tourney_name, year, tourney_level)])
+dbtoplist$dt[tourney_level=="F", .(tourney_name, year)]
+dbsacklist$dt[tourney_level=="F", .(tourney_name, year)]
 
-tt[tourney_name=="Roland Garros" & (winner_name=="Rafael Nadal" | loser_name == "Rafael Nadal"), .(year, loser_name, score)]
 
-scores <- tt[tourney_name=="Roland Garros" & (winner_name=="Rafael Nadal" | loser_name == "Rafael Nadal"), .(year, loser_name, score)]
-scores[sapply(strsplit(scores$score, " "), length)==5,]
-
-tt[tourney_name=="London", .(tourney_name, year, tourney_level)]
+## dbtop[tourney_level=="G" & winner_name=="Roger Federer", .N, .(tourney_name, year)]
+## dbtop[tourney_level=="G" & loser_name=="Roger Federer", .(tourney_name, year)]
+## dbtop[tourney_level=="G" & round=="F", .(tourney_name, year, winner_name)]
+## 
+## aa <- as.data.frame(dbtop[tourney_name %in% c("London", "Tour Finals"), .(tourney_name, year, tourney_level)])
+## 
+## dbtop[tourney_name=="Roland Garros" & (winner_name=="Rafael Nadal" | loser_name == "Rafael Nadal"), .(year, loser_name, score)]
+## 
+## scores <- dbtop[tourney_name=="Roland Garros" & (winner_name=="Rafael Nadal" | loser_name == "Rafael Nadal"), .(year, loser_name, score)]
+## scores[sapply(strsplit(scores$score, " "), length)==5,]
+## 
+## dbtop[tourney_name=="London", .(tourney_name, year, tourney_level)]
 
 ## how many bagels did John Isner suffer?
-scores_win <- tt[winner_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
+scores_win <- dbtop[winner_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
 w <- grep("0-6", scores_win$score, fixed=TRUE)
-scores_los <- tt[loser_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
+scores_los <- dbtop[loser_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
 l <- grep("6-0", scores_los$score, fixed=TRUE)
 tbagel <- rbind(scores_win[w,], scores_los[l,])
 nrow(tbagel)
 
 ## how many bagels did John Isner inflict?
-scores_win <- tt[winner_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
+scores_win <- dbtop[winner_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
 w <- grep("6-0", scores_win$score, fixed=TRUE)
-scores_los <- tt[loser_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
+scores_los <- dbtop[loser_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
 l <- grep("0-6", scores_los$score, fixed=TRUE)
 tbagel <- rbind(scores_win[w,], scores_los[l,])
 nrow(tbagel)
 
 ## Finali in straight sets vinte nei 1000
-fm <- tt[tourney_level=="M" & round=="F", .(year, tourney_name, winner_name, loser_name, score, best_of)]
+fm <- dbtop[tourney_level=="M" & round=="F", .(year, tourney_name, winner_name, loser_name, score, best_of)]
 fm <- fm[lengths(regmatches(fm$score, gregexpr("-", fm$score)))==(fm$best_of+1)/2,]
 table <- fm[year>1999, .(year, tourney_name, winner_name, loser_name, score, best_of)]
 library(gridExtra)
@@ -51,55 +55,50 @@ grid.table(as.data.frame(table))
 dev.off()
 
 
-### Most recurrent score for Federer
-wins <- tt[winner_name=="Roger Federer", .N, by=.(score, surface)] 
+### Most recurrent score for Federer's wwins
+wins <- dbtop[winner_name=="Roger Federer", .N, by=.(score, surface)] 
 setorder(wins, -N)
- 
 wins[N>5,]
 
-### Bagels Mc
-
 ## how many bagels did Mackenzie McDonald suffer?
-scores_win <- tt[winner_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+scores_win <- dbtop[winner_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
 w <- grep("0-6", scores_win$score, fixed=TRUE)
-scores_los <- tt[loser_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+scores_los <- dbtop[loser_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
 l <- grep("6-0", scores_los$score, fixed=TRUE)
 tbagel <- rbind(scores_win[w,], scores_los[l,])
 nrow(tbagel)
 OutputTableToPng(tbagel, "MacBagelLos.png")
 ## how many bagels did Mac inflict?
-scores_win <- tt[winner_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+scores_win <- dbtop[winner_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
 w <- grep("6-0", scores_win$score, fixed=TRUE)
-scores_los <- tt[loser_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
+scores_los <- dbtop[loser_name=="Mackenzie Mcdonald", .(year, tourney_name, surface, round, winner_name, loser_name, score)]
 l <- grep("0-6", scores_los$score, fixed=TRUE)
 tbagel <- rbind(scores_win[w,], scores_los[l,])
 nrow(tbagel)
 OutputTableToPng(tbagel, "MacBagelWn.png")
  
  
-
-fedal <- h2h("Roger Federer", "Rafael Nadal", tt)
+#### h2h of two players: FEDAL
+fedal <- h2h("Roger Federer", "Rafael Nadal", dbtop)
 fedal[, .N, by=.(winner_name, surface)]
 fedal[, .N, by=.(winner_name)]
 
-roge <- PlayerMatches("Roger Federer", tt)
-rafa <- PlayerMatches("Rafael Nadal", tt)
-nole <- PlayerMatches("Novak Djokovic", tt)
+#### inquiry all matches of a given player
+roge <- PlayerMatches("Roger Federer", dbtop)
+rafa <- PlayerMatches("Rafael Nadal", dbtop)
+nole <- PlayerMatches("Novak Djokovic", dbtop)
 
-
+### Match ended with WO or retirement, for roge, rafa and nole
 roge[grep("W/O|RET", roge$score),.N, by=.(winner_name)]
 rafa[grep("W/O|RET", rafa$score),.N, by=.(winner_name)]
 nole[grep("W/O|RET", nole$score),.N, by=.(winner_name)]
 
  
  
- 
-grep("Tour Finals", tt$tourney_name)
-tt[grep("^Tour Finals", tt$tourney_name),]
 ## search ALL tournaments played by ALL players in the database
 
 ## parallel version, Linux; 7 cores, ~1.1 sec
-system.time(tot <- parallel::mclapply(dbsack$players, SearchByPlayer, data=dbsack, mc.cores=7))
+system.time(tot <- parallel::mclapply(dbsacklist$players, SearchByPlayer, data=dbsacklist, mc.cores=7))
 ## serial version, ~11 sec
 system.time(tot2 <- lapply(dbsack$players, SearchByPlayer, data=dbsack))
 names(tot) <- names(tot2) <- dbsack$players
@@ -118,7 +117,7 @@ system.time(roger_top <- SearchByPlayer("Roger Federer", data=dbtop))
 system.time(tot_top <- lapply(dbtop$players, SearchByPlayer, data=dbtop))
 names(tot_top) <- dbtop$players
 
-SearchByPlayer("Roger Federer", data=dbtop, tour="Tour Finals")
+SearchByPlayer("Roger Federer", data=dbtoplist, tournament="Tour Finals")
 tep <- sapply(tot_top, function(x) sum(x$N))
 tep <- sort(tep, decreasing=TRUE)
 
@@ -126,8 +125,8 @@ head(tep)
 
  
 ## punti ATP medi negli slam:Fe
-losses <- tt[tourney_level=="G" & (loser_name=="Roger Federer" ), ]
-wins <- tt[tourney_level=="G" & (winner_name=="Roger Federer" )&round=="F",  ]
+losses <- dbtop[tourney_level=="G" & (loser_name=="Roger Federer" ), ]
+wins <- dbtop[tourney_level=="G" & (winner_name=="Roger Federer" )&round=="F",  ]
 
 points_ <- c(R128=10, R64=45, R32=90, R16=180, QF=360, SF=720, F=1200, W=2000)
 ##points_ <- c(R128=0, R64=1, R32=2, R16=3, QF=4, SF=5, F=6, W=7)
@@ -148,8 +147,8 @@ OutputTableToPng(res2, "average_points_slam_surf_fed.png")
 
 
 ## punti ATP medi negli slam:Nadal
-losses <- tt[tourney_level=="G" & (loser_name=="Rafael Nadal" ), ]
-wins <- tt[tourney_level=="G" & (winner_name=="Rafael Nadal" )&round=="F",  ]
+losses <- dbtop[tourney_level=="G" & (loser_name=="Rafael Nadal" ), ]
+wins <- dbtop[tourney_level=="G" & (winner_name=="Rafael Nadal" )&round=="F",  ]
 
 ## points <- c(R128=10, R64=45, R32=90, R16=180, QF=360, SF=720, F=1200, W=2000)
 
@@ -170,8 +169,8 @@ OutputTableToPng(res2, "average_points_slam_surf_rafa.png")
 
 
 ## punti ATP medi negli slam: Nole
-losses <- tt[tourney_level=="G" & (loser_name=="Novak Djokovic" ), ]
-wins <- tt[tourney_level=="G" & (winner_name=="Novak Djokovic" )&round=="F",  ]
+losses <- dbtop[tourney_level=="G" & (loser_name=="Novak Djokovic" ), ]
+wins <- dbtop[tourney_level=="G" & (winner_name=="Novak Djokovic" )&round=="F",  ]
 
 points <- c(R128=10, R64=45, R32=90, R16=180, QF=360, SF=720, F=1200, W=2000)
 
@@ -191,7 +190,7 @@ OutputTableToPng(res2, "average_points_slam_surf_nole.png")
 
 
 ### clay tournaments for Almagro
-alma <- tt[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="Nicolas Almagro"),  .(matches_played=.N) , by=.(tourney_name, year)]
+alma <- dbtop[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="Nicolas Almagro"),  .(matches_played=.N) , by=.(tourney_name, year)]
 OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
 
 ### find all clay tournaments of a player
@@ -200,19 +199,19 @@ OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
 }
 
 ### find who played most clay tourneys 
-tut <- lapply(dbtop$players, AllTourney, tt)
+tut <- lapply(dbtoplist$players, AllTourney, dbtop)
 res <- sapply(tut, nrow)
-tab <- cbind(Player=dbtop$players[order(res, decreasing=TRUE)], N=res[order(res, decreasing=TRUE)] )
+tab <- cbind(Player=dbtoplist$players[order(res, decreasing=TRUE)], N=res[order(res, decreasing=TRUE)] )
 OutputTableToPng(tab[1:20,], "MostClay.png")
 
 ### Clay matches of Almagro
 sres <- sapply(tut, function(x) sum(x$matches_played))
-grep("Almagro", dbtop$players) ## 2879
+grep("Almagro", dbtoplist$players) ## 2879
 sres[2879]
 
 
 ### Clay matches of Vilas
-grep("Vilas", dbtop$players) ## 1467
+grep("Vilas", dbtoplist$players) ## 1467
 tut[[1467]]
 OutputTableToPng(tut[[1467]], "VilasClay.png")
 
