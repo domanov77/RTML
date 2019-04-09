@@ -232,7 +232,7 @@ ScrapeMatch <- function(url) {
 
     ## extract the big table with the entries we need
     ind_right <- ifelse(player1==winner, 1, 5)
-    ind_left   <- ifelse(player2==winner, 5, 1)
+    ind_left   <- ifelse(player2==winner, 1, 5)
     table <- html_nodes(html, "table.match-stats-table")%>% html_table() ##header=TRUE
     table <- table[[1]]
     fields <- table[,3]

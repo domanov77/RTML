@@ -57,6 +57,15 @@ all.equal(atp_matches_2016_for, atp_matches_2016_lapply) ## TRUE
 brisb <- ScrapeTourney(url="https://www.atptour.com/en/scores/archive/brisbane/339/2019/results")
 brisb <- ScrapeMatchStats(brisb)
 
+## Check with the live-score of current tourney: Marrakech
+marrakech <- ScrapeMatchStats(ScrapeTourney(url="https://www.atptour.com/en/scores/current/marrakech/360/live-scores"))
+## try the pipe syntax
+marrakech2 <- ScrapeTourney(url="https://www.atptour.com/en/scores/current/marrakech/360/live-scores") %>% ScrapeMatchStats() 
+
+all.equal(marrakech, marrakech2) ## true
+OutputTableToPng(marrakech, "marrakech.png")
+
+
 ######## From here on: make sure you know what you are doing!!!!
 
 
