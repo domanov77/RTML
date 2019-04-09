@@ -73,19 +73,19 @@ SummaryData <- function(db) {
     ## find out all players
     all_names <- sort(unique(c(db$winner_name, db$loser_name)))
 
-    ## here .id column is the year
     ## group all the finals per tournament, per winner and per year
-    nw <- db[,.N, by=.(tourney_name, winner_name, year, surface, tourney_level, draw_size)]
+    nw <- db[,.N, by=.(tourney_name, winner_name, year)][, 1:3]
     ## this was faster but didn't work for round robin tournaments such as Tour Finals
     ## nw <- data[round=="F",.N, by=.(tourney_name, winner_name, year)]
 
     ## find all losers per tournament and per year
-    nl <- db[,.N, by=.(tourney_name, loser_name, year, surface, tourney_level, draw_size)]
+    nl <- db[,.N, by=.(tourney_name, loser_name, year)][, 1:3]
 
     ## perform the union of the two sets! Here, each row represents 
     ## a player who played in that tournament in that year
     ## use.names=FALSE cause we have winner_ and loser_player
     dt <- data.table::rbindlist(list(nw, nl), use.names=FALSE) 
+    colnames(dt) <- c("tourney_name", "player", "year")
 
     ## remove any ordering or "key" in data.table jargon
     if (data.table::haskey(dt)) 
@@ -93,8 +93,7 @@ SummaryData <- function(db) {
         
     ## we need now to remove duplicates
     dt <- unique(dt)
-    colnames(dt) <- c("tourney_name", "player", "year","surface","tourney_level", "draw_size", "played_matches")
-    setorder(dt, tourney_name, player, year)
+    setorder(dt, player, tourney_name, year)
 
     cat(":: the database contains", length(all_names), " players and", length(all_tourn),"tournaments\n") 
 
@@ -114,10 +113,12 @@ SearchByPlayer <- function(name, datalist, tournament) {
     ## from the datalist
     tab <- datalist$dt
     ## first we look at the player
-    dtplayer <- tab[player==name, .N, by=.(tourney_name)][order(N, decreasing = TRUE)]
+    dtplayer <- tab[player==name, .N, by=.(tourney_name)]
     if (!missing(tournament))
-        dtplayer <- dtplayer[tourn==tournament]
-
+        dtplayer <- dtplayer[tourney_name==tournament]
+    
+    setorder(dtplayer, -N)
+    colnames(dtplayer) <- c("tourney_name", "appearances")
     return(dtplayer)
 }
 

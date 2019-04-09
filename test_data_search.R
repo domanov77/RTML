@@ -1,20 +1,22 @@
 source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
 
-system.time(dbsack <- ReadDataSackmann(dir="~/ATP/SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
-system.time(dbtop <- ReadData())
 
-dbtoplist  <- SummaryData(dbtop)
+## Read data from csv files of Sackmann (tennis_atp git must be cloned locally
+system.time(dbsack <- ReadDataSackmann(dir="~/ATP/SackmanGit/tennis_atp", pattern="atp_matches_[[:digit:]]{4}.csv"))
+## Perform some basic manips of the database: all present players, all tournaments, 
+## and a big table with one row per player per tournament per year
 dbsacklist <- SummaryData(dbsack)
 
+## Now read OUR db
+system.time(dbtop <- ReadData("Data/20190409-DataTop.csv"))
+dbtoplist  <- SummaryData(dbtop)
 
-### THIS IS FAILING NOW
-## roger_for_sack <- SearchByPlayer("Roger Federer", data=dbsacklist)
-## roger_for_top  <- SearchByPlayer("Roger Federer", data=dbtoplist)
+## In Sackmann data many tourneys have names written in different spellings
+roger_for_sack <- SearchByPlayer("Roger Federer", data=dbsacklist)
 
-dbtoplist$dt[tourney_level=="F", .(tourney_name, year)]
-dbsacklist$dt[tourney_level=="F", .(tourney_name, year)]
-
+## In "OUR" db many of these inconsistencies have been fixed
+roger_for_top  <- SearchByPlayer("Roger Federer", data=dbtoplist)
 
 ## dbtop[tourney_level=="G" & winner_name=="Roger Federer", .N, .(tourney_name, year)]
 ## dbtop[tourney_level=="G" & loser_name=="Roger Federer", .(tourney_name, year)]
@@ -194,7 +196,7 @@ alma <- dbtop[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="N
 OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
 
 ### find all clay tournaments of a player
- AllTourney <- function(name, tab){
+AllTourney <- function(name, tab){
      tab[surface=="Clay" & (winner_name==name | loser_name==name),  .(matches_played=.N) , by=.(tourney_name, year)]
 }
 
@@ -215,5 +217,10 @@ grep("Vilas", dbtoplist$players) ## 1467
 tut[[1467]]
 OutputTableToPng(tut[[1467]], "VilasClay.png")
 
+## Most tourney wins
+wins <- dbtop[round=="F", .N, by=.(winner_name)]
+setorder(wins, -N)
+wins[1:20,]
+OutputTableToPng(wins[1:20,], "MostWins.png")
 
 
