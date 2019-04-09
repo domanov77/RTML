@@ -188,3 +188,33 @@ OutputTableToPng(res, "average_points_slam_nole.png")
 res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
 setorder(res2, -points)
 OutputTableToPng(res2, "average_points_slam_surf_nole.png")
+
+
+### clay tournaments for Almagro
+alma <- tt[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="Nicolas Almagro"),  .(matches_played=.N) , by=.(tourney_name, year)]
+OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
+
+### find all clay tournaments of a player
+ AllTourney <- function(name, tab){
+     tab[surface=="Clay" & (winner_name==name | loser_name==name),  .(matches_played=.N) , by=.(tourney_name, year)]
+}
+
+### find who played most clay tourneys 
+tut <- lapply(dbtop$players, AllTourney, tt)
+res <- sapply(tut, nrow)
+tab <- cbind(Player=dbtop$players[order(res, decreasing=TRUE)], N=res[order(res, decreasing=TRUE)] )
+OutputTableToPng(tab[1:20,], "MostClay.png")
+
+### Clay matches of Almagro
+sres <- sapply(tut, function(x) sum(x$matches_played))
+grep("Almagro", dbtop$players) ## 2879
+sres[2879]
+
+
+### Clay matches of Vilas
+grep("Vilas", dbtop$players) ## 1467
+tut[[1467]]
+OutputTableToPng(tut[[1467]], "VilasClay.png")
+
+
+

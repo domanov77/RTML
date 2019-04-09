@@ -8,7 +8,7 @@ source("RFun_ScrapingATP.R")
 
 res_paris_2017 <- ScrapeTourneyFromATP("https://www.atptour.com/en/scores/archive/paris/352/2017/results", id="Paris Masters")
 
-
+ScrapeTourneyFromATP("https://www.atptour.com/en/scores/current/houston/717/results")
 
 ### Retrieve all tournaments played in a given year
 atp2016 <- ScrapeYearATP(year=2016)
@@ -30,3 +30,12 @@ atp_matches_2016_for <- data.table(rbindlist(tots))
 all.equal(atp_matches_2016_for, atp_matches_2016_lapply) ## TRUE
 
 
+
+### ALL YEARS
+years <- 
+tots <- vector(mode="list", length=length(atp2016$url))
+for (i in seq_along(atp2016$url)) {
+    tots[[i]] <- ScrapeTourneyFromATP(atp2016$url[i])
+    cat(paste(":: ", i, ")", atp2016$tourney_name[i], "[done] \n"))
+}
+atp_matches_2016_for <- data.table(rbindlist(tots))
