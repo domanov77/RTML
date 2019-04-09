@@ -50,7 +50,14 @@ all.equal(atp_matches_2016_for, atp_matches_2016_lapply) ## TRUE
 
 
 
-######## From here now: make sure you know what you are doing
+## Fixed data retrival error!!! Before we did not check if the winner was always 
+## the left player in the stats page, now this is fixed
+
+## Check with Brisbane 2019
+brisb <- ScrapeTourney(url="https://www.atptour.com/en/scores/archive/brisbane/339/2019/results")
+brisb <- ScrapeMatchStats(brisb)
+
+######## From here on: make sure you know what you are doing!!!!
 
 
 ### Retrieve ALL YEARS from 1915 to 1918
@@ -90,4 +97,3 @@ all_matches_in_atp_db <- rbindlist(tourneys_lapply, use.names=TRUE)
 ## write everything in a csv
 fwrite(all_matches_in_atp_db, file = "all_matches_in_atp_db_until_2018_nostat.csv", eol="\n")
 
-## Todo: fix date retrival error!!!

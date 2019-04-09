@@ -115,7 +115,8 @@ ScrapeTourney <- function(url, id) {
         ## tab$tourney_date <- NA_character_
         cat(":: ScrapeTourney: found no details\n")
     }
-    return(tab)
+    ## We return the tab in inverse order (final last)
+    return(tab[nrow(tab):1,])
 }
 
 
@@ -218,36 +219,48 @@ ScrapeMatch <- function(url) {
     ## convert HH:MM:SS into total minutes
     minutes <- sum(as.integer(unlist(strsplit(time,":")))*c(60,1,0))
 
+    ## Find out who actually won
+    winner <- html_nodes(html, ".match-info-row")%>% html_text(trim=TRUE) 
+    winner <- gsub("[[:space:]]+"," ", winner) 
+    winner <- gsub("^.*Match[[:space:]](.*?)[[:punct:]].*$","\\1",winner)
+
+    player1 <- html_nodes(html, ".player-left-name")%>% html_text(trim=TRUE) 
+    player1 <- gsub("[[:space:]]+"," ", player1) 
+
+    player2 <- html_nodes(html, ".player-right-name")%>% html_text(trim=TRUE) 
+    player2 <- gsub("[[:space:]]+"," ", player2) 
+
     ## extract the big table with the entries we need
-    ## NB: we expect that the winner is ALWAYS the first player!
+    ind_right <- ifelse(player1==winner, 1, 5)
+    ind_left   <- ifelse(player2==winner, 5, 1)
     table <- html_nodes(html, "table.match-stats-table")%>% html_table() ##header=TRUE
     table <- table[[1]]
     fields <- table[,3]
-    service1 <- table[,1]
-    service2 <- table[,5]
+    service1 <- table[,ind_left]
+    service2 <- table[,ind_right]
     service1 <- gsub("[[:space:]]{2,}"," ", service1)
     service2 <- gsub("[[:space:]]{2,}"," ", service2)
     stats <- cbind(fields, service1, service2)
     row <- c("w_ace"     = service1[2], 
-             "w_df"      = service1[3], 
-             "w_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service1[4]),
-             "w_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[4]),
-             "w_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[5]),
-             "w_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[6]),
-             "w_SvGms"   = service1[8],
-             "w_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[7]),
-             "w_bpFaced" = gsub("^.*([[:digit:]]+)/.*$","\\1", service1[7]),
-             "l_ace"     = service2[2], 
-             "l_df"      = service2[3], 
-             "l_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service2[4]),
-             "l_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[4]),
-             "l_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[5]),
-             "l_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[6]),
-             "l_SvGms"   = service2[8],
-             "l_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[7]),
-             "l_bpFaced" = gsub("^.*([[:digit:]]+)/.*$","\\1", service2[7]),
-             "minutes"   = minutes
-             )
+                   "w_df"        = service1[3], 
+                   "w_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service1[4]),
+                   "w_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[4]),
+                   "w_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[5]),
+                   "w_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[6]),
+                   "w_SvGms"   = service1[8],
+                   "w_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[7]),
+                   "w_bpFaced" = gsub("^.*/([[:digit:]]+).*$","\\1", service1[7]),
+                   "l_ace"     = service2[2], 
+                   "l_df"      = service2[3], 
+                   "l_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service2[4]),
+                   "l_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[4]),
+                   "l_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[5]),
+                   "l_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[6]),
+                   "l_SvGms"   = service2[8],
+                   "l_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[7]),
+                   "l_bpFaced" = gsub("^.*/([[:digit:]]+).*$","\\1", service2[7]),
+                   "minutes"   = minutes
+                   )
     return(row)
 }
 
@@ -257,7 +270,7 @@ ScrapeMatch <- function(url) {
 ## parallelization through foreach and doParallel (should be multiplatform!)
 ScrapeMatchStats <- function(tab, cores=8) {
     if (!"url_matches" %in% colnames(tab))
-        stop(":: AddMatchStats needs the data.table returned by ScrapeTourney()\n:: with well formed url_matches!")
+        stop(":: ScrapeMatchStats needs the data.table returned by ScrapeTourney()\n:: with well formed url_matches!")
     
     require(doParallel)
     require(foreach)
