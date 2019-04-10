@@ -224,3 +224,30 @@ wins[1:20,]
 OutputTableToPng(wins[1:20,], "MostWins.png")
 
 
+## largest distance between 2 wins 
+library(parallel)
+mat <- mclapply(dbtoplist$players, PlayerMatches, db=dbtop, mc.cores=4)
+as.Date('20011201',format='%Y%m%d')
+a <- as.Date('20011214',format='%Y%m%d')-as.Date('20011201',format='%Y%m%d')
+
+DaysDiff <- function(string1, string2){
+   as.integer(as.Date(as.character(string1), format='%Y%m%d')-as.Date(as.character(string2),format='%Y%m%d'))
+   }
+   
+FindConsecutiveWins <- function(tab, name) {
+    if (nrow(tab) < 2) return(NA)
+    setorder(tab, tourney_date)
+    wins <- tab[winner_name==name]
+    if (nrow(wins) < 2) return(NA)
+    ff <- DaysDiff(wins$tourney_date[seq(2, nrow(wins))],  wins$tourney_date[seq(1, nrow(wins)-1)] )
+    ff <- c(0, ff)
+    wins$since_last_w <- ff
+    return(wins)
+    }
+ 
+fff <- mclapply(seq_along(mat), function(x) FindConsecutiveWins(mat[[x]], dbtoplist$players[x]), mc.cores=4)
+aa <- sapply(fff, function(x) ifelse(is.na(x), c(NA, NA), c(which.max(x$since_last_w ), max(x$since_last_w))))
+
+
+
+fff <- lapply(seq_along(mat), function(x) FindConsecutiveWins(mat[[x]], dbtoplist$players[x]))
