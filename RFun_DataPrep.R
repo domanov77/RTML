@@ -5,7 +5,7 @@ library(data.table)
 
 
 ## Read OUR data and return a data.table
-ReadData <- function(file="Data/20190409-DataTop.csv", davis=FALSE) {
+ReadData <- function(file="Data/20190410-DataTop.csv", davis=FALSE) {
     require(data.table)
     ## read the data
     read_timing <- system.time(data <- data.table::fread(file)) ## removed fill=TRUE since I corrected the database!
@@ -125,6 +125,14 @@ SearchByPlayer <- function(name, datalist, tournament) {
 ### Extract all matches played by a given player from a db
 PlayerMatches  <- function(name, db) {
     db[winner_name==name | loser_name==name, ]
+}
+### Extract all matches played by a given player from a db
+PlayerMatchesById  <- function(id, db) {
+    db[winner_id==id | loser_id==id, ]
+}
+### Extract all won matches played by a given player from a db
+PlayerWonMatchesById  <- function(id, db) {
+    db[winner_id==id, ]
 }
 
 ### Extract all h2h matches between two players
