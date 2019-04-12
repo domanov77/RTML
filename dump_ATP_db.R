@@ -8,9 +8,10 @@ for (i in seq_along(years)) {
     dbyears[[i]] <- ScrapeYear(years[i])
     cat(paste(":: ", i, ")", years[i], "[done] \n"))
 }
-
+dbyears[[105]] <- ScrapeYear(2019)
 alltourn <- rbindlist(dbyears)
 
+fwrite(alltourn, file = "all_tourneys_in_atp_db_until_2019.csv", eol="\n")
 
 ## The data.table alltourn (4101 rows) as of today 2019 04 09
 ## contains all urls for tourney results. Now we can scrape for the tournaments
@@ -23,7 +24,6 @@ for (j in seq(1, length(alltourn$url))) {
     tourneys[[j]] <- ScrapeTourney(alltourn$url[j])
     cat(paste(":: ", j, ")", alltourn$year[j], alltourn$tourney_name[j], "[done] \n"))
 }
-fwrite(alltourn, file = "all_tourneys_in_atp_db_until_2018.csv", eol="\n")
 
 ### This is parallelized with mclapply; windows users should use foreach/dopar/doparallel 
 tourneys_lapply <-  mclapply(alltourn$url, ScrapeTourney, mc.cores=24)

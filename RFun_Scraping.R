@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-12 20:37:02 delucia"
+### Time-stamp: "Last modified 2019-04-12 20:52:48 delucia"
 
 ScrapeTourney <- function(url, id) {
     
@@ -177,13 +177,13 @@ ScrapeYear <- function(year) {
 
     if (length(urls) < nrow(table)) {
         tourney_urls <- rep(NA_character_, nrow(table))
-        tourney_urls[seq(length(urls), nrow(table))] <- urls
+        tourney_urls[seq(1, length(urls))] <- urls ## NB: not trying to match the ids and so on
     } else {
         tourney_urls <- urls
     }
     
     tab <- data.table(date=date, year=year, tourney_name=title, surface=inout_surf[,2], indoor=inout_surf[,1], commitment=table[,6], 
-                      draw_size=dsize, url=paste0("https://www.atptour.com", tourney_urls))
+                      draw_size=dsize, url=ifelse(is.na(tourney_urls), NA_character_, paste0("https://www.atptour.com", tourney_urls)))
     return(tab)
 }
 
