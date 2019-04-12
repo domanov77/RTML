@@ -73,3 +73,37 @@ save(list=c("tourneys_lapply", "ind_nodata", "alltourn","dbyears","all_matches_i
 fwrite(all_matches_in_atp_db, file = "all_matches_in_atp_db_until_2019_nostat.csv", eol="\n")
 
 all_matches_in_atp_db_stats <- ScrapeMatchStats(all_matches_in_atp_db, cores=24)
+
+db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
+to <- fread(file = "all_tourneys_in_atp_db_until_2019.csv")
+
+a <- all_matches_in_atp_db[, .N, by=year]
+
+
+db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
+fedal <- h2h("Roger Federer", "Rafael Nadal", db)
+dcast(fedal[, .N, by=.(winner_name, surface, indoor)], winner_name ~ surface + indoor, value.var="N")
+fedal <- ScrapeMatchStats(fedal)
+
+dcast(fedal[, .N, by=.(winner_name, surface)], winner_name ~ surface, value.var="N")
+fedal[, .N, by=.(winner_name)]
+
+
+## preparing the distributed scraping of the stats
+## load functions
+source("RFun_DataPrep.R")
+source("RFun_Scraping.R")
+
+db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
+
+to_scrape <- db[url_matches!="",]
+cuts <- c(seq(1, nrow(to_scrape), by=100), nrow(to_scrape))
+ss <- lapply(seq_along(cuts)[-1], function(i) seq(cuts[i-1], cuts[i]-1))
+
+res <- vector(mode="list", length=length(ss))
+for (i in seq_along(ss)) {
+    res[[i]] <- to_scrape[ ss[[i]] ]
+    res[[i]] <- ScrapeMatchStats(res[[i]])
+    cat(paste0(":: scraped chunk ", i, "/",length(ss), "\n"))
+    fwrite(res[[i]], file = paste0("Data/Chunk", i,".csv"), eol="\n")
+}
