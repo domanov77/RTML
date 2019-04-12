@@ -273,11 +273,12 @@ ScrapeMatch <- function(url, winner) {
     fields <- table[,3]
     
     ## swap left and right based on the winner
-    ind_left   <- ifelse(player1==winner, 1, 5)
+    ind_left    <- ifelse(player1==winner, 1, 5)
     ind_right  <- ifelse(player2==winner, 1, 5)
-    if (ind_left==ind_right)
-        stop("And the winner is ", winner, " : player1= ", player1, "player2= ", player2)
-    
+    if (ind_left==ind_right) {
+        cat(":: Can't find winner : < ", winner, " > or player1= < ", player1, " > or player2= < ", player2, " >\n")
+        return(ret_na)
+    }
     service1 <- table[,ind_left]
     service2 <- table[,ind_right]
     service1 <- gsub("[[:space:]]{2,}"," ", service1)
