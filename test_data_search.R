@@ -72,7 +72,7 @@ OutputTableToPng(tbagel, "MacBagelWn.png")
  
 #### h2h of two players: FEDAL
 fedal <- h2h("Roger Federer", "Rafael Nadal", dbtop)
-fedal[, .N, by=.(winner_name, surface)]
+dcast(fedal[, .N, by=.(winner_name, surface)], winner_name ~ surface, value.var="N")
 fedal[, .N, by=.(winner_name)]
 
 #### inquiry all matches of a given player
@@ -85,6 +85,9 @@ roge[grep("W/O|RET", roge$score),.N, by=.(winner_name)]
 rafa[grep("W/O|RET", rafa$score),.N, by=.(winner_name)]
 nole[grep("W/O|RET", nole$score),.N, by=.(winner_name)]
 
+## Nole Rafa
+nadalovic <- h2h("Novak Djokovic", "Rafael Nadal", dbtop)
+dcast(nadalovic[, .N, by=.(winner_name, surface)], winner_name ~ surface, value.var="N")
  
  
 ## search ALL tournaments played by ALL players in the database

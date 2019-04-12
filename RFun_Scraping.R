@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-09 16:58:54 delucia"
+### Time-stamp: "Last modified 2019-04-12 20:37:02 delucia"
 
 ScrapeTourney <- function(url, id) {
     
@@ -14,6 +14,8 @@ ScrapeTourney <- function(url, id) {
     uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
     html <- read_html(response)
+
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique()
 
     table <- html_nodes(html, "table.day-table")%>% html_table(header=FALSE)
     
@@ -170,39 +172,47 @@ ScrapeYear <- function(year) {
     tmpn <- gsub("[[:space:]]{2,}"," ", table$Surface)
     inout_surf <- t(sapply(strsplit(tmpn, " "), rbind))
 
-    ## extract the urls to each tournament
-    tourney_urls  <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="results$", value=TRUE)
+    ## extract the urls to each tournament - in the current year this list can be less long!
+    urls  <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="results$|live-scores$", value=TRUE)
 
+    if (length(urls) < nrow(table)) {
+        tourney_urls <- rep(NA_character_, nrow(table))
+        tourney_urls[seq(length(urls), nrow(table))] <- urls
+    } else {
+        tourney_urls <- urls
+    }
+    
     tab <- data.table(date=date, year=year, tourney_name=title, surface=inout_surf[,2], indoor=inout_surf[,1], commitment=table[,6], 
                       draw_size=dsize, url=paste0("https://www.atptour.com", tourney_urls))
     return(tab)
 }
 
 ### Function returns the match stats for the match pointed by the url
-ScrapeMatch <- function(url) {
+ScrapeMatch <- function(url, winner) {
 
+    ## prepare the return container if we can't scrape
+    ret_na <- c("w_ace"     = NA_character_,
+                "w_df"      = NA_character_,
+                "w_svpt"    = NA_character_,
+                "w_1stIn"   = NA_character_,
+                "w_1stWon"  = NA_character_,
+                "w_2ndWon"  = NA_character_,
+                "w_SvGms"   = NA_character_,
+                "w_bpSaved" = NA_character_,
+                "w_bpFaced" = NA_character_,
+                "l_ace"     = NA_character_,
+                "l_df"      = NA_character_,
+                "l_svpt"    = NA_character_,
+                "l_1stIn"   = NA_character_,
+                "l_1stWon"  = NA_character_,
+                "l_2ndWon"  = NA_character_,
+                "l_SvGms"   = NA_character_,
+                "l_bpSaved" = NA_character_,
+                "l_bpFaced" = NA_character_,
+                "minutes"   = NA_character_)
     ## proceed only if url is not NA
     if (is.na(url)) {
-        return(c("w_ace"     = NA_character_,
-                 "w_df"      = NA_character_,
-                 "w_svpt"    = NA_character_,
-                 "w_1stIn"   = NA_character_,
-                 "w_1stWon"  = NA_character_,
-                 "w_2ndWon"  = NA_character_,
-                 "w_SvGms"   = NA_character_,
-                 "w_bpSaved" = NA_character_,
-                 "w_bpFaced" = NA_character_,
-                 "l_ace"     = NA_character_,
-                 "l_df"      = NA_character_,
-                 "l_svpt"    = NA_character_,
-                 "l_1stIn"   = NA_character_,
-                 "l_1stWon"  = NA_character_,
-                 "l_2ndWon"  = NA_character_,
-                 "l_SvGms"   = NA_character_,
-                 "l_bpSaved" = NA_character_,
-                 "l_bpFaced" = NA_character_,
-                 "minutes"   = NA_character_
-                 ))
+        return(ret_na)
     }
     
     require(rvest)
@@ -213,32 +223,60 @@ ScrapeMatch <- function(url) {
     
     response <- GET(page_url, user_agent(uastring))
     html <- read_html(response)
-  
+
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique()
+
+    ## some pages just don't cut it for rvest.
+    if (!"time" %in% allnodes)
+        return(ret_na)
+
+    ## now we should be safe
     time <- html_nodes(html, ".time")%>% html_text()
     time <- gsub("[[:space:]]","", time)
     ## convert HH:MM:SS into total minutes
     minutes <- sum(as.integer(unlist(strsplit(time,":")))*c(60,1,0))
 
-    ## Find out who actually won
-    winner <- html_nodes(html, ".match-info-row")%>% html_text(trim=TRUE) 
-    winner <- gsub("[[:space:]]+"," ", winner) 
-    winner <- gsub("^.*Match[[:space:]](.*?)\\..*$","\\1",winner)
 
+
+    ## Who are the players
     player1 <- html_nodes(html, ".player-left-name")%>% html_text(trim=TRUE) 
     player1 <- gsub("[[:space:]]+"," ", player1) 
-
+    
     player2 <- html_nodes(html, ".player-right-name")%>% html_text(trim=TRUE) 
     player2 <- gsub("[[:space:]]+"," ", player2) 
+    
+    ## Find out who actually won if we don't know already
+    if (missing(winner)) {
+        win <- html_nodes(html, ".won-game")%>% html_text(trim=TRUE)
+        win <- gsub("^.*\\.[[:space:]]","",win)
 
+        ## fuzzy matching
+        if (agrepl(win, player1, ignore.case = TRUE))
+            winner <- player1
+        else if (agrepl(win, player2, ignore.case = TRUE))
+            winner <- player2
+        else 
+            return(ret_na)
+
+        ## not all pages contain this!!!
+        ## win <- html_nodes(html, ".match-info-row")%>% html_text(trim=TRUE) 
+        ## win <- gsub("[[:space:]]+"," ", win) 
+        ## win <- gsub("^.*Match[[:space:]](.*?)\\..*$","\\1",win)
+    }
+
+    
     ## extract the big table with the entries we need
+    if (!"match-stats-table" %in% allnodes)
+        return(ret_na)
     table <- html_nodes(html, "table.match-stats-table")%>% html_table() ##header=TRUE
     table <- table[[1]]
     fields <- table[,3]
     
     ## swap left and right based on the winner
     ind_left   <- ifelse(player1==winner, 1, 5)
-    ind_right <- ifelse(player2==winner, 1, 5)
-    if (ind_left==ind_right) stop("And the winner is ", winner, "player1= ", player1, "player2= ", player2)
+    ind_right  <- ifelse(player2==winner, 1, 5)
+    if (ind_left==ind_right)
+        stop("And the winner is ", winner, " : player1= ", player1, "player2= ", player2)
     
     service1 <- table[,ind_left]
     service2 <- table[,ind_right]
@@ -246,25 +284,25 @@ ScrapeMatch <- function(url) {
     service2 <- gsub("[[:space:]]{2,}"," ", service2)
     stats <- cbind(fields, service1, service2)
     row <- c("w_ace"     = service1[2], 
-                   "w_df"        = service1[3], 
-                   "w_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service1[4]),
-                   "w_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[4]),
-                   "w_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[5]),
-                   "w_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[6]),
-                   "w_SvGms"   = service1[8],
-                   "w_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[7]),
-                   "w_bpFaced" = gsub("^.*/([[:digit:]]+).*$","\\1", service1[7]),
-                   "l_ace"     = service2[2], 
-                   "l_df"      = service2[3], 
-                   "l_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service2[4]),
-                   "l_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[4]),
-                   "l_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[5]),
-                   "l_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[6]),
-                   "l_SvGms"   = service2[8],
-                   "l_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[7]),
-                   "l_bpFaced" = gsub("^.*/([[:digit:]]+).*$","\\1", service2[7]),
-                   "minutes"   = minutes
-                   )
+             "w_df"        = service1[3], 
+             "w_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service1[4]),
+             "w_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[4]),
+             "w_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[5]),
+             "w_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[6]),
+             "w_SvGms"   = service1[8],
+             "w_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[7]),
+             "w_bpFaced" = gsub("^.*/([[:digit:]]+).*$","\\1", service1[7]),
+             "l_ace"     = service2[2], 
+             "l_df"      = service2[3], 
+             "l_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service2[4]),
+             "l_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[4]),
+             "l_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[5]),
+             "l_2ndWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[6]),
+             "l_SvGms"   = service2[8],
+             "l_bpSaved" = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service2[7]),
+             "l_bpFaced" = gsub("^.*/([[:digit:]]+).*$","\\1", service2[7]),
+             "minutes"   = minutes
+             )
     return(row)
 }
 
@@ -280,11 +318,12 @@ ScrapeMatchStats <- function(tab, cores=8) {
     require(foreach)
     cl <- makeCluster(cores)
     registerDoParallel(cl, cores=cores)
-
-    match_stats <- foreach(i=seq_along(tab$url_matches), .combine='rbind', .export="ScrapeMatch") %dopar% {
-        cat(paste(":: ", i, ")", tab$tourney_name[i], " - ", tab$winner_name[i]," vs ", tab$loser_name[i], "[done] \n"))
-        ScrapeMatch(tab$url_matches[i])
-    }
+    
+    match_stats <- foreach(i=seq_along(tab$url_matches),
+                           .combine='rbind',
+                           .export="ScrapeMatch") %dopar% {                               
+                               ScrapeMatch(tab$url_matches[i], winner=tab$winner_name[i])
+        }
     
     ## close parallelization cluster
     stopImplicitCluster()
@@ -292,6 +331,30 @@ ScrapeMatchStats <- function(tab, cores=8) {
 
     ## append match_stats to the tab
     ret <- data.table(cbind(tab, match_stats))
+    ## remove the url_matches
+    ret[, url_matches:=NULL]
+    return(ret)
+    
+}
+
+### Serial veersion of the above for debug
+ScrapeMatchStatsSerial <- function(tab) {
+    
+    if (!"url_matches" %in% colnames(tab))
+        stop(":: ScrapeMatchStatsSerial needs the data.table returned by ScrapeTourney()\n:: with well formed url_matches!")
+    
+
+    
+    match_stats <<- vector(mode="list", length=nrow(tab))
+    for (i in seq_along(tab$url_matches)) {
+        cat(paste(":: ", i, ")", tab$tourney_name[i], " - ", tab$winner_name[i]," vs ", tab$loser_name[i]))
+        match_stats[[i]] <<- ScrapeMatch(tab$url_matches[i], winner=tab$winner_name[i])
+        cat("  [done] \n")
+    }
+
+    stats <- data.table(do.call("rbind", match_stats))
+    ## append match_stats to the tab
+    ret <- data.table(cbind(tab, stats))
     ## remove the url_matches
     ret[, url_matches:=NULL]
     return(ret)
