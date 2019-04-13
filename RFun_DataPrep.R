@@ -20,7 +20,8 @@ ReadData <- function(file="Data/20190410-DataTop.csv", davis=FALSE) {
     }
     
     ## Define a new "year" column
-    data$year <- substr(data$tourney_date, 1, 4)
+    if (! "year" %in% colnames(data))
+        data$year <- substr(data$tourney_date, 1, 4)
 
     return(data)
 }

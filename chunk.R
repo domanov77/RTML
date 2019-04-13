@@ -25,8 +25,8 @@ for (i in myseq) {
 
 
 ##### From here bits and pieces to resume/fill in the missing
-lf <- list.files(path="Data", pattern="chunk_[[:digit:]]{4}\\.csv", full.names=TRUE)
-lf_nonfull <- list.files(path="Data", pattern="chunk_[[:digit:]]{4}\\.csv", full.names=FALSE)
+lf <- list.files(path="chunks", pattern="chunk_[[:digit:]]{4}\\.csv", full.names=TRUE)
+lf_nonfull <- list.files(path="chunks", pattern="chunk_[[:digit:]]{4}\\.csv", full.names=FALSE)
 lf_nonfull <- sub("chunk_","",lf_nonfull, fixed=TRUE)
 lf_nonfull <- sub(".csv","",lf_nonfull, fixed=TRUE)
 ll <- as.integer(lf_nonfull)
@@ -50,9 +50,11 @@ length(inds)
 db2 <- db
 ## I actually forgot the very last match 
 last <- ScrapeMatch(to_scrape[102303,"url_matches"])
+
 ## flatten, add the last matches
-data <- data.table::rbindlist(res, use.names=TRUE, fill=FALSE, idcol=F)
-data <- rbind(data, c(to_scrape[102303,],last)[-14])
+data <- data.table::rbindlist(res, use.names=TRUE, fill=T, idcol=F)[1:102264]
+
+# data <- rbind(data, c(to_scrape[102303,],last)[-14])
 
 ## add new columns to thre original db
 new <- which(! colnames(data) %in% colnames(db))
@@ -65,4 +67,5 @@ set(db2, , "url_matches", NULL)
 
 ## save it
 fwrite(db2, file = "Data/dbtml.csv", eol="\n")
+# fwrite(db, file = "Data/dbtml2.csv", eol="\n")
 

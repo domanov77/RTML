@@ -4,7 +4,7 @@
 
 ScrapeTourney <- function(url, id) {
     
-    if (is.na(url)) return(data.table(round=NA_character_, winner_seed=NA_character_, winner_name=NA_character_, 
+    if (is.na(url) | url=="") return(data.table(round=NA_character_, winner_seed=NA_character_, winner_name=NA_character_, 
                                       loser_seed=NA, loser_name=NA_character_, score=NA_character_,
                                       url_matches=NA_character_, surface=NA_character_, tourney_name=NA_character_))
     
@@ -370,5 +370,50 @@ AppendMatches <- function(matches, db) {
     return(ret)
 }
 
+
+ScrapeIdsFromTourney <- function(url) {
+    ##url <- "https://www.atptour.com/en/scores/archive/brisbane/339/2019/results"
+    if (is.na(url)|url=="") return(data.table(winner_id=NA_character_, loser_id=NA_character_, match_id=NA_character_, tourney_id=NA_character_))
+    require(rvest)
+    require(httr)
+
+    tourid <- gsub(".*archive/(.*)/results","\\1", url)
+    tid <- paste0(rev(unlist(strsplit(tourid, "/")))[1:2], collapse="_")
+    
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    response <- GET(as.character(url), user_agent(uastring))
+    html <- read_html(response)
+
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique() %>% sort()
+
+    table <- html_nodes(html, "table.day-table")%>% html_table(header=FALSE)
+    
+    if (length(table)==0) {
+        cat(":: No results present\n")
+        return(NA_character_)
+    }
+        
+    ## now get the players ids
+    ids_players    <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="players.*overview", value=TRUE) %>% ##unique() %>% sort() %>%
+    gsub(pattern="/en/players/",replacement="",fixed=TRUE) %>% gsub(pattern="/overview",replacement="",fixed=TRUE) %>% gsub(pattern="^.*/",replacement="")%>% toupper()
+    
+    ids_p <- matrix( ids_players, ncol=2, byrow=TRUE)
+ 
+    ## now get the matches_id
+    ids_m    <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="match-stats", value=TRUE) %>% ##unique() %>% sort() %>%
+    gsub(pattern="/en/scores/",replacement="",fixed=TRUE) %>% gsub(pattern="/match-stats.*$",replacement="") %>% 
+    gsub(pattern="^.*/",replacement="")
+    
+    if (length(ids_m)==0) {
+        cat(paste(":: Tourney", tid, "no match ids\n"))
+        ids_m <- rep(NA_character_, nrow(ids_p))
+        }
+ 
+    tabid <- cbind( ids_p, ids_m, rep(tid, nrow(ids_p)))
+    colnames(tabid) <- c("winner_id", "loser_id", "match_id", "tourney_id")
+
+    ## We return the tab in inverse order (final last)
+    return( data.table(tabid[ nrow(tabid):1, ] ))
+}
 
     

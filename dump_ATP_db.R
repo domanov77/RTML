@@ -23,7 +23,8 @@ alltourn <- fread(file = "all_tourneys_in_atp_db_until_2019.csv",na.strings=NA_c
 
 ### scrape the tournaments
 tourneys <- vector(mode="list", length=length(alltourn$url))
-for (j in seq(1, length(alltourn$url))) {
+
+for (j in seq(356, length(alltourn$url))) {
     tourneys[[j]] <- ScrapeTourney(alltourn$url[j])
     cat(paste(":: ", j, ")", alltourn$year[j], alltourn$tourney_name[j], "[done] \n"))
 }
@@ -31,39 +32,69 @@ for (j in seq(1, length(alltourn$url))) {
 s70 <- ScrapeYear(1970)
 
 ### This is parallelized with mclapply; windows users should use foreach/dopar/doparallel 
-tourneys_lapply <-  parallel::mclapply(alltourn$url, ScrapeTourney, mc.cores=8)
+tourneys_lapply <-  parallel::mclapply(alltourn$url, ScrapeTourney, mc.cores=4)
+tourneys_lapply_id <-  parallel::mclapply(alltourn$url, ScrapeIdsFromTourney, mc.cores=4)
+save(list=c("tourneys_lapply", "tourneys_lapply_id"), file="dump.Rdata")
 
+
+
+ts <- vector(mode="list", length=length(alltourn$url))
+for (j in rev(seq(1, length(alltourn$url)))) {
+    ts[[j]] <- ScrapeIdsFromTourney(alltourn$url[j])
+    cat(paste(":: ", j, ")", alltourn$year[j], alltourn$tourney_name[j], "[done] \n"))
+}
+ 
+ lapply(tourneys_lapply_id, function(x) set(x, , "match_id", NULL))
 ## sometimes scraping doesn't find anything and it just returns "NA"; find those and remove them
-ind_nodata <- which(is.na(tourneys_lapply))
+ind_nodata <- which(is.na(tourneys_lapply ))
+ind_no <- which(is.na(tourneys_lapply_id))
 tourneys_lapply[ind_nodata] <- NULL
+tourneys_lapply_id[ind_nodata] <- NULL
 
 ## short names
 tt <- tourneys_lapply
 at <- alltourn[-ind_nodata,]
+tti <- tourneys_lapply_id
 
 tour <- alltourn[3]
 matches <- tt[[3]]
 is.data.table(tour)
 is.data.table(matches)
 
-add_info <- function(tour, matches) {
+add_info <- function(tour, matches, it) {
     matches$year <- tour$year
     matches$date <- tour$date
     matches$indoor <- tour$indoor
     matches$commitment <- tour$commitment
     matches$draw_size <-  tour$draw_size
-    return(matches)
+    if (nrow(matches)>nrow(it)) {
+        cat(":: tid ",it$tourney_id[1], "\n")
+              it <- rbind(matrix(NA_character_, ncol=ncol(it), nrow=nrow(matches)-nrow(it)), it, fill=T)
+    }  
+     matches$winner_id <-  it$winner_id 
+    matches$loser_id <-  it$loser_id 
+    matches$tourney_id <-  it$tourney_id 
+   return(matches)
 }
 
-allmat <- lapply(seq_along(tt), function(i) add_info(tour=at[i], matches=tt[[i]]))
+rr <- vector(mode="list", length=length(tt))
 
-all_matches_in_atp_db <- rbindlist(allmat, use.names=TRUE)
+for (i in seq_along(tt)){
+   cat(paste(":: n ", i, "\n"))
+   rr[[i]] <- add_info(tour=at[i], matches=tt[[i]], it=tti[[i]])
+}
 
-setcolorder(all_matches_in_atp_db, c("year","date","tourney_name","surface","indoor","commitment", 
-                                     "draw_size", "round","winner_seed","winner_name","score", 
-                                     "loser_seed","loser_name", "url_matches"  ))
+
+allmat <- lapply(seq_along(tt), function(i) add_info(tour=at[i], matches=tt[[i]], it=tti[[i]]))
+
+all_matches_in_atp_db <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
+all_matches_in_atp_db$commitment <- gsub(",", "", all_matches_in_atp_db$commitment )
+
+setcolorder(all_matches_in_atp_db, c("year","date","tourney_name","tourney_id", "surface","indoor","commitment", 
+                                     "draw_size", "round","winner_id","winner_seed", "winner_name","score", 
+                                     "loser_id","loser_seed","loser_name", "url_matches"  ))
                                      
-                                     
+             
 save(list=c("tourneys_lapply", "ind_nodata", "alltourn","dbyears","all_matches_in_atp_db"), file="20190412_Dump.Rdata")
 
 ## to eventually load back the results in anorher R session:
