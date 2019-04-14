@@ -7,9 +7,15 @@ dbl <- SummaryData(db)
  ## In "OUR" db many of these inconsistencies have been fixed
  SearchByPlayer("Roger Federer", data=dbl)
 
-################################ Some examples
-db$commitment <- gsub(",", "", db$commitment )
+ h2h("Janko Tipsarevic", "Sam Querrey", db)
+ 
+ 
+wid <- unique(db[, .(.N, winner_name), by=.(winner_id)] )[order(-N)]
+lid <- db[, .N, by=.(loser_id)][order(-N)]
 
+ wid <- db[,.(winner_name), by=.(winner_id)] 
+wid
+ 
 ## how many bagels did John Isner suffer?
 scores_win <- db[winner_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
 w <- grep("0-6", scores_win$score, fixed=TRUE)
@@ -205,4 +211,8 @@ setorder(wins, -N)
 wins[1:20,]
 OutputTableToPng(wins[1:20,], "MostWins.png")
 
+wins <- db[round=="F", .N, by=.(winner_id)]
+db[,  .SD[.N], by=.(tourney_id)]
+db[,  .N, by=.(winner_id)]
+db[,  .N, by=.(winner_name)]
 

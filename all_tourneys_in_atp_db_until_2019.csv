@@ -271,7 +271,6 @@ date,year,tourney_name,surface,indoor,commitment,draw_size,url
 19700727,1970,Hilversum,Clay,Outdoor,"$9,000",64,https://www.atptour.com/en/scores/archive/hilversum/317/1970/results
 19700803,1970,Boston,Hard,Outdoor,"$50,000",32,https://www.atptour.com/en/scores/archive/boston/417/1970/results
 19700803,1970,Munich,Clay,Outdoor,"$21,000",32,https://www.atptour.com/en/scores/archive/munich/308/1970/results
-19700803,1970,Munich,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/munich/804/1970/results
 19700810,1970,Montreal / Toronto,Clay,Outdoor,"$20,000",32,https://www.atptour.com/en/scores/archive/toronto/421/1970/results
 19700810,1970,Hamburg,Clay,Outdoor,"$18,000",64,https://www.atptour.com/en/scores/archive/hamburg/414/1970/results
 19700817,1970,Merion,Grass,Outdoor,"$10,000",64,https://www.atptour.com/en/scores/archive/merion/2030/1970/results
@@ -291,11 +290,6 @@ date,year,tourney_name,surface,indoor,commitment,draw_size,url
 19701116,1970,Wembley,Carpet,Indoor,"$42,000",32,https://www.atptour.com/en/scores/archive/wembley/430/1970/results
 19701122,1970,Stockholm Open,Hard,Indoor,"$35,000",32,https://www.atptour.com/en/scores/archive/stockholm/429/1970/results
 19701207,1970,Masters,Carpet,Indoor,"$50,000",6,https://www.atptour.com/en/scores/archive/masters/605/1970/results
-"Munich
-            
-
-        
-            Munich, Germany",1971,Munich,Hard,Outdoor,"",32,https://www.atptour.com/en/scores/archive/hobart/713/1971/results
 19710105,1971,Hobart,Grass,Outdoor,"$2,500",32,https://www.atptour.com/en/scores/archive/sydney/338/1971/results
 19710111,1971,Sydney Outdoor,Grass,Outdoor,"$2,500",32,https://www.atptour.com/en/scores/archive/richmond/802/1971/results
 19710204,1971,Richmond,Carpet,Indoor,"$20,000",16,https://www.atptour.com/en/scores/archive/new-york/2058/1971/results
