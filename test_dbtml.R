@@ -3,11 +3,22 @@ source("RFun_Scraping.R")
 
 ## Now read OUR db
 system.time(db <- ReadData("Data/dbtml.csv", davis=TRUE))
-dbl <- SummaryData(db)
- ## In "OUR" db many of these inconsistencies have been fixed
- SearchByPlayer("Roger Federer", data=dbl)
 
- h2h("Janko Tipsarevic", "Sam Querrey", db)
+### Fix the current tournaments
+## db[year==2019 & tourney_name=="Fayez Sarofim & Co. U.S. Men's Clay Court Championship", tourney_id:="2019_717"]
+## db[year==2019 & tourney_name=="Fayez Sarofim & Co. U.S. Men's Clay Court Championship", tourney_id_from_url:="2019_717"]
+## db[year==2019 & tourney_name=="Grand Prix Hassan II", tourney_id:="2019_360"]
+## db[year==2019 & tourney_name=="Grand Prix Hassan II", tourney_id_from_url:="2019_360"]
+## fwrite(db, file = "Data/dbtml.csv", eol="\n")
+
+
+
+dbl <- SummaryData(db)
+
+## In "OUR" db many of these inconsistencies have been fixed
+SearchByPlayer("Roger Federer", data=dbl)
+
+h2h("Janko Tipsarevic", "Sam Querrey", db)
  
  
 wid <- unique(db[, .(.N, winner_name), by=.(winner_id)] )[order(-N)]

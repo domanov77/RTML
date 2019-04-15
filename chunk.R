@@ -16,12 +16,15 @@ ss[[2559]] <- c(ss[[2559]], nrow(to_scrape))
 
 myseq <-  seq(2559, 2000)
 myseq <-  seq(1000, 1999)
+myseq <-  seq(1, 499)
+myseq <-  seq(500, 999)
+myseq <-  seq(951, 999)
 
 ## res <- vector(mode="list", length=length(ss))
 for (i in myseq) {
     res <- to_scrape[ ss[[i]] ]
     res <- ScrapeMatchStats(res, cores=4)
-    cat(paste0(":: scraped chunk ", i, "/",length(ss), "\n"))
+    cat(paste0(":: scraped chunk ", i, "/", max(myseq), "/", length(ss),"\n"))
     fwrite(res, file = sprintf("Data/chunk_%04d.csv", i), eol="\n")
 }
 
@@ -34,13 +37,15 @@ lf_nonfull <- list.files(path="chunks", pattern="chunk_[[:digit:]]{4}\\.csv", fu
 lf_nonfull <- sub("chunk_","",lf_nonfull, fixed=TRUE)
 lf_nonfull <- sub(".csv","",lf_nonfull, fixed=TRUE)
 ll <- as.integer(lf_nonfull)
-missing <- which(is.na(match(seq(1,2558), ll)))
+missing <- which(is.na(match(seq(1,2559), ll)))
 
-for (i in missing) {
-    res <- to_scrape[ ss[[i]] ]
-    res <- ScrapeMatchStats(res, cores=4)
-    cat(paste0(":: scraped chunk ", i, "/",length(ss), "\n"))
-    fwrite(res, file = sprintf("Data/chunk_%04d.csv", i), eol="\n")
+if (length(missing) > 0) {
+    for (i in missing) {
+        res <- to_scrape[ ss[[i]] ]
+        res <- ScrapeMatchStats(res, cores=4)
+        cat(paste0(":: scraped chunk ", i, "/",length(ss), "\n"))
+        fwrite(res, file = sprintf("Data/chunk_%04d.csv", i), eol="\n")
+    }
 }
 
 ## read the data
@@ -52,11 +57,11 @@ length(inds)
 
 ## make a copy of the db
 db2 <- db
-## I actually forgot the very last match 
-last <- ScrapeMatch(to_scrape[102303,"url_matches"])
+### If you actually forgot the very last match (now fixed!)
+## last <- ScrapeMatch(to_scrape[102303,"url_matches"])
 
 ## flatten, add the last matches
-data <- data.table::rbindlist(res, use.names=TRUE, fill=T, idcol=F)[1:102264]
+data <- data.table::rbindlist(res, use.names=TRUE, fill=TRUE, idcol=F)
 
 # data <- rbind(data, c(to_scrape[102303,],last)[-14])
 
