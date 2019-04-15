@@ -1,15 +1,36 @@
 source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
 
-system.time(dbtop <- ReadData("Data/20190410-DataTop.csv", davis=TRUE))
-dbtoplist  <- SummaryData(dbtop)
+db <- ReadData("Data/dbtml.csv", davis=TRUE)
 
-wins <- dbtop[, .N, by=.(winner_name, winner_id)]
-loss <- dbtop[, .N, by=.(loser_name, loser_id)]
+dbl <- SummaryData(db)
+
+## check how many not unique id
+wins <- db[, .N, by=.(winner_name, winner_id)]
+loss <- db[, .N, by=.(loser_name, loser_id)]
 
 tt <- rbindlist(list(wins, loss), use.names=FALSE)[,1:2]
-a <- tt[, .SD, by=.(winner_id)]
-a[N>1,]
+colnames(tt) <- c("player", "id")
+
+players <- unique(tt)
+
+ids <- players[ , .N, by=id][order(-N)][N>1]
+
+SearchNameById <- function(id, db) {
+    db[ winner_id==id | loser_id==id ]
+}
+
+all <- lapply(ids$id, SearchNameById, db=db)
+names(all) <- ids$id
+
+PlayerMatches("Wojtek Fibak", db)
+a1 <- rbindlist(list(db[ winner_id=="F020" , .(pl=winner_name, id=winner_id)],
+                     db[  loser_id=="F020" , .(pl= loser_name, id= loser_id)]))
+unique(a1)
+### Fix empty tourney_names
+
+
+db[ (winner_name=="John McEnroe" & winner_id=="F020"), : | (loser_name=="John McEnroe" & loser_id=="F020")]
 
 ## [('Ross Case', 2),
 ## ('Milan Holecek', 2),

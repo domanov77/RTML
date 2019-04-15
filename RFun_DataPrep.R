@@ -1,6 +1,6 @@
 ### Functions to interrogate the databases of matches
 
-### Time-stamp: "Last modified 2019-04-05 19:58:54 delucia"
+### Time-stamp: "Last modified 2019-04-15 14:16:41 delucia"
 library(data.table)
 
 
@@ -15,7 +15,8 @@ ReadData <- function(file="Data/20190410-DataTop.csv", davis=FALSE) {
     ## exclude Davis cup matches and select only relevant columns
     if (!davis) {
         ind_davis <- grep("^Davis", data$tourney_name)
-        data <- data[-ind_davis, ]
+        if (length(ind_davis)>0)
+            data <- data[-ind_davis, ]
         cat(":: Removed", length(ind_davis), "Davis matches\n")
     }
     

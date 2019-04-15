@@ -3,15 +3,19 @@
 source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
 
-db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
+db <- fread(file = "all_matches_in_atp_db_until_today_nostat.csv")
 
 to_scrape <- db[url_matches!=""]
 
 
 cuts <- c(seq(1, nrow(to_scrape), by=40), nrow(to_scrape))
 ss <- lapply(seq_along(cuts)[-1], function(i) seq(cuts[i-1], cuts[i]-1))
+ss[[2559]] <- c(ss[[2559]], nrow(to_scrape))
 
-myseq <-  seq(2514, 1)
+
+
+myseq <-  seq(2559, 2000)
+myseq <-  seq(1000, 1999)
 
 ## res <- vector(mode="list", length=length(ss))
 for (i in myseq) {
