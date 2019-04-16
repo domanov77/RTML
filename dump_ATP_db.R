@@ -18,7 +18,7 @@ fwrite(alltourn, file = "all_tourneys_in_atp_db_until_today.csv", eol="\n", quot
 ## contains all urls for tourney results. Now we can scrape for the tournaments
 ## and afterwards for each single match!
 
-alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_, quote=FALSE)
+alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
 
 ### scrape the tournaments
 ## tourneys <- vector(mode="list", length=length(alltourn$url))
@@ -49,8 +49,14 @@ tourneys_lapply[ind_nodata] <- NULL
 
 ## ind_no <- which(is.na(tourneys_lapply_id))
 ## tourneys_lapply_id[ind_nodata] <- NULL
-tt <- tourneys_lapply
-at <- alltourn[-ind_nodata,]
+
+## fix 2019 in all_matches_in_atp_db_until_today_nostat.csv
+## tt <- parallel::mclapply(ScrapeYear(2019)$url, ScrapeTourney, mc.cores=8)
+## ind_nodata <- which(is.na(tt))
+## at <- rbindlist(tt[-ind_nodata])
+## tod <- fread("all_matches_in_atp_db_until_today_nostat.csv")
+## tod[year==2019, "round":=at$round]
+## tod <- fwrite(tod, "all_matches_in_atp_db_until_today_nostat.csv", quote=FALSE)
 
 
 add_info_from_tour <- function(tourney, matches) {
@@ -68,6 +74,7 @@ add_info_from_tour <- function(tourney, matches) {
 allmat <- lapply(seq_along(tt), function(i) add_info_from_tour(tour=at[i], matches=tt[[i]]))
 
 all_matches_in_atp_db <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
+
 
 db19 <- rbindlist(tt, use.names=TRUE, fill=TRUE)
 
