@@ -3,30 +3,53 @@ source("RFun_Scraping.R")
 
 ## Now read OUR db
 system.time(db <- ReadData("Data/dbtml.csv", davis=TRUE))
-
-### Fix the current tournaments
-## db[year==2019 & tourney_name=="Fayez Sarofim & Co. U.S. Men's Clay Court Championship", tourney_id:="2019_717"]
-## db[year==2019 & tourney_name=="Fayez Sarofim & Co. U.S. Men's Clay Court Championship", tourney_id_from_url:="2019_717"]
-## db[year==2019 & tourney_name=="Grand Prix Hassan II", tourney_id:="2019_360"]
-## db[year==2019 & tourney_name=="Grand Prix Hassan II", tourney_id_from_url:="2019_360"]
-## fwrite(db, file = "Data/dbtml.csv", eol="\n")
-
-
-
 dbl <- SummaryData(db)
 
 ## In "OUR" db many of these inconsistencies have been fixed
 SearchByPlayer("Roger Federer", data=dbl)
 
-h2h("Janko Tipsarevic", "Sam Querrey", db)
- 
- 
-wid <- unique(db[, .(.N, winner_name), by=.(winner_id)] )[order(-N)]
-lid <- db[, .N, by=.(loser_id)][order(-N)]
 
- wid <- db[,.(winner_name), by=.(winner_id)] 
-wid
- 
+## Most tourney wins
+wins <- db[round=="F", .N, by=.(winner_name)]
+setorder(wins, -N)
+wins[1:20,]
+OutputTableToPng(wins[1:20,], "MostWins.png")
+
+
+
+### clay tournaments for Almagro
+alma <- db[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="Nicolas Almagro"),  .(matches_played=.N) , by=.(tourney_name, year)]
+OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
+
+### find all clay tournaments of a player
+AllTourney <- function(name, tab){
+     tab[surface=="Clay" & (winner_name==name | loser_name==name),  .(matches_played=.N) , by=.(tourney_name, year)]
+}
+
+### find who played most clay tourneys 
+tut <- lapply(dbl$players, AllTourney, db)
+res <- sapply(tut, nrow)
+tab <- cbind(Player=dbl$players[order(res, decreasing=TRUE)], N=res[order(res, decreasing=TRUE)] )
+OutputTableToPng(tab[1:20,], "MostClay.png")
+
+### Clay matches of Almagro
+sres <- sapply(tut, function(x) sum(x$matches_played))
+grep("Almagro", dbl$players) ## 2879
+sres[2879]
+
+
+### Clay matches of Vilas
+grep("Vilas", dbl$players) ## 1467
+tut[[1467]]
+OutputTableToPng(tut[[1467]], "VilasClay.png")
+
+wins <- db[round=="F", .N, by=.(winner_id)]
+db[,  .SD[.N], by=.(tourney_id)]
+db[,  .N, by=.(winner_id)]
+db[,  .N, by=.(winner_name)]
+
+
+
 ## how many bagels did John Isner suffer?
 scores_win <- db[winner_name=="John Isner", .(year, tourney_name, winner_name, loser_name, score)]
 w <- grep("0-6", scores_win$score, fixed=TRUE)
@@ -189,41 +212,4 @@ res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
 setorder(res2, -points)
 OutputTableToPng(res2, "average_points_slam_surf_nole.png")
 
-
-### clay tournaments for Almagro
-alma <- db[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="Nicolas Almagro"),  .(matches_played=.N) , by=.(tourney_name, year)]
-OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
-
-### find all clay tournaments of a player
-AllTourney <- function(name, tab){
-     tab[surface=="Clay" & (winner_name==name | loser_name==name),  .(matches_played=.N) , by=.(tourney_name, year)]
-}
-
-### find who played most clay tourneys 
-tut <- lapply(dbl$players, AllTourney, db)
-res <- sapply(tut, nrow)
-tab <- cbind(Player=dbl$players[order(res, decreasing=TRUE)], N=res[order(res, decreasing=TRUE)] )
-OutputTableToPng(tab[1:20,], "MostClay.png")
-
-### Clay matches of Almagro
-sres <- sapply(tut, function(x) sum(x$matches_played))
-grep("Almagro", dbl$players) ## 2879
-sres[2879]
-
-
-### Clay matches of Vilas
-grep("Vilas", dbl$players) ## 1467
-tut[[1467]]
-OutputTableToPng(tut[[1467]], "VilasClay.png")
-
-## Most tourney wins
-wins <- db[round=="F", .N, by=.(winner_name)]
-setorder(wins, -N)
-wins[1:20,]
-OutputTableToPng(wins[1:20,], "MostWins.png")
-
-wins <- db[round=="F", .N, by=.(winner_id)]
-db[,  .SD[.N], by=.(tourney_id)]
-db[,  .N, by=.(winner_id)]
-db[,  .N, by=.(winner_name)]
 

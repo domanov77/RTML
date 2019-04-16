@@ -177,24 +177,24 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19670522,1967,French Championships,1967_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/french-championships/520/1967/results
 19670626,1967,Wimbledon,1967_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1967/results
 19670830,1967,US Championships,1967_560,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-championships/560/1967/results
-19680119,1968,Australian Chps.,1968_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-chps/580/1968/results
+19680119,1968,Australian Chps.,1968_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-chps/580/1968/results
 19680422,1968,Bournemouth,1968_347,Clay,Outdoor,$10000,32,https://www.atptour.com/en/scores/archive/bournemouth/347/1968/results
-19680527,1968,Roland Garros,1968_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1968/results
+19680527,1968,Roland Garros,1968_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1968/results
 19680610,1968,Beckenham,1968_7310,Grass,Outdoor,$2000,64,https://www.atptour.com/en/scores/archive/beckenham/7310/1968/results
-19680617,1968,London / Queen's Club,1968_311,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/london/311/1968/results
-19680624,1968,Wimbledon,1968_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1968/results
+19680617,1968,London / Queen's Club,1968_311,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/london/311/1968/results
+19680624,1968,Wimbledon,1968_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1968/results
 19680708,1968,Dublin,1968_2029,Grass,Outdoor,$7200,32,https://www.atptour.com/en/scores/archive/dublin/2029/1968/results
-19680715,1968,Gstaad,1968_314,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/gstaad/314/1968/results
+19680715,1968,Gstaad,1968_314,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/gstaad/314/1968/results
 19680805,1968,Hamburg,1968_414,Clay,Outdoor,$10000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1968/results
 19680812,1968,Montreal / Toronto,1968_421,Clay,Outdoor,$1500,32,https://www.atptour.com/en/scores/archive/toronto/421/1968/results
 19680829,1968,US Open,1968_560,Grass,Outdoor,$88800,96,https://www.atptour.com/en/scores/archive/us-open/560/1968/results
 19680914,1968,Los Angeles,1968_423,Hard,Outdoor,$22500,128,https://www.atptour.com/en/scores/archive/los-angeles/423/1968/results
-19681101,1968,Buenos Aires,1968_303,Clay,Outdoor,"",64,https://www.atptour.com/en/scores/archive/buenos-aires/303/1968/results
+19681101,1968,Buenos Aires,1968_303,Clay,Outdoor,,64,https://www.atptour.com/en/scores/archive/buenos-aires/303/1968/results
 19681230,1969,Hobart,1969_713,Grass,Outdoor,$4000,32,https://www.atptour.com/en/scores/archive/hobart/713/1969/results
 19681230,1969,Perth,1969_243,Grass,Outdoor,$4000,32,https://www.atptour.com/en/scores/archive/perth/243/1969/results
 19690106,1969,Melbourne,1969_3936,Grass,Outdoor,$11500,32,https://www.atptour.com/en/scores/archive/melbourne/3936/1969/results
 19690113,1969,Sydney,1969_3941,Grass,Outdoor,$20000,32,https://www.atptour.com/en/scores/archive/sydney/3941/1969/results
-19690120,1969,Australian Open,1969_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1969/results
+19690120,1969,Australian Open,1969_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1969/results
 19690129,1969,Auckland,1969_3937,Grass,Outdoor,$6000,32,https://www.atptour.com/en/scores/archive/auckland/3937/1969/results
 19690205,1969,Philadelphia WCT,1969_401,Carpet,Indoor,$30000,32,https://www.atptour.com/en/scores/archive/philadelphia/401/1969/results
 19690324,1969,New York,1969_2058,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/new-york/2058/1969/results
@@ -204,26 +204,26 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19690421,1969,Rome,1969_416,Clay,Outdoor,$35000,128,https://www.atptour.com/en/scores/archive/rome/416/1969/results
 19690428,1969,Bournemouth,1969_3938,Clay,Outdoor,$17000,32,https://www.atptour.com/en/scores/archive/bournemouth/3938/1969/results
 19690512,1969,Brussels,1969_406,Clay,Outdoor,$8500,32,https://www.atptour.com/en/scores/archive/brussels/406/1969/results
-19690528,1969,Roland Garros,1969_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1969/results
+19690528,1969,Roland Garros,1969_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1969/results
 19690609,1969,Bristol,1969_3942,Grass,Outdoor,$17000,8,https://www.atptour.com/en/scores/archive/bristol/3942/1969/results
 19690616,1969,London / Queen's Club,1969_311,Grass,Outdoor,$2400,128,https://www.atptour.com/en/scores/archive/london/311/1969/results
-19690623,1969,Wimbledon,1969_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1969/results
+19690623,1969,Wimbledon,1969_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1969/results
 19690707,1969,Washington,1969_418,Clay,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/washington/418/1969/results
 19690707,1969,Dublin,1969_2029,Grass,Outdoor,$8000,32,https://www.atptour.com/en/scores/archive/dublin/2029/1969/results
-19690707,1969,Dusseldorf,1969_661,Clay,Outdoor,"",64,https://www.atptour.com/en/scores/archive/dusseldorf/661/1969/results
+19690707,1969,Dusseldorf,1969_661,Clay,Outdoor,,64,https://www.atptour.com/en/scores/archive/dusseldorf/661/1969/results
 19690721,1969,Gstaad,1969_314,Clay,Outdoor,$20000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1969/results
 19690728,1969,Hilversum,1969_317,Clay,Outdoor,$6500,32,https://www.atptour.com/en/scores/archive/hilversum/317/1969/results
 19690804,1969,Hamburg,1969_414,Clay,Outdoor,$18000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1969/results
 19690804,1969,Montreal / Toronto,1969_421,Clay,Outdoor,$9000,64,https://www.atptour.com/en/scores/archive/toronto/421/1969/results
-19690811,1969,Kitzbuhel,1969_319,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/kitzbuehel/319/1969/results
+19690811,1969,Kitzbuhel,1969_319,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/kitzbuehel/319/1969/results
 19690827,1969,US Open,1969_560,Grass,Outdoor,$89400,128,https://www.atptour.com/en/scores/archive/us-open/560/1969/results
 19690920,1969,Los Angeles,1969_423,Hard,Outdoor,$24500,64,https://www.atptour.com/en/scores/archive/los-angeles/423/1969/results
 19691006,1969,Las Vegas,1969_413,Hard,Outdoor,$40000,32,https://www.atptour.com/en/scores/archive/las-vegas/413/1969/results
-19691107,1969,Paris Indoor,1969_7302,Carpet,Indoor,"",32,https://www.atptour.com/en/scores/archive/paris/7302/1969/results
-19691111,1969,Buenos Aires,1969_303,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1969/results
+19691107,1969,Paris Indoor,1969_7302,Carpet,Indoor,,32,https://www.atptour.com/en/scores/archive/paris/7302/1969/results
+19691111,1969,Buenos Aires,1969_303,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1969/results
 19691117,1969,Wembley,1969_430,Carpet,Indoor,$36000,32,https://www.atptour.com/en/scores/archive/wembley/430/1969/results
 19691123,1969,Stockholm,1969_429,Hard,Indoor,$26000,32,https://www.atptour.com/en/scores/archive/stockholm/429/1969/results
-19700119,1970,Australian Open,1970_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1970/results
+19700119,1970,Australian Open,1970_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1970/results
 19700202,1970,Philadelphia,1970_401,Carpet,Indoor,$50000,64,https://www.atptour.com/en/scores/archive/philadelphia/401/1970/results
 19700212,1970,Miami WCT,1970_681,Clay,Outdoor,$10000,8,https://www.atptour.com/en/scores/archive/miami/681/1970/results
 19700213,1970,Richmond,1970_802,Carpet,Indoor,$12500,8,https://www.atptour.com/en/scores/archive/richmond-va/802/1970/results
@@ -244,23 +244,23 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19700421,1970,Dallas WCT,1970_388,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/dallas/388/1970/results
 19700421,1970,Houston,1970_405,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/houston/405/1970/results
 19700426,1970,Bournemouth,1970_347,Clay,Outdoor,$24000,32,https://www.atptour.com/en/scores/archive/bournemouth/347/1970/results
-19700501,1970,Roland Garros,1970_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1970/results
+19700501,1970,Roland Garros,1970_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1970/results
 19700506,1970,Atlanta WCT,1970_412,Hard,Outdoor,$25000,16,https://www.atptour.com/en/scores/archive/atlanta/412/1970/results
 19700512,1970,Brussels,1970_406,Clay,Outdoor,$8500,32,https://www.atptour.com/en/scores/archive/brussels/406/1970/results
 19700513,1970,Las Vegas WCT,1970_413,Hard,Outdoor,$47000,16,https://www.atptour.com/en/scores/archive/las-vegas/413/1970/results
 19700527,1970,St. Louis WCT,1970_652,Hard,Outdoor,$30000,32,https://www.atptour.com/en/scores/archive/st-louis/652/1970/results
-19700601,1970,Manchester,1970_8025,Grass,Outdoor,"",8,https://www.atptour.com/en/scores/archive/manchester/8025/1970/results
+19700601,1970,Manchester,1970_8025,Grass,Outdoor,,8,https://www.atptour.com/en/scores/archive/manchester/8025/1970/results
 19700604,1970,Casablanca WCT,1970_2063,Clay,Outdoor,$15000,16,https://www.atptour.com/en/scores/archive/casablanca/2063/1970/results
 19700608,1970,Bristol,1970_313,Grass,Outdoor,$17000,32,https://www.atptour.com/en/scores/archive/bristol/313/1970/results
-19700608,1970,Beckenham,1970_7310,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/beckenham/7310/1970/results
-19700608,1970,Nottingham,1970_6829,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/nottingham/6829/1970/results
+19700608,1970,Beckenham,1970_7310,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/beckenham/7310/1970/results
+19700608,1970,Nottingham,1970_6829,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/nottingham/6829/1970/results
 19700615,1970,London / Queen's Club,1970_311,Grass,Outdoor,$7500,64,https://www.atptour.com/en/scores/archive/london/311/1970/results
 19700615,1970,Eastbourne,1970_2049,Grass,Outdoor,$6000,32,https://www.atptour.com/en/scores/archive/eastbourne/2049/1970/results
-19700622,1970,Wimbledon,1970_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1970/results
+19700622,1970,Wimbledon,1970_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1970/results
 19700705,1970,Newport,1970_2050,Grass,Outdoor,$8000,64,https://www.atptour.com/en/scores/archive/newport/2050/1970/results
 19700706,1970,Bastad,1970_316,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/bastad/316/1970/results
 19700706,1970,Dublin,1970_2029,Grass,Outdoor,$8000,32,https://www.atptour.com/en/scores/archive/dublin/2029/1970/results
-19700706,1970,Dusseldorf,1970_661,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1970/results
+19700706,1970,Dusseldorf,1970_661,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1970/results
 19700713,1970,Washington,1970_418,Clay,Outdoor,$35000,64,https://www.atptour.com/en/scores/archive/washington/418/1970/results
 19700713,1970,Gstaad,1970_314,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1970/results
 19700713,1970,Hoylake,1970_6830,Grass,Outdoor,$8000,64,https://www.atptour.com/en/scores/archive/hoylake/6830/1970/results
@@ -271,11 +271,11 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19700727,1970,Hilversum,1970_317,Clay,Outdoor,$9000,64,https://www.atptour.com/en/scores/archive/hilversum/317/1970/results
 19700803,1970,Boston,1970_417,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/boston/417/1970/results
 19700803,1970,Munich,1970_308,Clay,Outdoor,$21000,32,https://www.atptour.com/en/scores/archive/munich/308/1970/results
-19700803,1970,Munich,1970_804,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/munich/804/1970/results
+19700803,1970,Munich,1970_804,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/munich/804/1970/results
 19700810,1970,Montreal / Toronto,1970_421,Clay,Outdoor,$20000,32,https://www.atptour.com/en/scores/archive/toronto/421/1970/results
 19700810,1970,Hamburg,1970_414,Clay,Outdoor,$18000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1970/results
 19700817,1970,Merion,1970_2030,Grass,Outdoor,$10000,64,https://www.atptour.com/en/scores/archive/merion/2030/1970/results
-19700817,1970,Kitzbuhel,1970_319,Clay,Outdoor,"",64,https://www.atptour.com/en/scores/archive/kitzbuehel/319/1970/results
+19700817,1970,Kitzbuhel,1970_319,Clay,Outdoor,,64,https://www.atptour.com/en/scores/archive/kitzbuehel/319/1970/results
 19700819,1970,Fort Worth WCT,1970_653,Hard,Outdoor,$22500,16,https://www.atptour.com/en/scores/archive/fort-worth/653/1970/results
 19700824,1970,South Orange,1970_707,Grass,Outdoor,$17500,64,https://www.atptour.com/en/scores/archive/south-orange/707/1970/results
 19700902,1970,US Open,1970_560,Grass,Outdoor,$137800,128,https://www.atptour.com/en/scores/archive/us-open/560/1970/results
@@ -301,7 +301,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19710226,1971,London Indoor,1971_262,Carpet,Indoor,$30000,32,https://www.atptour.com/en/scores/archive/london/262/1971/results
 19710301,1971,Hampton,1971_657,Carpet,Indoor,$35000,32,https://www.atptour.com/en/scores/archive/hampton/657/1971/results
 19710301,1971,Auckland,1971_301,Grass,Outdoor,$16000,32,https://www.atptour.com/en/scores/archive/auckland/301/1971/results
-19710307,1971,Australian Open,1971_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1971/results
+19710307,1971,Australian Open,1971_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1971/results
 19710316,1971,Caracas,1971_344,Hard,Outdoor,$15000,32,https://www.atptour.com/en/scores/archive/caracas/344/1971/results
 19710322,1971,Chicago WCT,1971_818,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/chicago/818/1971/results
 19710330,1971,Miami WCT,1971_681,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/miami/681/1971/results
@@ -318,11 +318,11 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19710517,1971,Bournemouth,1971_347,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/bournemouth/347/1971/results
 19710517,1971,Brussels,1971_406,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/brussels/406/1971/results
 19710517,1971,Hamburg,1971_414,Clay,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1971/results
-19710521,1971,Roland Garros,1971_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1971/results
+19710521,1971,Roland Garros,1971_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1971/results
 19710607,1971,Bristol WCT,1971_313,Grass,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/bristol/313/1971/results
 19710614,1971,Eastbourne,1971_2049,Grass,Outdoor,$7500,64,https://www.atptour.com/en/scores/archive/eastbourne/2049/1971/results
 19710614,1971,London / Queen's Club,1971_311,Grass,Outdoor,$7500,64,https://www.atptour.com/en/scores/archive/london/311/1971/results
-19710621,1971,Wimbledon,1971_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1971/results
+19710621,1971,Wimbledon,1971_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1971/results
 19710705,1971,Bastad,1971_316,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/bastad/316/1971/results
 19710705,1971,Gstaad,1971_314,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1971/results
 19710705,1971,Newport,1971_2050,Grass,Outdoor,$13500,32,https://www.atptour.com/en/scores/archive/newport/2050/1971/results
@@ -335,7 +335,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19710802,1971,Boston WCT,1971_417,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/boston/417/1971/results
 19710802,1971,Cincinnati,1971_422,Clay,Outdoor,$22500,64,https://www.atptour.com/en/scores/archive/cincinnati/422/1971/results
 19710802,1971,Senigallia,1971_6834,Clay,Outdoor,$9500,64,https://www.atptour.com/en/scores/archive/senigallia/6834/1971/results
-19710803,1971,Dusseldorf,1971_661,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1971/results
+19710803,1971,Dusseldorf,1971_661,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1971/results
 19710809,1971,Montreal / Toronto WCT,1971_421,Clay,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/montreal/421/1971/results
 19710809,1971,Indianapolis,1971_717,Clay,Outdoor,$40000,64,https://www.atptour.com/en/scores/archive/indianapolis/717/1971/results
 19710816,1971,Fort Worth WCT,1971_653,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/fort-worth/653/1971/results
@@ -352,15 +352,15 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19711030,1971,Stockholm WCT,1971_429,Hard,Indoor,$50000,64,https://www.atptour.com/en/scores/archive/stockholm/429/1971/results
 19711108,1971,Bologna WCT,1971_312,Carpet,Indoor,$50000,64,https://www.atptour.com/en/scores/archive/bologna/312/1971/results
 19711118,1971,Dallas WCT,1971_610,Carpet,Indoor,$100000,8,https://www.atptour.com/en/scores/archive/dallas/610/1971/results
-19711122,1971,Buenos Aires,1971_303,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1971/results
+19711122,1971,Buenos Aires,1971_303,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1971/results
 19711204,1971,Masters,1971_605,Hard,Indoor,$50000,7,https://www.atptour.com/en/scores/archive/masters/605/1971/results
-19711226,1972,Australian Open,1972_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1972/results
+19711226,1972,Australian Open,1972_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1972/results
 19720103,1972,Baltimore,1972_816,Carpet,Indoor,$7500,16,https://www.atptour.com/en/scores/archive/baltimore/816/1972/results
 19720103,1972,Sydney Outdoor,1972_2060,Grass,Outdoor,$3000,32,https://www.atptour.com/en/scores/archive/sydney/2060/1972/results
 19720110,1972,Hobart,1972_713,Grass,Outdoor,$3000,16,https://www.atptour.com/en/scores/archive/hobart/713/1972/results
 19720112,1972,Jacksonville,1972_2047,Hard,Indoor,$15000,16,https://www.atptour.com/en/scores/archive/jacksonville/2047/1972/results
 19720117,1972,London Indoor,1972_2064,Carpet,Indoor,$33000,16,https://www.atptour.com/en/scores/archive/london/2064/1972/results
-19720117,1972,Adelaide,1972_7308,Grass,Outdoor,"",16,https://www.atptour.com/en/scores/archive/adelaide/7308/1972/results
+19720117,1972,Adelaide,1972_7308,Grass,Outdoor,,16,https://www.atptour.com/en/scores/archive/adelaide/7308/1972/results
 19720121,1972,Roanoke,1972_2022,Carpet,Indoor,$7500,4,https://www.atptour.com/en/scores/archive/roanoke/2022/1972/results
 19720126,1972,Omaha,1972_2036,Carpet,Indoor,$15000,16,https://www.atptour.com/en/scores/archive/omaha/2036/1972/results
 19720131,1972,Des Moines,1972_2061,Carpet,Indoor,$15000,16,https://www.atptour.com/en/scores/archive/des-moines/2061/1972/results
@@ -375,7 +375,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19720228,1972,Hampton,1972_657,Carpet,Indoor,$35000,32,https://www.atptour.com/en/scores/archive/hampton/657/1972/results
 19720306,1972,Washington Indoor,1972_710,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/washington/710/1972/results
 19720313,1972,Chicago WCT,1972_818,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/chicago/818/1972/results
-19720313,1972,Caracas,1972_344,Hard,Outdoor,"",32,https://www.atptour.com/en/scores/archive/caracas/344/1972/results
+19720313,1972,Caracas,1972_344,Hard,Outdoor,,32,https://www.atptour.com/en/scores/archive/caracas/344/1972/results
 19720327,1972,Johannesburg,1972_426,Hard,Outdoor,$36000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1972/results
 19720327,1972,Monte Carlo,1972_410,Clay,Outdoor,$20000,32,https://www.atptour.com/en/scores/archive/monte-carlo/410/1972/results
 19720328,1972,Macon,1972_2066,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/macon/2066/1972/results
@@ -390,13 +390,13 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19720508,1972,Bournemouth,1972_347,Clay,Outdoor,$26500,32,https://www.atptour.com/en/scores/archive/bournemouth/347/1972/results
 19720508,1972,Brussels,1972_406,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/brussels/406/1972/results
 19720510,1972,Dallas WCT,1972_610,Carpet,Indoor,$100000,8,https://www.atptour.com/en/scores/archive/dallas/610/1972/results
-19720522,1972,Roland Garros,1972_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1972/results
+19720522,1972,Roland Garros,1972_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1972/results
 19720605,1972,Hamburg,1972_414,Clay,Outdoor,$35000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1972/results
 19720612,1972,Bristol,1972_313,Grass,Outdoor,$32500,32,https://www.atptour.com/en/scores/archive/bristol/313/1972/results
 19720619,1972,London / Queen's Club,1972_311,Grass,Outdoor,$9500,64,https://www.atptour.com/en/scores/archive/london/311/1972/results
 19720619,1972,Eastbourne,1972_2049,Grass,Outdoor,$7500,32,https://www.atptour.com/en/scores/archive/eastbourne/2049/1972/results
 19720626,1972,St. Louis WCT,1972_652,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/st-louis/652/1972/results
-19720626,1972,Wimbledon,1972_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1972/results
+19720626,1972,Wimbledon,1972_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1972/results
 19720705,1972,Bretton Woods,1972_706,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/bretton-woods/706/1972/results
 19720710,1972,Bastad,1972_316,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/bastad/316/1972/results
 19720710,1972,Gstaad,1972_314,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1972/results
@@ -422,7 +422,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19720918,1972,Los Angeles,1972_423,Hard,Outdoor,$60000,64,https://www.atptour.com/en/scores/archive/los-angeles/423/1972/results
 19720925,1972,Albany,1972_424,Carpet,Outdoor,$34000,64,https://www.atptour.com/en/scores/archive/albany/424/1972/results
 19720926,1972,Alamo WCT,1972_2053,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/alamo/2053/1972/results
-19721009,1972,Tokyo,1972_329,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/tokyo/329/1972/results
+19721009,1972,Tokyo,1972_329,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/tokyo/329/1972/results
 19721016,1972,Barcelona,1972_425,Clay,Outdoor,$66250,64,https://www.atptour.com/en/scores/archive/barcelona/425/1972/results
 19721016,1972,Vancouver WCT,1972_2048,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/vancouver/2048/1972/results
 19721023,1972,Essen WCT,1972_2054,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/essen/2054/1972/results
@@ -431,12 +431,12 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19721106,1972,Stockholm,1972_429,Hard,Indoor,$63000,64,https://www.atptour.com/en/scores/archive/stockholm/429/1972/results
 19721113,1972,Rotterdam WCT,1972_9036,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/rotterdam/9036/1972/results
 19721113,1972,London,1972_2016,Carpet,Indoor,$26000,32,https://www.atptour.com/en/scores/archive/london/2016/1972/results
-19721120,1972,Buenos Aires,1972_303,Clay,Outdoor,"",32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1972/results
+19721120,1972,Buenos Aires,1972_303,Clay,Outdoor,,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1972/results
 19721122,1972,Rome WCT,1972_2056,Carpet,Indoor,$50000,16,https://www.atptour.com/en/scores/archive/rome/2056/1972/results
 19721127,1972,Johannesburg-2,1972_254,Hard,Outdoor,$40000,16,https://www.atptour.com/en/scores/archive/johannesburg/254/1972/results
 19721127,1972,Brisbane,1972_326,Grass,Outdoor,$3000,64,https://www.atptour.com/en/scores/archive/brisbane/326/1972/results
 19721128,1972,Masters,1972_605,Hard,Indoor,$50000,8,https://www.atptour.com/en/scores/archive/masters/605/1972/results
-19721226,1973,Australian Open,1973_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1973/results
+19721226,1973,Australian Open,1973_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1973/results
 19730103,1973,Baltimore,1973_816,Carpet,Indoor,$15000,16,https://www.atptour.com/en/scores/archive/baltimore/816/1973/results
 19730115,1973,Miami WCT,1973_681,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/miami/681/1973/results
 19730117,1973,Birmingham,1973_650,Carpet,Indoor,$15000,16,https://www.atptour.com/en/scores/archive/birmingham/650/1973/results
@@ -483,14 +483,14 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19730507,1973,Bournemouth,1973_347,Clay,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/bournemouth/347/1973/results
 19730509,1973,Dallas WCT,1973_610,Carpet,Indoor,$100000,8,https://www.atptour.com/en/scores/archive/dallas/610/1973/results
 19730514,1973,Las Vegas,1973_413,Hard,Outdoor,$150000,32,https://www.atptour.com/en/scores/archive/las-vegas/413/1973/results
-19730521,1973,Roland Garros,1973_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1973/results
+19730521,1973,Roland Garros,1973_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1973/results
 19730603,1973,Rome,1973_416,Clay,Outdoor,$101600,128,https://www.atptour.com/en/scores/archive/rome/416/1973/results
 19730604,1973,Berlin,1973_277,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/berlin/277/1973/results
 19730611,1973,Hamburg,1973_414,Clay,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1973/results
 19730611,1973,Nottingham,1973_350,Grass,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/nottingham/350/1973/results
 19730618,1973,Eastbourne,1973_2049,Grass,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/eastbourne/2049/1973/results
 19730618,1973,London / Queen's Club,1973_311,Grass,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/london/311/1973/results
-19730625,1973,Wimbledon,1973_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1973/results
+19730625,1973,Wimbledon,1973_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1973/results
 19730709,1973,Bastad,1973_316,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/bastad/316/1973/results
 19730709,1973,Gstaad,1973_314,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1973/results
 19730709,1973,Newport,1973_2050,Grass,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/newport/2050/1973/results
@@ -534,7 +534,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19731114,1973,Johannesburg,1973_426,Hard,Outdoor,$75000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1973/results
 19731119,1973,Buenos Aires,1973_303,Clay,Outdoor,$35000,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1973/results
 19731204,1973,Masters,1973_605,Hard,Indoor,$50000,8,https://www.atptour.com/en/scores/archive/masters/605/1973/results
-19731226,1974,Australian Open,1974_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1974/results
+19731226,1974,Australian Open,1974_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1974/results
 19740107,1974,Auckland,1974_301,Grass,Outdoor,$20000,32,https://www.atptour.com/en/scores/archive/auckland/301/1974/results
 19740115,1974,Lakeway,1974_6836,Hard,Outdoor,$60000,16,https://www.atptour.com/en/scores/archive/lakeway/6836/1974/results
 19740117,1974,Roanoke,1974_2022,Carpet,Indoor,$20000,16,https://www.atptour.com/en/scores/archive/roanoke/2022/1974/results
@@ -584,12 +584,12 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19740520,1974,Bournemouth,1974_347,Clay,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/bournemouth/347/1974/results
 19740520,1974,Hamburg,1974_414,Clay,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1974/results
 19740527,1974,Rome,1974_416,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/rome/416/1974/results
-19740527,1974,Surbiton,1974_720,Grass,Outdoor,"",32,https://www.atptour.com/en/scores/archive/surbiton/720/1974/results
+19740527,1974,Surbiton,1974_720,Grass,Outdoor,,32,https://www.atptour.com/en/scores/archive/surbiton/720/1974/results
 19740603,1974,Manchester,1974_583,Grass,Outdoor,$8000,16,https://www.atptour.com/en/scores/archive/manchester/583/1974/results
-19740603,1974,Roland Garros,1974_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1974/results
+19740603,1974,Roland Garros,1974_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1974/results
 19740610,1974,Beckenham,1974_7310,Grass,Outdoor,$8000,64,https://www.atptour.com/en/scores/archive/beckenham/7310/1974/results
 19740617,1974,Nottingham,1974_350,Grass,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/nottingham/350/1974/results
-19740624,1974,Wimbledon,1974_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1974/results
+19740624,1974,Wimbledon,1974_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1974/results
 19740708,1974,Bastad,1974_316,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/bastad/316/1974/results
 19740708,1974,Gstaad,1974_314,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1974/results
 19740708,1974,Dublin,1974_2029,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/dublin/2029/1974/results
@@ -632,8 +632,8 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19741118,1974,Buenos Aires,1974_303,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1974/results
 19741201,1974,Adelaide,1974_2041,Grass,Outdoor,$5000,16,https://www.atptour.com/en/scores/archive/adelaide/2041/1974/results
 19741210,1974,Masters,1974_605,Grass,Outdoor,$100000,8,https://www.atptour.com/en/scores/archive/masters/605/1974/results
-19741221,1975,Australian Open,1975_580,Clay,Outdoor|Grass,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1975/results
-19750101,1975,Nations Cup,1975_615,Clay,Outdoor|Grass,"",0,https://www.atptour.com/en/scores/archive/duesseldorf/615/1975/results
+19741221,1975,Australian Open,1975_580,Clay,Outdoor|Grass,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1975/results
+19750101,1975,Nations Cup,1975_615,Clay,Outdoor|Grass,,0,https://www.atptour.com/en/scores/archive/duesseldorf/615/1975/results
 19750106,1975,Auckland,1975_301,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/auckland/301/1975/results
 19750113,1975,Bahamas,1975_2021,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/nassau/2021/1975/results
 19750113,1975,Baltimore,1975_816,Clay,Outdoor|Grass,$30000,16,https://www.atptour.com/en/scores/archive/baltimore/816/1975/results
@@ -690,9 +690,9 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19750519,1975,Hamburg,1975_414,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1975/results
 19750526,1975,Rome,1975_416,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/rome/416/1975/results
 19750526,1975,Dusseldorf,1975_661,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1975/results
-19750604,1975,Roland Garros,1975_520,Clay,Outdoor|Grass,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1975/results
+19750604,1975,Roland Garros,1975_520,Clay,Outdoor|Grass,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1975/results
 19750616,1975,Nottingham,1975_350,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/nottingham/350/1975/results
-19750623,1975,Wimbledon,1975_540,Clay,Outdoor|Grass,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1975/results
+19750623,1975,Wimbledon,1975_540,Clay,Outdoor|Grass,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1975/results
 19750707,1975,Bastad,1975_316,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/bastad/316/1975/results
 19750707,1975,Gstaad,1975_314,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1975/results
 19750707,1975,Kitzbuhel,1975_319,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/kitzbuhel/319/1975/results
@@ -733,10 +733,10 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19751221,1975,Sydney Outdoor,1975_338,Clay,Outdoor|Grass,$23500,64,https://www.atptour.com/en/scores/archive/sydney/338/1975/results
 19751226,1976,Australian Open,1976_580,Grass,Outdoor,$75000,64,https://www.atptour.com/en/scores/archive/australian-open/580/1976/results
 19760105,1976,Monterrey WCT,1976_345,Carpet,Indoor,$60000,16,https://www.atptour.com/en/scores/archive/monterrey/345/1976/results
-19760105,1976,Auckland,1976_301,Grass,Outdoor,"",32,https://www.atptour.com/en/scores/archive/auckland/301/1976/results
+19760105,1976,Auckland,1976_301,Grass,Outdoor,,32,https://www.atptour.com/en/scores/archive/auckland/301/1976/results
 19760107,1976,Columbus WCT,1976_662,Carpet,Indoor,$60000,16,https://www.atptour.com/en/scores/archive/columbus/662/1976/results
 19760112,1976,Indianapolis WCT,1976_664,Carpet,Indoor,$60000,16,https://www.atptour.com/en/scores/archive/indianapolis/664/1976/results
-19760112,1976,Copenhagen,1976_481,Carpet,Indoor,"",16,https://www.atptour.com/en/scores/archive/copenhagen/481/1976/results
+19760112,1976,Copenhagen,1976_481,Carpet,Indoor,,16,https://www.atptour.com/en/scores/archive/copenhagen/481/1976/results
 19760114,1976,Atlanta WCT,1976_412,Carpet,Indoor,$60000,16,https://www.atptour.com/en/scores/archive/atlanta/412/1976/results
 19760120,1976,Baltimore,1976_816,Carpet,Indoor,$50000,16,https://www.atptour.com/en/scores/archive/baltimore/816/1976/results
 19760120,1976,Birmingham,1976_650,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/birmingham/650/1976/results
@@ -836,7 +836,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19761205,1976,Masters,1976_605,Carpet,Indoor,$130000,8,https://www.atptour.com/en/scores/archive/masters/605/1976/results
 19761226,1976,Sydney Outdoor,1976_338,Grass,Outdoor,$75000,64,https://www.atptour.com/en/scores/archive/sydney/338/1976/results
 19761229,1977,Zurich,1977_810,Hard,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/zurich/810/1977/results
-19770101,1977,Australian Open,1977_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1977/results
+19770101,1977,Australian Open,1977_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1977/results
 19770110,1977,Adelaide,1977_7308,Grass,Outdoor,$75000,64,https://www.atptour.com/en/scores/archive/adelaide/7308/1977/results
 19770110,1977,Auckland,1977_301,Grass,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/auckland/301/1977/results
 19770112,1977,Birmingham WCT,1977_1506,Carpet,Indoor,$100000,16,https://www.atptour.com/en/scores/archive/birmingham/1506/1977/results
@@ -871,7 +871,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19770410,1977,WCT Challenge Cup,1977_3933,Carpet,Indoor,$320000,4,https://www.atptour.com/en/scores/archive/las-vegas/3933/1977/results
 19770411,1977,Houston WCT,1977_405,Clay,Outdoor,$100000,16,https://www.atptour.com/en/scores/archive/houston/405/1977/results
 19770411,1977,Murcia,1977_2009,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/murcia/2009/1977/results
-19770414,1977,Buenos Aires,1977_722,Clay,Outdoor,"",16,https://www.atptour.com/en/scores/archive/buenos-aires/722/1977/results
+19770414,1977,Buenos Aires,1977_722,Clay,Outdoor,,16,https://www.atptour.com/en/scores/archive/buenos-aires/722/1977/results
 19770418,1977,Denver,1977_389,Carpet,Indoor,$100000,32,https://www.atptour.com/en/scores/archive/denver/389/1977/results
 19770418,1977,Florence,1977_310,Clay,Outdoor,$30000,32,https://www.atptour.com/en/scores/archive/florence/310/1977/results
 19770419,1977,Charlotte WCT,1977_436,Clay,Outdoor,$100000,16,https://www.atptour.com/en/scores/archive/charlotte/436/1977/results
@@ -975,12 +975,12 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19780515,1978,Florence,1978_310,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/florence/310/1978/results
 19780522,1978,Rome,1978_416,Clay,Outdoor,$175000,64,https://www.atptour.com/en/scores/archive/rome/416/1978/results
 19780523,1978,Munich,1978_308,Clay,Outdoor,$75000,32,https://www.atptour.com/en/scores/archive/munich/308/1978/results
-19780529,1978,Roland Garros,1978_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1978/results
+19780529,1978,Roland Garros,1978_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1978/results
 19780612,1978,Birmingham,1978_725,Grass,Outdoor,$125000,64,https://www.atptour.com/en/scores/archive/birmingham/725/1978/results
 19780612,1978,Brussels,1978_406,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/brussels/406/1978/results
 19780619,1978,London / Queen's Club,1978_311,Grass,Outdoor,$125000,64,https://www.atptour.com/en/scores/archive/london/311/1978/results
 19780619,1978,Berlin,1978_277,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/berlin/277/1978/results
-19780626,1978,Wimbledon,1978_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1978/results
+19780626,1978,Wimbledon,1978_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1978/results
 19780710,1978,Forest Hills WCT,1978_415,Clay,Outdoor,$300000,16,https://www.atptour.com/en/scores/archive/forest-hills/415/1978/results
 19780710,1978,Cincinnati,1978_422,Clay,Outdoor,$125000,64,https://www.atptour.com/en/scores/archive/cincinnati/422/1978/results
 19780710,1978,Gstaad,1978_314,Clay,Outdoor,$75000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1978/results
@@ -1033,7 +1033,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19781127,1978,Calcutta,1978_680,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/calcutta/680/1978/results
 19781212,1978,WCT Challenge Cup,1978_3934,Hard,Outdoor,$320000,8,https://www.atptour.com/en/scores/archive/montego-bay/3934/1978/results
 19781218,1978,Sydney Outdoor,1978_338,Grass,Outdoor,$125000,64,https://www.atptour.com/en/scores/archive/sydney/338/1978/results
-19781226,1978,Australian Open,1978_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1978/results
+19781226,1978,Australian Open,1978_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1978/results
 19790110,1978,Masters,1978_605,Carpet,Indoor,$400000,8,https://www.atptour.com/en/scores/archive/masters/605/1978/results
 19790101,1979,Hobart,1979_713,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/hobart/713/1979/results
 19790102,1979,Auckland,1979_301,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/auckland/301/1979/results
@@ -1173,12 +1173,12 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19800512,1980,Florence,1980_310,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/florence/310/1980/results
 19800519,1980,Rome,1980_416,Clay,Outdoor,$200000,64,https://www.atptour.com/en/scores/archive/rome/416/1980/results
 19800520,1980,Munich,1980_308,Clay,Outdoor,$75000,32,https://www.atptour.com/en/scores/archive/munich/308/1980/results
-19800526,1980,Roland Garros,1980_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1980/results
+19800526,1980,Roland Garros,1980_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1980/results
 19800609,1980,London / Queen's Club,1980_311,Grass,Outdoor,$125000,64,https://www.atptour.com/en/scores/archive/london/311/1980/results
 19800609,1980,Brussels,1980_406,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/brussels/406/1980/results
 19800616,1980,Surbiton,1980_720,Grass,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/surbiton/720/1980/results
 19800618,1980,Vienna Outdoor,1980_208,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/vienna/208/1980/results
-19800623,1980,Wimbledon,1980_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1980/results
+19800623,1980,Wimbledon,1980_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1980/results
 19800707,1980,Gstaad,1980_314,Clay,Outdoor,$125000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1980/results
 19800707,1980,Newport,1980_315,Grass,Outdoor,$100000,32,https://www.atptour.com/en/scores/archive/newport/315/1980/results
 19800714,1980,Boston,1980_417,Clay,Outdoor,$175000,64,https://www.atptour.com/en/scores/archive/boston/417/1980/results
@@ -1231,7 +1231,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19801209,1980,WCT Challenge Cup,1980_3934,Carpet,Indoor,$320000,8,https://www.atptour.com/en/scores/archive/montreal/3934/1980/results
 19801215,1980,Sydney Outdoor,1980_338,Grass,Outdoor,$125000,64,https://www.atptour.com/en/scores/archive/sydney/338/1980/results
 19801215,1980,Sofia,1980_364,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/sofia/364/1980/results
-19801226,1980,Australian Open,1980_580,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/australian-open/580/1980/results
+19801226,1980,Australian Open,1980_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1980/results
 19810114,1980,Masters,1980_605,Carpet,Indoor,$400000,8,https://www.atptour.com/en/scores/archive/masters/605/1980/results
 19810105,1981,Adelaide,1981_7308,Grass,Outdoor,$57000,32,https://www.atptour.com/en/scores/archive/adelaide/7308/1981/results
 19810105,1981,Auckland,1981_301,Hard,Outdoor,$57000,32,https://www.atptour.com/en/scores/archive/auckland/301/1981/results
@@ -1273,12 +1273,12 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19810511,1981,Florence,1981_310,Clay,Outdoor,$57000,32,https://www.atptour.com/en/scores/archive/florence/310/1981/results
 19810518,1981,Rome,1981_416,Clay,Outdoor,$228600,64,https://www.atptour.com/en/scores/archive/rome/416/1981/results
 19810518,1981,Munich,1981_308,Clay,Outdoor,$85500,32,https://www.atptour.com/en/scores/archive/munich/308/1981/results
-19810525,1981,Roland Garros,1981_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1981/results
+19810525,1981,Roland Garros,1981_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1981/results
 19810608,1981,London / Queen's Club,1981_311,Grass,Outdoor,$142500,64,https://www.atptour.com/en/scores/archive/london/311/1981/results
 19810608,1981,Brussels,1981_273,Clay,Outdoor,$57000,32,https://www.atptour.com/en/scores/archive/brussels/273/1981/results
 19810615,1981,Bristol,1981_313,Grass,Outdoor,$85500,32,https://www.atptour.com/en/scores/archive/bristol/313/1981/results
 19810615,1981,Venice,1981_702,Clay,Outdoor,$57000,32,https://www.atptour.com/en/scores/archive/venice/702/1981/results
-19810622,1981,Wimbledon,1981_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1981/results
+19810622,1981,Wimbledon,1981_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1981/results
 19810706,1981,Gstaad,1981_314,Clay,Outdoor,$142500,32,https://www.atptour.com/en/scores/archive/gstaad/314/1981/results
 19810706,1981,Newport,1981_315,Grass,Outdoor,$114000,32,https://www.atptour.com/en/scores/archive/newport/315/1981/results
 19810713,1981,Boston,1981_417,Clay,Outdoor,$200000,64,https://www.atptour.com/en/scores/archive/boston/417/1981/results
@@ -1372,11 +1372,11 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19820510,1982,Florence,1982_310,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/florence/310/1982/results
 19820517,1982,Rome,1982_416,Clay,Outdoor,$370000,64,https://www.atptour.com/en/scores/archive/rome/416/1982/results
 19820517,1982,Munich,1982_308,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/munich/308/1982/results
-19820524,1982,Roland Garros,1982_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1982/results
+19820524,1982,Roland Garros,1982_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1982/results
 19820607,1982,London / Queen's Club,1982_311,Grass,Outdoor,$177000,64,https://www.atptour.com/en/scores/archive/london/311/1982/results
 19820607,1982,Venice,1982_702,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/venice/702/1982/results
 19820614,1982,Bristol,1982_313,Grass,Outdoor,$118000,32,https://www.atptour.com/en/scores/archive/bristol/313/1982/results
-19820621,1982,Wimbledon,1982_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1982/results
+19820621,1982,Wimbledon,1982_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1982/results
 19820705,1982,Gstaad,1982_314,Clay,Outdoor,$118000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1982/results
 19820705,1982,Newport,1982_315,Grass,Outdoor,$118000,32,https://www.atptour.com/en/scores/archive/newport/315/1982/results
 19820712,1982,Zell Am See WCT,1982_811,Clay,Outdoor,$300000,32,https://www.atptour.com/en/scores/archive/zell-am-see/811/1982/results
@@ -1427,9 +1427,9 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19821115,1982,Bangkok,1982_334,Carpet,Indoor,$88500,32,https://www.atptour.com/en/scores/archive/bangkok/334/1982/results
 19821122,1982,Johannesburg,1982_426,Hard,Outdoor,$370000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1982/results
 19821122,1982,Itaparica,1982_240,Grass,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/itaparica/240/1982/results
-19821122,1982,Bahia,1982_726,Carpet,Outdoor,"",32,https://www.atptour.com/en/scores/archive/bahia/726/1982/results
+19821122,1982,Bahia,1982_726,Carpet,Outdoor,,32,https://www.atptour.com/en/scores/archive/bahia/726/1982/results
 19821130,1982,Chicago-2 WCT,1982_818,Carpet,Indoor,$300000,16,https://www.atptour.com/en/scores/archive/chicago/818/1982/results
-19821202,1982,Australian Open,1982_580,Grass,Outdoor,"",96,https://www.atptour.com/en/scores/archive/australian-open/580/1982/results
+19821202,1982,Australian Open,1982_580,Grass,Outdoor,,96,https://www.atptour.com/en/scores/archive/australian-open/580/1982/results
 19821206,1982,Toulouse,1982_327,Hard,Indoor,$88500,32,https://www.atptour.com/en/scores/archive/toulouse/327/1982/results
 19821213,1982,Sydney Outdoor,1982_338,Grass,Outdoor,$147000,64,https://www.atptour.com/en/scores/archive/sydney/338/1982/results
 19821214,1982,Hartford WCT,1982_819,Carpet,Indoor,$300000,16,https://www.atptour.com/en/scores/archive/hartford/819/1982/results
@@ -1471,11 +1471,11 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19830509,1983,Florence,1983_310,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/florence/310/1983/results
 19830516,1983,Rome,1983_416,Clay,Outdoor,$375000,64,https://www.atptour.com/en/scores/archive/rome/416/1983/results
 19830516,1983,Munich,1983_308,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/munich/308/1983/results
-19830523,1983,Roland Garros,1983_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1983/results
+19830523,1983,Roland Garros,1983_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1983/results
 19830606,1983,London / Queen's Club,1983_311,Grass,Outdoor,$250000,64,https://www.atptour.com/en/scores/archive/london/311/1983/results
 19830606,1983,Venice,1983_702,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/venice/702/1983/results
 19830613,1983,Bristol,1983_313,Grass,Outdoor,$117000,32,https://www.atptour.com/en/scores/archive/bristol/313/1983/results
-19830620,1983,Wimbledon,1983_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1983/results
+19830620,1983,Wimbledon,1983_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1983/results
 19830704,1983,Gstaad,1983_314,Clay,Outdoor,$117000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1983/results
 19830704,1983,Newport,1983_315,Grass,Outdoor,$117000,32,https://www.atptour.com/en/scores/archive/newport/315/1983/results
 19830711,1983,Boston,1983_417,Clay,Outdoor,$265000,56,https://www.atptour.com/en/scores/archive/boston/417/1983/results
@@ -1515,7 +1515,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19831121,1983,Johannesburg,1983_426,Hard,Outdoor,$375000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1983/results
 19831121,1983,Toulouse,1983_327,Hard,Indoor,$117000,32,https://www.atptour.com/en/scores/archive/toulouse/327/1983/results
 19831121,1983,Bahia,1983_726,Hard,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/bahia/726/1983/results
-19831129,1983,Australian Open,1983_580,Grass,Outdoor,"",96,https://www.atptour.com/en/scores/archive/australian-open/580/1983/results
+19831129,1983,Australian Open,1983_580,Grass,Outdoor,,96,https://www.atptour.com/en/scores/archive/australian-open/580/1983/results
 19831212,1983,Sydney Outdoor,1983_338,Grass,Outdoor,$150000,64,https://www.atptour.com/en/scores/archive/sydney/338/1983/results
 19831229,1983,Adelaide,1983_7308,Grass,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/adelaide/7308/1983/results
 19840110,1983,Masters,1983_605,Carpet,Indoor,$400000,16,https://www.atptour.com/en/scores/archive/masters/605/1983/results
@@ -1533,7 +1533,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19840326,1984,Boca West,1984_718,Hard,Outdoor,$315000,32,https://www.atptour.com/en/scores/archive/boca-west/718/1984/results
 19840402,1984,Houston WCT,1984_405,Clay,Outdoor,$250000,16,https://www.atptour.com/en/scores/archive/houston/405/1984/results
 19840402,1984,Bari,1984_306,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/bari/306/1984/results
-19840402,1984,WCT Invitational/Houston,1984_820,Clay,Outdoor,"",16,https://www.atptour.com/en/scores/archive/houston/820/1984/results
+19840402,1984,WCT Invitational/Houston,1984_820,Clay,Outdoor,,16,https://www.atptour.com/en/scores/archive/houston/820/1984/results
 19840409,1984,Luxembourg,1984_431,Hard,Indoor,$265000,32,https://www.atptour.com/en/scores/archive/luxembourg/431/1984/results
 19840409,1984,Nice,1984_6120,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/nice/6120/1984/results
 19840416,1984,Monte Carlo,1984_410,Clay,Outdoor,$405000,32,https://www.atptour.com/en/scores/archive/monte-carlo/410/1984/results
@@ -1545,10 +1545,10 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19840513,1984,Rome,1984_416,Clay,Outdoor,$375000,64,https://www.atptour.com/en/scores/archive/rome/416/1984/results
 19840514,1984,Munich,1984_308,Clay,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/munich/308/1984/results
 19840521,1984,World Team Cup,1984_615,Clay,Outdoor,$531000,16,https://www.atptour.com/en/scores/archive/dusseldorf/615/1984/results
-19840528,1984,Roland Garros,1984_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1984/results
+19840528,1984,Roland Garros,1984_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1984/results
 19840611,1984,London / Queen's Club,1984_311,Grass,Outdoor,$250000,64,https://www.atptour.com/en/scores/archive/london/311/1984/results
 19840618,1984,Bristol,1984_313,Grass,Outdoor,$117000,64,https://www.atptour.com/en/scores/archive/bristol/313/1984/results
-19840625,1984,Wimbledon,1984_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1984/results
+19840625,1984,Wimbledon,1984_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1984/results
 19840709,1984,Gstaad,1984_314,Clay,Outdoor,$150000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1984/results
 19840709,1984,Newport,1984_315,Grass,Outdoor,$117000,32,https://www.atptour.com/en/scores/archive/newport/315/1984/results
 19840716,1984,Boston,1984_417,Clay,Outdoor,$265000,64,https://www.atptour.com/en/scores/archive/boston/417/1984/results
@@ -1588,7 +1588,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19841112,1984,Treviso,1984_335,Carpet,Indoor,$88500,32,https://www.atptour.com/en/scores/archive/treviso/335/1984/results
 19841119,1984,Johannesburg,1984_426,Hard,Outdoor,$265000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1984/results
 19841119,1984,Toulouse,1984_327,Hard,Indoor,$117000,32,https://www.atptour.com/en/scores/archive/toulouse/327/1984/results
-19841126,1984,Australian Open,1984_580,Grass,Outdoor,"",96,https://www.atptour.com/en/scores/archive/australian-open/580/1984/results
+19841126,1984,Australian Open,1984_580,Grass,Outdoor,,96,https://www.atptour.com/en/scores/archive/australian-open/580/1984/results
 19841210,1984,Sydney Outdoor,1984_338,Grass,Outdoor,$150000,64,https://www.atptour.com/en/scores/archive/sydney/338/1984/results
 19841217,1984,Adelaide,1984_7308,Grass,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/adelaide/7308/1984/results
 19841224,1984,Melbourne,1984_340,Grass,Outdoor,$88500,32,https://www.atptour.com/en/scores/archive/melbourne/340/1984/results
@@ -1873,7 +1873,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19880919,1988,Los Angeles,1988_423,Hard,Outdoor,$415000,32,https://www.atptour.com/en/scores/archive/los-angeles/423/1988/results
 19880919,1988,Geneva,1988_322,Clay,Outdoor,$220000,32,https://www.atptour.com/en/scores/archive/geneva/322/1988/results
 19880919,1988,Bari,1988_306,Clay,Outdoor,$123400,32,https://www.atptour.com/en/scores/archive/bari/306/1988/results
-19880919,1988,Seoul Olympics,1988_88,Hard,Outdoor,"",64,https://www.atptour.com/en/scores/archive/seoul/88/1988/results
+19880919,1988,Seoul Olympics,1988_88,Hard,Outdoor,,64,https://www.atptour.com/en/scores/archive/seoul/88/1988/results
 19880926,1988,San Francisco,1988_424,Carpet,Indoor,$415000,32,https://www.atptour.com/en/scores/archive/san-francisco/424/1988/results
 19880926,1988,Palermo,1988_325,Clay,Outdoor,$123400,48,https://www.atptour.com/en/scores/archive/palermo/325/1988/results
 19881003,1988,Scottsdale,1988_433,Hard,Outdoor,$415000,32,https://www.atptour.com/en/scores/archive/scottsdale/433/1988/results
@@ -1886,7 +1886,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19881017,1988,Frankfurt,1988_348,Carpet,Indoor,$170000,32,https://www.atptour.com/en/scores/archive/frankfurt/348/1988/results
 19881018,1988,Tokyo Indoor,1988_428,Carpet,Indoor,$617500,32,https://www.atptour.com/en/scores/archive/tokyo/428/1988/results
 19881024,1988,Paris,1988_352,Carpet,Indoor,$1077500,32,https://www.atptour.com/en/scores/archive/paris/352/1988/results
-19881024,1988,Hong Kong,1988_336,Hard,Outdoor,"",0,https://www.atptour.com/en/scores/archive/hong-kong/336/1988/results
+19881024,1988,Hong Kong,1988_336,Hard,Outdoor,,0,https://www.atptour.com/en/scores/archive/hong-kong/336/1988/results
 19881031,1988,Stockholm,1988_429,Hard,Indoor,$642500,56,https://www.atptour.com/en/scores/archive/stockholm/429/1988/results
 19881031,1988,Sao Paulo,1988_237,Hard,Outdoor,$130000,32,https://www.atptour.com/en/scores/archive/sao-paulo/237/1988/results
 19881107,1988,Buenos Aires,1988_303,Clay,Outdoor,$123400,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1988/results
@@ -2061,7 +2061,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19901231,1991,Wellington,1991_354,Hard,Outdoor,$175000,32,https://www.atptour.com/en/scores/archive/wellington/354/1991/results
 19910107,1991,Sydney Outdoor,1991_338,Hard,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/sydney/338/1991/results
 19910107,1991,Auckland,1991_301,Hard,Outdoor,$175000,32,https://www.atptour.com/en/scores/archive/auckland/301/1991/results
-19910114,1991,Australian Open,1991_580,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/australian-open/580/1991/results
+19910114,1991,Australian Open,1991_580,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/australian-open/580/1991/results
 19910204,1991,Milan,1991_408,Carpet,Indoor,$600000,32,https://www.atptour.com/en/scores/archive/milan/408/1991/results
 19910204,1991,San Francisco,1991_424,Carpet,Indoor,$250000,32,https://www.atptour.com/en/scores/archive/san-francisco/424/1991/results
 19910204,1991,Guaruja,1991_201,Hard,Outdoor,$150000,32,https://www.atptour.com/en/scores/archive/guaruja/201/1991/results
@@ -2092,13 +2092,13 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19910513,1991,Umag,1991_439,Clay,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/umag/439/1991/results
 19910520,1991,World Team Cup,1991_615,Clay,Outdoor,$1277500,32,https://www.atptour.com/en/scores/archive/dusseldorf/615/1991/results
 19910520,1991,Bologna,1991_312,Clay,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/bologna/312/1991/results
-19910527,1991,Roland Garros,1991_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1991/results
+19910527,1991,Roland Garros,1991_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1991/results
 19910610,1991,London / Queen's Club,1991_311,Grass,Outdoor,$500000,56,https://www.atptour.com/en/scores/archive/london/311/1991/results
 19910610,1991,Florence,1991_310,Clay,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/florence/310/1991/results
 19910610,1991,Rosmalen,1991_440,Grass,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/rosmalen/440/1991/results
 19910617,1991,Genova,1991_306,Clay,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/genova/306/1991/results
 19910617,1991,Manchester,1991_7310,Grass,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/manchester/7310/1991/results
-19910624,1991,Wimbledon,1991_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1991/results
+19910624,1991,Wimbledon,1991_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1991/results
 19910708,1991,Gstaad,1991_314,Clay,Outdoor,$305000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1991/results
 19910708,1991,Bastad,1991_316,Clay,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/bastad/316/1991/results
 19910708,1991,Newport,1991_315,Grass,Outdoor,$175000,32,https://www.atptour.com/en/scores/archive/newport/315/1991/results
@@ -2115,7 +2115,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19910812,1991,New Haven,1991_420,Hard,Outdoor,$1000000,56,https://www.atptour.com/en/scores/archive/new-haven/420/1991/results
 19910819,1991,Long Island,1991_441,Hard,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/long-island/441/1991/results
 19910819,1991,Schenectady,1991_224,Hard,Outdoor,$150000,32,https://www.atptour.com/en/scores/archive/schenectady/224/1991/results
-19910826,1991,US Open,1991_560,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/us-open/560/1991/results
+19910826,1991,US Open,1991_560,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-open/560/1991/results
 19910909,1991,Bordeaux,1991_323,Hard,Outdoor,$300000,32,https://www.atptour.com/en/scores/archive/bordeaux/323/1991/results
 19910909,1991,Brasilia,1991_463,Carpet,Outdoor,$250000,48,https://www.atptour.com/en/scores/archive/brasilia/463/1991/results
 19910909,1991,Geneva,1991_322,Clay,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/geneva/322/1991/results
@@ -2144,7 +2144,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19911230,1992,Wellington,1992_354,Hard,Outdoor,$182500,32,https://www.atptour.com/en/scores/archive/wellington/354/1992/results
 19920106,1992,Sydney Outdoor,1992_338,Hard,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/sydney/338/1992/results
 19920106,1992,Auckland,1992_301,Hard,Outdoor,$182500,32,https://www.atptour.com/en/scores/archive/auckland/301/1992/results
-19920113,1992,Australian Open,1992_580,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/australian-open/580/1992/results
+19920113,1992,Australian Open,1992_580,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/australian-open/580/1992/results
 19920203,1992,Milan,1992_408,Carpet,Indoor,$625000,32,https://www.atptour.com/en/scores/archive/milan/408/1992/results
 19920203,1992,San Francisco,1992_424,Hard,Indoor,$260000,32,https://www.atptour.com/en/scores/archive/san-francisco/424/1992/results
 19920203,1992,Maceio,1992_201,Clay,Outdoor,$155000,32,https://www.atptour.com/en/scores/archive/maceio/201/1992/results
@@ -2176,13 +2176,13 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19920511,1992,ATP Masters 1000 Rome,1992_416,Clay,Outdoor,$1403000,64,https://www.atptour.com/en/scores/archive/rome/416/1992/results
 19920518,1992,World Team Cup,1992_615,Clay,Outdoor,$1377500,32,https://www.atptour.com/en/scores/archive/dusseldorf/615/1992/results
 19920518,1992,Bologna,1992_312,Clay,Outdoor,$265000,32,https://www.atptour.com/en/scores/archive/bologna/312/1992/results
-19920525,1992,Roland Garros,1992_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1992/results
+19920525,1992,Roland Garros,1992_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1992/results
 19920608,1992,London / Queen's Club,1992_311,Grass,Outdoor,$525000,56,https://www.atptour.com/en/scores/archive/london/311/1992/results
 19920608,1992,Florence,1992_310,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/florence/310/1992/results
 19920608,1992,Rosmalen,1992_440,Grass,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/rosmalen/440/1992/results
 19920615,1992,Genova,1992_306,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/genova/306/1992/results
 19920615,1992,Manchester,1992_7310,Grass,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/manchester/7310/1992/results
-19920622,1992,Wimbledon,1992_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1992/results
+19920622,1992,Wimbledon,1992_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1992/results
 19920706,1992,Gstaad,1992_314,Clay,Outdoor,$330500,32,https://www.atptour.com/en/scores/archive/gstaad/314/1992/results
 19920706,1992,Bastad,1992_316,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/bastad/316/1992/results
 19920706,1992,Newport,1992_315,Grass,Outdoor,$200000,32,https://www.atptour.com/en/scores/archive/newport/315/1992/results
@@ -2192,7 +2192,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19920720,1992,Kitzbuhel,1992_319,Clay,Outdoor,$392500,48,https://www.atptour.com/en/scores/archive/kitzbuhel/319/1992/results
 19920720,1992,Hilversum,1992_317,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/hilversum/317/1992/results
 19920727,1992,San Marino,1992_475,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/san-marino/475/1992/results
-19920727,1992,Barcelona Olympics,1992_92,Clay,Outdoor,"",64,https://www.atptour.com/en/scores/archive/barcelona/92/1992/results
+19920727,1992,Barcelona Olympics,1992_92,Clay,Outdoor,,64,https://www.atptour.com/en/scores/archive/barcelona/92/1992/results
 19920803,1992,Los Angeles,1992_423,Hard,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/los-angeles/423/1992/results
 19920810,1992,ATP Masters 1000 Cincinnati,1992_422,Hard,Outdoor,$1405000,56,https://www.atptour.com/en/scores/archive/cincinnati/422/1992/results
 19920810,1992,Prague,1992_379,Clay,Outdoor,$365000,32,https://www.atptour.com/en/scores/archive/prague/379/1992/results
@@ -2201,7 +2201,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19920824,1992,Long Island,1992_441,Hard,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/long-island/441/1992/results
 19920824,1992,Umag,1992_439,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/umag/439/1992/results
 19920824,1992,Schenectady,1992_224,Hard,Outdoor,$155000,32,https://www.atptour.com/en/scores/archive/schenectady/224/1992/results
-19920831,1992,US Open,1992_560,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/us-open/560/1992/results
+19920831,1992,US Open,1992_560,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-open/560/1992/results
 19920914,1992,Bordeaux,1992_323,Clay,Outdoor,$330000,32,https://www.atptour.com/en/scores/archive/bordeaux/323/1992/results
 19920914,1992,Cologne,1992_7300,Clay,Outdoor,$270000,32,https://www.atptour.com/en/scores/archive/cologne/7300/1992/results
 19920928,1992,Basel,1992_328,Hard,Indoor,$775000,32,https://www.atptour.com/en/scores/archive/basel/328/1992/results
@@ -2274,7 +2274,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19930614,1993,Halle,1993_500,Grass,Outdoor,$375000,32,https://www.atptour.com/en/scores/archive/halle/500/1993/results
 19930614,1993,Genova,1993_306,Clay,Outdoor,$300000,32,https://www.atptour.com/en/scores/archive/genova/306/1993/results
 19930614,1993,Manchester,1993_7310,Grass,Outdoor,$300000,32,https://www.atptour.com/en/scores/archive/manchester/7310/1993/results
-19930621,1993,Wimbledon,1993_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1993/results
+19930621,1993,Wimbledon,1993_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1993/results
 19930705,1993,Gstaad,1993_314,Clay,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1993/results
 19930705,1993,Bastad,1993_316,Clay,Outdoor,$260000,32,https://www.atptour.com/en/scores/archive/bastad/316/1993/results
 19930705,1993,Newport,1993_315,Grass,Outdoor,$200000,32,https://www.atptour.com/en/scores/archive/newport/315/1993/results
@@ -2292,7 +2292,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19930823,1993,Umag,1993_439,Clay,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/umag/439/1993/results
 19930823,1993,Long Island,1993_441,Hard,Outdoor,$300000,32,https://www.atptour.com/en/scores/archive/long-island/441/1993/results
 19930823,1993,Schenectady,1993_224,Hard,Outdoor,$200000,32,https://www.atptour.com/en/scores/archive/schenectady/224/1993/results
-19930830,1993,US Open,1993_560,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/us-open/560/1993/results
+19930830,1993,US Open,1993_560,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-open/560/1993/results
 19930913,1993,Bucharest,1993_773,Clay,Outdoor,$525000,32,https://www.atptour.com/en/scores/archive/bucharest/773/1993/results
 19930913,1993,Bordeaux,1993_323,Hard,Outdoor,$355000,32,https://www.atptour.com/en/scores/archive/bordeaux/323/1993/results
 19930927,1993,Basel,1993_328,Hard,Indoor,$800000,32,https://www.atptour.com/en/scores/archive/basel/328/1993/results
@@ -2323,7 +2323,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19940110,1994,Auckland,1994_301,Hard,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/auckland/301/1994/results
 19940110,1994,Jakarta,1994_494,Hard,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/jakarta/494/1994/results
 19940110,1994,Sydney Outdoor,1994_338,Hard,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/sydney/338/1994/results
-19940117,1994,Australian Open,1994_580,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/australian-open/580/1994/results
+19940117,1994,Australian Open,1994_580,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/australian-open/580/1994/results
 19940131,1994,Dubai,1994_495,Hard,Outdoor,$1038750,32,https://www.atptour.com/en/scores/archive/dubai/495/1994/results
 19940131,1994,Marseille,1994_496,Carpet,Indoor,$538750,32,https://www.atptour.com/en/scores/archive/marseille/496/1994/results
 19940131,1994,San Jose,1994_424,Hard,Indoor,$313750,32,https://www.atptour.com/en/scores/archive/san-jose/424/1994/results
@@ -2358,7 +2358,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19940509,1994,Coral Springs,1994_499,Clay,Outdoor,$240000,32,https://www.atptour.com/en/scores/archive/coral-springs/499/1994/results
 19940516,1994,World Team Cup,1994_615,Clay,Outdoor,$1750000,32,https://www.atptour.com/en/scores/archive/dusseldorf/615/1994/results
 19940516,1994,Bologna,1994_312,Clay,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/bologna/312/1994/results
-19940523,1994,Roland Garros,1994_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1994/results
+19940523,1994,Roland Garros,1994_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1994/results
 19940606,1994,London / Queen's Club,1994_311,Grass,Outdoor,$625000,56,https://www.atptour.com/en/scores/archive/london/311/1994/results
 19940606,1994,Florence,1994_310,Clay,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/florence/310/1994/results
 19940606,1994,Rosmalen,1994_440,Grass,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/rosmalen/440/1994/results
@@ -2383,7 +2383,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19940822,1994,Umag,1994_439,Clay,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/umag/439/1994/results
 19940822,1994,Long Island,1994_441,Hard,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/long-island/441/1994/results
 19940822,1994,Schenectady,1994_224,Hard,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/schenectady/224/1994/results
-19940829,1994,US Open,1994_560,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/us-open/560/1994/results
+19940829,1994,US Open,1994_560,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-open/560/1994/results
 19940912,1994,Bucharest,1994_773,Clay,Outdoor,$550000,32,https://www.atptour.com/en/scores/archive/bucharest/773/1994/results
 19940912,1994,Bordeaux,1994_323,Hard,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/bordeaux/323/1994/results
 19940912,1994,Bogota,1994_359,Clay,Outdoor,$313750,32,https://www.atptour.com/en/scores/archive/bogota/359/1994/results
@@ -2414,7 +2414,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19950109,1995,Auckland,1995_301,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/auckland/301/1995/results
 19950109,1995,Jakarta,1995_494,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/jakarta/494/1995/results
 19950109,1995,Sydney Outdoor,1995_338,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/sydney/338/1995/results
-19950116,1995,Australian Open,1995_580,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/australian-open/580/1995/results
+19950116,1995,Australian Open,1995_580,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/australian-open/580/1995/results
 19950206,1995,Dubai,1995_495,Hard,Outdoor,$1039250,32,https://www.atptour.com/en/scores/archive/dubai/495/1995/results
 19950206,1995,Marseille,1995_496,Carpet,Indoor,$539250,32,https://www.atptour.com/en/scores/archive/marseille/496/1995/results
 19950206,1995,San Jose,1995_424,Hard,Indoor,$328000,32,https://www.atptour.com/en/scores/archive/san-jose/424/1995/results
@@ -2447,14 +2447,14 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19950515,1995,Coral Springs,1995_499,Clay,Outdoor,$255000,32,https://www.atptour.com/en/scores/archive/coral-springs/499/1995/results
 19950522,1995,World Team Cup,1995_615,Clay,Outdoor,$1800000,32,https://www.atptour.com/en/scores/archive/dusseldorf/615/1995/results
 19950522,1995,Bologna,1995_312,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/bologna/312/1995/results
-19950529,1995,Roland Garros,1995_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1995/results
+19950529,1995,Roland Garros,1995_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1995/results
 19950612,1995,London / Queen's Club,1995_311,Grass,Outdoor,$625000,56,https://www.atptour.com/en/scores/archive/london/311/1995/results
 19950612,1995,Oporto,1995_310,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/oporto/310/1995/results
 19950612,1995,Rosmalen,1995_440,Grass,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/rosmalen/440/1995/results
 19950619,1995,Halle,1995_500,Grass,Outdoor,$725000,32,https://www.atptour.com/en/scores/archive/halle/500/1995/results
 19950619,1995,St. Poelten,1995_306,Clay,Outdoor,$375000,32,https://www.atptour.com/en/scores/archive/st-poelten/306/1995/results
 19950619,1995,Nottingham,1995_741,Grass,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/nottingham/741/1995/results
-19950626,1995,Wimbledon,1995_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1995/results
+19950626,1995,Wimbledon,1995_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1995/results
 19950710,1995,Gstaad,1995_314,Clay,Outdoor,$550000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1995/results
 19950710,1995,Bastad,1995_316,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/bastad/316/1995/results
 19950710,1995,Newport,1995_315,Grass,Outdoor,$255000,32,https://www.atptour.com/en/scores/archive/newport/315/1995/results
@@ -2471,7 +2471,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19950814,1995,New Haven,1995_420,Hard,Outdoor,$1040000,56,https://www.atptour.com/en/scores/archive/new-haven/420/1995/results
 19950821,1995,Umag,1995_439,Clay,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/umag/439/1995/results
 19950821,1995,Long Island,1995_441,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/long-island/441/1995/results
-19950828,1995,US Open,1995_560,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/us-open/560/1995/results
+19950828,1995,US Open,1995_560,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-open/560/1995/results
 19950911,1995,Bucharest,1995_773,Clay,Outdoor,$1375000,32,https://www.atptour.com/en/scores/archive/bucharest/773/1995/results
 19950911,1995,Bordeaux,1995_323,Hard,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/bordeaux/323/1995/results
 19950911,1995,Bogota,1995_359,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/bogota/359/1995/results
@@ -2501,7 +2501,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19960108,1996,Auckland,1996_301,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/auckland/301/1996/results
 19960108,1996,Jakarta,1996_494,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/jakarta/494/1996/results
 19960108,1996,Sydney Outdoor,1996_338,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/sydney/338/1996/results
-19960115,1996,Australian Open,1996_580,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/australian-open/580/1996/results
+19960115,1996,Australian Open,1996_580,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/australian-open/580/1996/results
 19960129,1996,Zagreb,1996_7301,Carpet,Indoor,$400000,32,https://www.atptour.com/en/scores/archive/zagreb/7301/1996/results
 19960129,1996,Shanghai,1996_890,Carpet,Indoor,$330000,32,https://www.atptour.com/en/scores/archive/shanghai/890/1996/results
 19960212,1996,Dubai,1996_495,Hard,Outdoor,$1039250,32,https://www.atptour.com/en/scores/archive/dubai/495/1996/results
@@ -2536,21 +2536,21 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19960513,1996,Coral Springs,1996_499,Clay,Outdoor,$270000,32,https://www.atptour.com/en/scores/archive/delray-beach/499/1996/results
 19960520,1996,World Team Cup,1996_615,Clay,Outdoor,$1900000,32,https://www.atptour.com/en/scores/archive/dusseldorf/615/1996/results
 19960520,1996,St. Poelten,1996_306,Clay,Outdoor,$425000,32,https://www.atptour.com/en/scores/archive/st-poelten/306/1996/results
-19960527,1996,Roland Garros,1996_520,Clay,Outdoor,"",128,https://www.atptour.com/en/scores/archive/roland-garros/520/1996/results
+19960527,1996,Roland Garros,1996_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1996/results
 19960610,1996,London / Queen's Club,1996_311,Grass,Outdoor,$700000,56,https://www.atptour.com/en/scores/archive/london/311/1996/results
 19960610,1996,Rosmalen,1996_440,Grass,Outdoor,$500000,32,https://www.atptour.com/en/scores/archive/rosmalen/440/1996/results
 19960610,1996,Oporto,1996_310,Clay,Outdoor,$425000,32,https://www.atptour.com/en/scores/archive/oporto/310/1996/results
 19960617,1996,Halle,1996_500,Grass,Outdoor,$900000,32,https://www.atptour.com/en/scores/archive/halle/500/1996/results
 19960617,1996,Bologna,1996_312,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/bologna/312/1996/results
 19960617,1996,Nottingham,1996_741,Grass,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/nottingham/741/1996/results
-19960624,1996,Wimbledon,1996_540,Grass,Outdoor,"",128,https://www.atptour.com/en/scores/archive/wimbledon/540/1996/results
+19960624,1996,Wimbledon,1996_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1996/results
 19960708,1996,Gstaad,1996_314,Clay,Outdoor,$550000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1996/results
 19960708,1996,Bastad,1996_316,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/bastad/316/1996/results
 19960708,1996,Newport,1996_315,Grass,Outdoor,$255000,32,https://www.atptour.com/en/scores/archive/newport/315/1996/results
 19960715,1996,Stuttgart Outdoor,1996_321,Clay,Outdoor,$1040000,48,https://www.atptour.com/en/scores/archive/stuttgart/321/1996/results
 19960715,1996,Washington,1996_418,Hard,Outdoor,$675000,56,https://www.atptour.com/en/scores/archive/washington/418/1996/results
 19960722,1996,Kitzbuhel,1996_319,Clay,Outdoor,$425000,48,https://www.atptour.com/en/scores/archive/kitzbuhel/319/1996/results
-19960722,1996,Atlanta Olympics,1996_96,Hard,Outdoor,"",64,https://www.atptour.com/en/scores/archive/atlanta/96/1996/results
+19960722,1996,Atlanta Olympics,1996_96,Hard,Outdoor,,64,https://www.atptour.com/en/scores/archive/atlanta/96/1996/results
 19960729,1996,Amsterdam,1996_317,Clay,Outdoor,$500000,32,https://www.atptour.com/en/scores/archive/amsterdam/317/1996/results
 19960729,1996,Los Angeles,1996_423,Hard,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/los-angeles/423/1996/results
 19960805,1996,ATP Masters 1000 Cincinnati,1996_422,Hard,Outdoor,$2200000,56,https://www.atptour.com/en/scores/archive/cincinnati/422/1996/results
@@ -2560,7 +2560,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19960812,1996,Umag,1996_439,Clay,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/umag/439/1996/results
 19960819,1996,ATP Masters 1000 Canada,1996_421,Hard,Outdoor,$2000000,56,https://www.atptour.com/en/scores/archive/toronto/421/1996/results
 19960819,1996,Long Island,1996_441,Hard,Outdoor,$250000,32,https://www.atptour.com/en/scores/archive/long-island/441/1996/results
-19960826,1996,US Open,1996_560,Hard,Outdoor,"",128,https://www.atptour.com/en/scores/archive/us-open/560/1996/results
+19960826,1996,US Open,1996_560,Hard,Outdoor,,128,https://www.atptour.com/en/scores/archive/us-open/560/1996/results
 19960909,1996,Bucharest,1996_773,Clay,Outdoor,$500000,32,https://www.atptour.com/en/scores/archive/bucharest/773/1996/results
 19960909,1996,Bournemouth,1996_620,Clay,Outdoor,$400000,32,https://www.atptour.com/en/scores/archive/bournemouth/620/1996/results
 19960909,1996,Bogota,1996_359,Clay,Outdoor,$328000,32,https://www.atptour.com/en/scores/archive/bogota/359/1996/results
@@ -2873,7 +2873,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20000828,2000,US Open,2000_560,Hard,Outdoor,$6467000,128,https://www.atptour.com/en/scores/archive/us-open/560/2000/results
 20000911,2000,Tashkent,2000_73,Hard,Outdoor,$525000,32,https://www.atptour.com/en/scores/archive/tashkent/73/2000/results
 20000911,2000,Bucharest,2000_773,Clay,Outdoor,$375000,32,https://www.atptour.com/en/scores/archive/bucharest/773/2000/results
-20000918,2000,Sydney Olympics,2000_96,Hard,Outdoor,"",64,https://www.atptour.com/en/scores/archive/sydney/96/2000/results
+20000918,2000,Sydney Olympics,2000_96,Hard,Outdoor,,64,https://www.atptour.com/en/scores/archive/sydney/96/2000/results
 20000925,2000,Palermo,2000_325,Clay,Outdoor,$375000,32,https://www.atptour.com/en/scores/archive/palermo/325/2000/results
 20001002,2000,Hong Kong,2000_336,Hard,Outdoor,$375000,32,https://www.atptour.com/en/scores/archive/hong-kong/336/2000/results
 20001009,2000,Tokyo,2000_329,Hard,Outdoor,$800000,56,https://www.atptour.com/en/scores/archive/tokyo/329/2000/results
@@ -3145,7 +3145,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20040802,2004,ATP Masters 1000 Cincinnati,2004_422,Hard,Outdoor,$2450000,64,https://www.atptour.com/en/scores/archive/cincinnati/422/2004/results
 20040809,2004,Sopot,2004_475,Clay,Outdoor,$500000,32,https://www.atptour.com/en/scores/archive/sopot/475/2004/results
 20040816,2004,Washington,2004_418,Hard,Outdoor,$500000,32,https://www.atptour.com/en/scores/archive/washington/418/2004/results
-20040816,2004,Athens Olympics,2004_96,Hard,Outdoor,"",64,https://www.atptour.com/en/scores/archive/athens/96/2004/results
+20040816,2004,Athens Olympics,2004_96,Hard,Outdoor,,64,https://www.atptour.com/en/scores/archive/athens/96/2004/results
 20040823,2004,Long Island,2004_441,Hard,Outdoor,$380000,32,https://www.atptour.com/en/scores/archive/long-island/441/2004/results
 20040830,2004,US Open,2004_560,Hard,Outdoor,$7696000,128,https://www.atptour.com/en/scores/archive/us-open/560/2004/results
 20040913,2004,Beijing,2004_747,Hard,Outdoor,$500000,32,https://www.atptour.com/en/scores/archive/beijing/747/2004/results
@@ -3418,7 +3418,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20080728,2008,ATP Masters 1000 Cincinnati,2008_422,Hard,Outdoor,$2615000,56,https://www.atptour.com/en/scores/archive/cincinnati/422/2008/results
 20080804,2008,Los Angeles,2008_423,Hard,Outdoor,$475000,28,https://www.atptour.com/en/scores/archive/los-angeles/423/2008/results
 20080810,2008,Washington,2008_418,Hard,Outdoor,$508000,32,https://www.atptour.com/en/scores/archive/washington/418/2008/results
-20080811,2008,Beijing Olympics,2008_96,Hard,Outdoor,"",64,https://www.atptour.com/en/scores/archive/beijing/96/2008/results
+20080811,2008,Beijing Olympics,2008_96,Hard,Outdoor,,64,https://www.atptour.com/en/scores/archive/beijing/96/2008/results
 20080817,2008,New Haven,2008_3348,Hard,Outdoor,$708000,48,https://www.atptour.com/en/scores/archive/new-haven/3348/2008/results
 20080825,2008,US Open,2008_560,Hard,Outdoor,$9350000,128,https://www.atptour.com/en/scores/archive/us-open/560/2008/results
 20080908,2008,Bucharest,2008_773,Clay,Outdoor,€370000,32,https://www.atptour.com/en/scores/archive/bucharest/773/2008/results
@@ -3680,7 +3680,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20120716,2012,Gstaad,2012_314,Clay,Outdoor,€410175,28,https://www.atptour.com/en/scores/archive/gstaad/314/2012/results
 20120722,2012,Kitzbühel,2012_319,Clay,Outdoor,€410175,28,https://www.atptour.com/en/scores/archive/kitzbuhel/319/2012/results
 20120723,2012,Los Angeles,2012_423,Hard,Outdoor,$638050,28,https://www.atptour.com/en/scores/archive/los-angeles/423/2012/results
-20120725,2012,London Olympics,2012_96,Grass,Outdoor,"",64,https://www.atptour.com/en/scores/archive/london/96/2012/results
+20120725,2012,London Olympics,2012_96,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/london/96/2012/results
 20120730,2012,Washington,2012_418,Hard,Outdoor,$1286260,32,https://www.atptour.com/en/scores/archive/washington/418/2012/results
 20120806,2012,ATP Masters 1000 Canada,2012_421,Hard,Outdoor,$3218700,48,https://www.atptour.com/en/scores/archive/toronto/421/2012/results
 20120812,2012,ATP Masters 1000 Cincinnati,2012_422,Hard,Outdoor,$3433280,56,https://www.atptour.com/en/scores/archive/cincinnati/422/2012/results
@@ -3944,7 +3944,7 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20160718,2016,Umag,2016_439,Clay,Outdoor,€520070,28,https://www.atptour.com/en/scores/archive/umag/439/2016/results
 20160725,2016,ATP Masters 1000 Canada,2016_421,Hard,Outdoor,$4691730,56,https://www.atptour.com/en/scores/archive/toronto/421/2016/results
 20160801,2016,Atlanta,2016_6116,Hard,Outdoor,$693425,28,https://www.atptour.com/en/scores/archive/atlanta/6116/2016/results
-20160804,2016,Rio de Janeiro Olympic Games,2016_96,Hard,Outdoor,"",64,https://www.atptour.com/en/scores/archive/rio-de-janeiro/96/2016/results
+20160804,2016,Rio de Janeiro Olympic Games,2016_96,Hard,Outdoor,,64,https://www.atptour.com/en/scores/archive/rio-de-janeiro/96/2016/results
 20160808,2016,Los Cabos,2016_7480,Hard,Outdoor,$808995,28,https://www.atptour.com/en/scores/archive/los-cabos/7480/2016/results
 20160814,2016,ATP Masters 1000 Cincinnati,2016_422,Hard,Outdoor,$5004505,56,https://www.atptour.com/en/scores/archive/cincinnati/422/2016/results
 20160821,2016,Winston-Salem,2016_6242,Hard,Outdoor,$720940,48,https://www.atptour.com/en/scores/archive/winston-salem/6242/2016/results
@@ -4119,6 +4119,6 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20190225,2019,Brasil Open,2019_533,Clay,Indoor,$618810,28,https://www.atptour.com/en/scores/archive/sao-paulo/533/2019/results
 20190307,2019,BNP Paribas Open,2019_404,Hard,Outdoor,$9314875,96,https://www.atptour.com/en/scores/archive/indian-wells/404/2019/results
 20190320,2019,Miami Open presented by Itau,2019_403,Hard,Outdoor,$9314875,96,https://www.atptour.com/en/scores/archive/miami/403/2019/results
-20190408,2019,Fayez Sarofim & Co. U.S. Men's Clay Court Championship,scores/current/houston/717/live-scores_en,Clay,Outdoor,$652245,28,https://www.atptour.com/en/scores/current/houston/717/live-scores
-20190408,2019,Grand Prix Hassan II,scores/current/marrakech/360/live-scores_en,Clay,Outdoor,€586140,32,https://www.atptour.com/en/scores/current/marrakech/360/live-scores
-20190414,2019,Rolex Monte-Carlo Masters,scores/current/monte-carlo/410/live-scores_en,Clay,Outdoor,€5585030,56,https://www.atptour.com/en/scores/current/monte-carlo/410/live-scores
+20190408,2019,Fayez Sarofim & Co. U.S. Men's Clay Court Championship,2019_717,Clay,Outdoor,$652245,28,https://www.atptour.com/en/scores/current/houston/717/live-scores
+20190408,2019,Grand Prix Hassan II,2019_360,Clay,Outdoor,€586140,32,https://www.atptour.com/en/scores/current/marrakech/360/live-scores
+20190414,2019,Rolex Monte-Carlo Masters,2019_410,Clay,Outdoor,€5585030,56,https://www.atptour.com/en/scores/current/monte-carlo/410/live-scores

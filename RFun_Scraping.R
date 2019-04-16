@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-15 16:31:46 delucia"
+### Time-stamp: "Last modified 2019-04-16 12:21:56 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year) {
@@ -43,10 +43,22 @@ ScrapeYear <- function(year) {
     if (FALSE %in% have_results)
         cat(paste(":ScrapeYear: No results (and no url) for ", paste(title[!have_results], collapse = " ; "), year,"\n"))
 
-    ## retrieve the tourney_id from the urls themselves
-    tourid <- gsub(".*archive/(.*)/results","\\1", tourney_urls)
-    tourney_ids <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tourid) ## remove the name
+    ## discriminate between current/monte-carlo/410/live-scores and archive/australasian-championships/580/1915/results
+    has_current <- grep("current", tourney_urls)
+    ## retrieve the tourney_id from the urls themselves if there is no "current"
+    tourid <- gsub(".*archive/(.*)/results","\\1", tourney_urls[-has_current])
+    tourney_ids_archive <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tourid) ## remove the name
 
+    ## change it if there is "current"
+    tourid <- gsub(".*current/(.*)/live-scores","\\1", tourney_urls[has_current])
+    tourney_ids_current <- paste0(year, "_", gsub("^.*?/(.*)$","\\1", tourid))
+
+    ## bring the ids together
+    tourney_ids <- rep(NA_character_, nrow(table))
+    tourney_ids[ has_current] <- tourney_ids_current
+    tourney_ids[-has_current] <- tourney_ids_archive
+
+    
     ## commitment should live in table[,6], clean up the "," as
     ## thousands separator
     commitment <- gsub(",","", table[,6], fixed=TRUE)
@@ -69,10 +81,20 @@ ScrapeTourney <- function(url, id, details=FALSE) {
     
     if (is.na(url) | url=="") return(NA_character_)
     
-    ## retrieve the tourney_id and tourney name from the url itself
-    tourid <- gsub(".*archive/(.*)/results","\\1", url)
-    tourney_id <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tourid) 
-    name_url   <- gsub("(^.*?)/.*/(.*)$","\\1_\\2", tourid) 
+
+    ## discriminate between current/monte-carlo/410/live-scores and archive/australasian-championships/580/1915/results
+    has_current <- grep("current", url)
+    if (length(has_current)==0) {
+        ## url is from archive
+        tourid <- gsub(".*archive/(.*)/results","\\1", url)
+        tourney_id <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tourid) ## remove the name
+        name_url   <- gsub("(^.*?)/.*$","\\1", tourid) 
+    } else {
+        ## change it if there is "current"
+        tourid <- gsub(".*current/(.*)/live-scores","\\1", url)
+        tourney_id <- paste0("2019_", gsub("^.*?/(.*)$","\\1", tourid))
+        name_url   <- gsub("(^.*?)/.*$","\\1", tourid) 
+    }
 
     require(rvest)
     require(httr)
@@ -92,21 +114,38 @@ ScrapeTourney <- function(url, id, details=FALSE) {
     
     table <- table[[1]]
 
-    hash_round <- c("Finals"="F",
-                    "Semi-Finals"="SF",
-                    "Quarter-Finals"="QF",
-                    "Round of 16"="R16",
-                    "Round of 32"="R32",
-                    "Round of 64"="R64",
-                    "Round of 128"="R128",
-                    "Round Robin"="RR",
-                    "3rd Round Qualifying"="Q3",
-                    "2nd Round Qualifying"="Q2",
-                    "1st Round Qualifying"="Q1")
-
     ind_round <- which(table[,2]!="")
     tmprounds <- table[ind_round,2]
     rounds <- rep(NA_character_,nrow(table))
+
+    if ("Final" %in% tmprounds | "Quarterfinal" %in% tmprounds) {
+        hash_round <- c("Final"="F",
+                        "Semifinals"="SF",
+                        "Quarterfinals"="QF",
+                        "Round of 16"="R16",
+                        "Round of 32"="R32",
+                        "Round of 64"="R64",
+                        "Round of 128"="R128",
+                        "Round Robin"="RR",
+                        "3rd Round Qualifying"="Q3",
+                        "2nd Round Qualifying"="Q2",
+                        "1st Round Qualifying"="Q1")
+
+        
+    } else {
+        hash_round <- c("Finals"="F",
+                        "Semi-Finals"="SF",
+                        "Quarter-Finals"="QF",
+                        "Round of 16"="R16",
+                        "Round of 32"="R32",
+                        "Round of 64"="R64",
+                        "Round of 128"="R128",
+                        "Round Robin"="RR",
+                        "3rd Round Qualifying"="Q3",
+                        "2nd Round Qualifying"="Q2",
+                        "1st Round Qualifying"="Q1")
+    }
+
 
     if (length(tmprounds)>1) {
         for (i in seq_along(tmprounds)[-1]) {
@@ -240,25 +279,25 @@ ScrapeTourney <- function(url, id, details=FALSE) {
 ScrapeMatch <- function(url, winner) {
 
     ## prepare the return container if we can't scrape
-    ret_na <- c("w_ace"     = NA_character_,
-                "w_df"      = NA_character_,
-                "w_svpt"    = NA_character_,
-                "w_1stIn"   = NA_character_,
-                "w_1stWon"  = NA_character_,
-                "w_2ndWon"  = NA_character_,
-                "w_SvGms"   = NA_character_,
-                "w_bpSaved" = NA_character_,
-                "w_bpFaced" = NA_character_,
-                "l_ace"     = NA_character_,
-                "l_df"      = NA_character_,
-                "l_svpt"    = NA_character_,
-                "l_1stIn"   = NA_character_,
-                "l_1stWon"  = NA_character_,
-                "l_2ndWon"  = NA_character_,
-                "l_SvGms"   = NA_character_,
-                "l_bpSaved" = NA_character_,
-                "l_bpFaced" = NA_character_,
-                "minutes"   = NA_character_)
+    ret_na <- c("w_ace"     = NA_integer_,
+                "w_df"      = NA_integer_,
+                "w_svpt"    = NA_integer_,
+                "w_1stIn"   = NA_integer_,
+                "w_1stWon"  = NA_integer_,
+                "w_2ndWon"  = NA_integer_,
+                "w_SvGms"   = NA_integer_,
+                "w_bpSaved" = NA_integer_,
+                "w_bpFaced" = NA_integer_,
+                "l_ace"     = NA_integer_,
+                "l_df"      = NA_integer_,
+                "l_svpt"    = NA_integer_,
+                "l_1stIn"   = NA_integer_,
+                "l_1stWon"  = NA_integer_,
+                "l_2ndWon"  = NA_integer_,
+                "l_SvGms"   = NA_integer_,
+                "l_bpSaved" = NA_integer_,
+                "l_bpFaced" = NA_integer_,
+                "minutes"   = NA_integer_)
     ## proceed only if url is not NA
     if (is.na(url)) {
         return(ret_na)

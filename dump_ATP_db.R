@@ -12,14 +12,13 @@ for (i in seq_along(years)) {
 
 alltourn <- rbindlist(dbyears)
 
-fwrite(alltourn, file = "all_tourneys_in_atp_db_until_today.csv", eol="\n")
+fwrite(alltourn, file = "all_tourneys_in_atp_db_until_today.csv", eol="\n", quote=FALSE)
 
 ## The data.table alltourn (4101 rows) as of today 2019 04 09
 ## contains all urls for tourney results. Now we can scrape for the tournaments
 ## and afterwards for each single match!
 
-alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
-
+alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_, quote=FALSE)
 
 ### scrape the tournaments
 ## tourneys <- vector(mode="list", length=length(alltourn$url))
@@ -70,6 +69,7 @@ allmat <- lapply(seq_along(tt), function(i) add_info_from_tour(tour=at[i], match
 
 all_matches_in_atp_db <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
 
+db19 <- rbindlist(tt, use.names=TRUE, fill=TRUE)
 
 setcolorder(all_matches_in_atp_db, c("year","date","tourney_name","tourney_id", "tourney_id_from_url","surface","indoor","commitment", 
                                      "draw_size", "round","winner_id","winner_seed", "winner_name","score", 
@@ -153,42 +153,3 @@ save(list=c("tourneys_lapply", "ind_nodata", "alltourn","dbyears","all_matches_i
 
 ## to eventually load back the results in anorher R session:
 # load("20190412_Dump.Rdata")
-
-## write everything in a csv
-fwrite(all_matches_in_atp_db, file = "all_matches_in_atp_db_until_2019_nostat.csv", eol="\n")
-
-all_matches_in_atp_db_stats <- ScrapeMatchStats(all_matches_in_atp_db, cores=24)
-
-db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
-to <- fread(file = "all_tourneys_in_atp_db_until_2019.csv")
-
-a <- all_matches_in_atp_db[, .N, by=year]
-
-
-db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
-fedal <- h2h("Roger Federer", "Rafael Nadal", db)
-dcast(fedal[, .N, by=.(winner_name, surface, indoor)], winner_name ~ surface + indoor, value.var="N")
-fedal <- ScrapeMatchStats(fedal)
-
-dcast(fedal[, .N, by=.(winner_name, surface)], winner_name ~ surface, value.var="N")
-fedal[, .N, by=.(winner_name)]
-
-
-## preparing the distributed scraping of the stats
-## load functions
-source("RFun_DataPrep.R")
-source("RFun_Scraping.R")
-
-db <- fread(file = "all_matches_in_atp_db_until_2019_nostat.csv")
-
-to_scrape <- db[url_matches!="",]
-cuts <- c(seq(1, nrow(to_scrape), by=100), nrow(to_scrape))
-ss <- lapply(seq_along(cuts)[-1], function(i) seq(cuts[i-1], cuts[i]-1))
-
-res <- vector(mode="list", length=length(ss))
-for (i in seq_along(ss)) {
-    res[[i]] <- to_scrape[ ss[[i]] ]
-    res[[i]] <- ScrapeMatchStats(res[[i]])
-    cat(paste0(":: scraped chunk ", i, "/",length(ss), "\n"))
-    fwrite(res[[i]], file = paste0("Data/Chunk", i,".csv"), eol="\n")
-}

@@ -39,3 +39,8 @@ tb <- dbtop[year==1968 & tourney_name=="Barcelona", c(2,3,4,5,6,11,21,28,29,30,3
 OutputTableToPng(tb, "Barca1968.png")
 
 
+### debug 2019
+atp19 <- ScrapeYear(year=2019)
+tmp <- ScrapeTourney(atp19$url[1])
+
+url <- atp19$url[1]
