@@ -8,15 +8,24 @@ dbl <- SummaryData(db)
 ## In "OUR" db many of these inconsistencies have been fixed
 SearchByPlayer("Roger Federer", data=dbl)
 
-
 ## Most tourney wins
 wins <- db[round=="F", .N, by=.(winner_name)]
 setorder(wins, -N)
 wins[1:20,]
 OutputTableToPng(wins[1:20,], "MostWins.png")
 
+## Most tourney wins by surface
+wins <- db[round=="F", .N, by=.(winner_name, surface)] 
+ws <- dcast(wins, winner_name ~ surface, value.var="N")
+ws[is.na(ws)] <- 0
+ws[, Tot:=rowSums(ws[,2:5])]
 
+ws[order(-Tot)][1:20]
+ws[order(-Grass)][1:20]
+ws[order(-Clay)][1:20]
+ws[order(-Hard)][1:20]
 
+    
 ### clay tournaments for Almagro
 alma <- db[surface=="Clay" & (winner_name=="Nicolas Almagro" | loser_name=="Nicolas Almagro"),  .(matches_played=.N) , by=.(tourney_name, year)]
 OutputTableToPng(alma, "ClayTournamentsAlmagro.png")
