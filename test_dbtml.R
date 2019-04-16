@@ -22,7 +22,10 @@ ws[, Tot:=rowSums(ws[,2:5])]
 
 ws[order(-Tot)][1:20]
 ws[order(-Grass)][1:20]
-ws[order(-Clay)][1:20]
+
+OutputTableToPng(ws[order(-Grass)][1:20], "MostWinsOnGrass.png")
+OutputTableToPng(ws[order(-Clay)][1:20], "MostWinsOnClay.png")
+
 ws[order(-Hard)][1:20]
 
     

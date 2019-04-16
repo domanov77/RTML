@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-16 12:21:56 domanov"
+### Time-stamp: "Last modified 2019-04-16 18:24:05 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year) {
@@ -505,3 +505,63 @@ ScrapeIdsFromTourney <- function(url) {
 }
 
     
+ScrapePlayer <- function(name, id, db) {
+
+    if (missing(id) & missing(name))
+        stop(":ScrapePlayer: you must specify at least name or player_id!\n")
+
+    if (missing(id)) {
+        idw <- db[winner_name==name, unique(winner_id)]
+        idl <- db[loser_name==name, unique(loser_id)]
+        id <- unique(c(idw, idl))
+        if (length(id)>1) {
+            cat(":ScrapePlayer: several ids for", paste(name, sep=" "), ", going with", id[1], "\n")
+            id <- id[1]
+        }
+    }
+    
+    if (missing(name)) {
+        naw <- db[winner_id==id, unique(winner_name)]
+        nal <- db[loser_id==id, unique(loser_name)]
+        nam <- unique(c(naw, nal))
+        if (length(nam)>1) {
+            cat(":ScrapePlayer: several names for id ", id, ", going with", na[1], "\n")
+            name <- name[1]
+        }
+    }
+
+    url <- paste0("https://www.atptour.com/en/players/", tolower(gsub(" ", "-", fixed=TRUE, name)), "/", tolower(id),"/rankings-history")
+    require(rvest)
+    require(httr)
+   
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    response <- GET(as.character(url), user_agent(uastring))
+    html <- read_html(response)
+
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class")
+
+    if ("mega-table" %in% allnodes)
+        table <- html_node(html, "table.mega-table") %>% html_table(header=TRUE)
+    else
+        table <- data.frame(Date=NA_character_, Singles=NA_character_, Doubles=NA_character_) 
+    
+
+    bday <- NA_character_
+        
+    if ("table-birthday" %in% allnodes)
+        bday <- html_node(html, ".table-birthday") %>% html_text(trim=TRUE) %>% gsub(pattern="\\(|\\)", replacement="")
+    
+    plays <- NA_character_
+    if ("table-value" %in% allnodes) {
+        plays_tmp <- html_nodes(html, ".table-value") %>% html_text(trim=TRUE)
+    
+        ip <- grep("handed", plays_tmp, ignore.case=TRUE)
+ 
+        if (length(ip)>0)
+            plays <- plays_tmp[ip] %>% substr(start=1, stop=1)
+    }
+
+    ## append bday and plays at end
+    table <- rbind(table, c(plays, bday, as.character(id)))
+    return(table)
+}

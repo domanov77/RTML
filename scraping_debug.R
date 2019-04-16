@@ -231,3 +231,33 @@ all_matches_in_atp_db <- rbindlist(tourneys_lapply, use.names=TRUE)
 ## write everything in a csv
 fwrite(all_matches_in_atp_db, file = "all_matches_in_atp_db_until_2018_nostat.csv", eol="\n")
 
+
+
+
+################ Player info
+    
+players <- db[year>1972, .N, by=winner_name][N>20][order(-N), winner_name]
+
+dd <- db[year>1972]
+ddl <- SummaryData(dd)
+
+pl <- grep("unknown", players, ignore.case=TRUE)
+
+
+res_pl <- vector(mode="list", length=length(players))
+res_pl <- mclapply(players, ScrapePlayer, db=dd, mc.cores=4)
+
+
+
+idw <- db[winner_name==name, unique(winner_id)]
+idl <- db[loser_name==name, unique(loser_id)]
+id <- unique(c(idw, idl))
+
+Age <- function(bday, tdate){
+    fmt_db <- '%Y%m%d'
+    fmt_bday <- '%Y.%m.%d'
+    days <- as.Date(as.character(tdate), format=fmt_db)-as.Date(bday,format=fmt_bday)
+    age <- as.numeric(days)/365
+}
+
+        

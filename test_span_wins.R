@@ -4,11 +4,11 @@ source("RFun_Scraping.R")
 library(parallel)
 
 ## Now read OUR db
-system.time(dbtop <- ReadData("Data/20190410-DataTop.csv", davis=FALSE))
-dbtoplist  <- SummaryData(dbtop)
+system.time(db <- ReadData("Data/dbtml.csv", davis=FALSE))
+dbl <- SummaryData(db)
 
-allids <- sort(unique(dbtop$winner_id))
-winsbyid <- mclapply(allids, PlayerWonMatchesById, db=dbtop, mc.cores=4)
+allids <- sort(unique(db$winner_id))
+winsbyid <- mclapply(allids, PlayerWonMatchesById, db=db, mc.cores=4)
 
 DaysDiff <- function(string1, string2){
    as.integer(as.Date(as.character(string1), format='%Y%m%d')-as.Date(as.character(string2),format='%Y%m%d'))
@@ -18,15 +18,15 @@ FindConsecutiveWins <- function(tab, id) {
     if (nrow(tab) < 2) 
         return(NA)
 
-    setorder(tab, tourney_date)
+    setorder(tab, date)
     wins <- tab[winner_id==id]
     if (nrow(wins) < 2) 
         return(NA)
     
-    ff <- DaysDiff(wins$tourney_date[seq(2, nrow(wins))],  wins$tourney_date[seq(1, nrow(wins)-1)] )
+    ff <- DaysDiff(wins$date[seq(2, nrow(wins))],  wins$date[seq(1, nrow(wins)-1)] )
     ret <- data.table(cbind(
-            wins[seq(2, nrow(wins)), .(winner_name, winner_id, tourney_name, tourney_date, year, loser_name, loser_id, surface)], 
-            wins[seq(1, nrow(wins)-1), .(tourney_name, tourney_date, year, loser_name, loser_id, surface)],
+            wins[seq(2, nrow(wins)), .(winner_name, winner_id, tourney_name, date, year, loser_name, loser_id, surface)], 
+            wins[seq(1, nrow(wins)-1), .(tourney_name, date, year, loser_name, loser_id, surface)],
             span=ff))
     return(ret)
 }
