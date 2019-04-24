@@ -224,4 +224,48 @@ res2 <- tots[ , .(points=mean(points), .N ), by=.(surface)]
 setorder(res2, -points)
 OutputTableToPng(res2, "average_points_slam_surf_nole.png")
 
+## Ferru
+los <- db[loser_name=="David Ferrer" & (winner_rank>5 ) & year > 2011 & round %in% c("F", "SF", "QF"), .(winner_name, winner_rank, tourney_name, year, round, score) ]
+OutputTableToPng(los, "Ferru_Losses.png")
 
+
+## Consecutive losses on clay for Nadal
+nadal <- db[(loser_name=="Rafael Nadal"|winner_name=="Rafael Nadal") & surface =="Clay",]
+losses <- which(nadal$loser_name=="Rafael Nadal")
+
+
+nadal <- db[(loser_name=="Rafael Nadal"|winner_name=="Rafael Nadal"),]
+losses <- which(nadal$loser_name=="Rafael Nadal")
+ind <- which(diff(losses)==1)
+inds <- sort(c(losses[ind], losses[ind+1]))
+nadal[inds, .(winner_name, score, year, tourney_name)]
+
+
+rf <- db[(loser_name=="Roger Federer"|winner_name=="Rafael Nadal") & surface =="Clay",]
+losses <- which(nadal$loser_name=="Rafael Nadal")
+
+### Bagel suffered in their first win 
+dbq <- dbq[!round %in% c("Q1", "Q2", "Q3", "Q4")]
+
+a <- dbq[ , .SD[1], by="winner_name"]
+inds <- grep("0-6", a$score)
+b <- a[inds, .(winner_name, loser_name, score, year, tourney_name, surface)]
+OutputTableToPng(b, "FirstWinHasBagel.png")
+
+
+dbq <- db[!round %in% c("Q1", "Q2", "Q3", "Q4")]
+
+pl <- dbl$players
+aa <- lapply(pl, function(x) PlayerMatches(x, dbq)[1])
+names(aa) <- pl
+
+
+
+bb <- lapply(pl, function(x) {b <- aa[[x]]; b$winner_name==x & grepl("0-6", b$score)})
+names(bb) <- pl
+cc <- sapply(bb, isTRUE)
+inds <- which(cc)
+
+dd <- rbindlist(aa[inds])
+tot <- dd[, .(winner_name, loser_name, score, year, tourney_name, round, surface)][order(year)]
+OutputTableToPng(tot, "FirstAppearanceIsWinAndHasBagel.png")
