@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-16 18:24:05 delucia"
+### Time-stamp: "Last modified 2019-04-25 18:28:40 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year) {
@@ -513,11 +513,12 @@ ScrapePlayer <- function(name, id, db) {
     if (missing(id)) {
         idw <- db[winner_name==name, unique(winner_id)]
         idl <- db[loser_name==name, unique(loser_id)]
-        id <- unique(c(idw, idl))
-        if (length(id)>1) {
-            cat(":ScrapePlayer: several ids for", paste(name, sep=" "), ", going with", id[1], "\n")
-            id <- id[1]
-        }
+        ids <- unique(tot_ids <- c(idw, idl))
+        if (length(ids)>1) {
+            id <- names(which.max(table(tot_id)))
+            cat(":ScrapePlayer: several ids for", paste(name, sep=" "), ", going with", id,
+                "; other ids are: ", paste(ids[ids!=id], sep="; "), "\n")
+        } else id <- ids
     }
     
     if (missing(name)) {
@@ -525,6 +526,8 @@ ScrapePlayer <- function(name, id, db) {
         nal <- db[loser_id==id, unique(loser_name)]
         nam <- unique(c(naw, nal))
         if (length(nam)>1) {
+
+            
             cat(":ScrapePlayer: several names for id ", id, ", going with", na[1], "\n")
             name <- name[1]
         }
@@ -544,10 +547,12 @@ ScrapePlayer <- function(name, id, db) {
         table <- html_node(html, "table.mega-table") %>% html_table(header=TRUE)
     else
         table <- data.frame(Date=NA_character_, Singles=NA_character_, Doubles=NA_character_) 
-    
+
+    ## Get rid of T for tied
+    table$Singles <- gsub(pattern="T", replacement="", table$Singles, fixed=TRUE)
+    table$Doubles <- gsub(pattern="T", replacement="", table$Doubles, fixed=TRUE)
 
     bday <- NA_character_
-        
     if ("table-birthday" %in% allnodes)
         bday <- html_node(html, ".table-birthday") %>% html_text(trim=TRUE) %>% gsub(pattern="\\(|\\)", replacement="")
     
@@ -561,7 +566,11 @@ ScrapePlayer <- function(name, id, db) {
             plays <- plays_tmp[ip] %>% substr(start=1, stop=1)
     }
 
+    nationality <- NA_character_
+    if ("player-flag-code" %in% allnodes) {
+        nationality <- html_nodes(html, ".player-flag-code") %>% html_text(trim=TRUE)
+    }
     ## append bday and plays at end
-    table <- rbind(table, c(plays, bday, as.character(id)))
+    table <- rbind(table, c(plays, bday, nationality))
     return(table)
 }

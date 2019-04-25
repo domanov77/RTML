@@ -3,10 +3,18 @@ source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
 
 db <- ReadData("Data/dbtml.csv")
+db <- db[year>1972 & !round%in%c("Q1","Q2","Q3","Q4")]
+dbl <- SummaryData(db)
 
 ################ Player info
     
-players <- db[year>1972, .N, by=winner_name][N>20][order(-N), winner_name]
+players <- db[year>1972, .N, by=winner_name][order(-N), winner_name]
+name <- players[20]
+fed <- ScrapePlayer(name=players[1], db=db)
+name <- "Calvin Hemery"
+ScrapePlayer(name="Calvin Hemery", db=db)
+
+
 
 dd <- db[year>1972]
 ddl <- SummaryData(dd)
