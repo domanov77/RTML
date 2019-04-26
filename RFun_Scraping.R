@@ -896,7 +896,7 @@ AddPlayerInfo <- function(dt, save=TRUE) {
     indw <- match(w, hdt$player)
     indl <- match(l, hdt$player)
     set(dt, , "winner_hand", hdt$plays[indw])
-    set(dt, , "loser_rank",  hdt$plays[indl])
+    set(dt, , "loser_hand",  hdt$plays[indl])
     
     set(dt, , "winner_ioc", hdt$nation[indw])
     set(dt, , "loser_ioc",  hdt$nation[indl])
