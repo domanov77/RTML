@@ -8,25 +8,25 @@ dbl <- SummaryData(db)
 
 ################ Player info
     
-players <- db[year>1972, .N, by=winner_name][order(-N), winner_name]
-name <- players[20]
+players <- db[, .N, by=winner_name][order(-N), winner_name]
+
 fed <- ScrapePlayer(name=players[1], db=db)
-name <- "Calvin Hemery"
-ScrapePlayer(name="Calvin Hemery", db=db)
 
+## name <- "Calvin Hemery"
+## ScrapePlayer(name="Calvin Hemery", db=db)
+## ScrapePlayer(id="KI74", db=db)
 
-
-dd <- db[year>1972]
-ddl <- SummaryData(dd)
 
 pl <- grep("unknown", players, ignore.case=TRUE)
 pl
 
+players <- players[-pl]
+
 res_pl <- vector(mode="list", length=length(players))
 for (i in seq_along(players)) {
-    res_pl[[i]] <- ScrapePlayer(name=players[i], db=dd)
-    fwrite(res_pl[[i]], sprintf("ranks/chunk_%04d.csv", i), eol="\n", quote=FALSE)
-    cat(":Dumped", players[i], " or ", i,"/", length(players), "\n")
+    res_pl[[i]] <- ScrapePlayer(name=players[i], db=db)
+    saveRDS(res_pl[[i]], file=sprintf("ranks/chunk_%04d.RData", i))
+    cat(":Dumped", players[i], " or ", i,"/", length(players), ", ", res_pl[[i]]$name,"\n")
 }
 
 names(res_pl) <- players

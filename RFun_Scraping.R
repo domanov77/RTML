@@ -1,12 +1,12 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-25 18:28:40 delucia"
+### Time-stamp: "Last modified 2019-04-26 12:12:33 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year) {
     require(rvest)
     require(httr)
-
+    
     uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     page_url <- paste0("https://www.atptour.com/en/scores/results-archive?year=", year)
     
@@ -42,37 +42,37 @@ ScrapeYear <- function(year) {
 
     if (FALSE %in% have_results)
         cat(paste(":ScrapeYear: No results (and no url) for ", paste(title[!have_results], collapse = " ; "), year,"\n"))
-
+    
     ## discriminate between current/monte-carlo/410/live-scores and archive/australasian-championships/580/1915/results
     has_current <- grep("current", tourney_urls)
     ## retrieve the tourney_id from the urls themselves if there is no "current"
     tourid <- gsub(".*archive/(.*)/results","\\1", tourney_urls[-has_current])
     tourney_ids_archive <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tourid) ## remove the name
-
+    
     ## change it if there is "current"
     tourid <- gsub(".*current/(.*)/live-scores","\\1", tourney_urls[has_current])
     tourney_ids_current <- paste0(year, "_", gsub("^.*?/(.*)$","\\1", tourid))
-
+    
     ## bring the ids together
     tourney_ids <- rep(NA_character_, nrow(table))
     tourney_ids[ has_current] <- tourney_ids_current
     tourney_ids[-has_current] <- tourney_ids_archive
-
+    
     
     ## commitment should live in table[,6], clean up the "," as
     ## thousands separator
     commitment <- gsub(",","", table[,6], fixed=TRUE)
-
+    
     
     tab <- data.table(date=date, year=year, tourney_name=title,
                       tourney_id=tourney_ids, surface=inout_surf[,2],
                       indoor=inout_surf[,1], commitment=commitment,
                       draw_size=dsize,
                       url=ifelse(is.na(tourney_urls), NA_character_, paste0("https://www.atptour.com", tourney_urls)))
-
+    
     if (FALSE %in% have_results)
         tab <- tab[ind_res]
-
+    
     return(tab)
 }
 
@@ -373,7 +373,7 @@ ScrapeMatch <- function(url, winner) {
     service2 <- gsub("[[:space:]]{2,}"," ", service2)
     stats <- cbind(fields, service1, service2)
     row <- c("w_ace"     = service1[2], 
-             "w_df"        = service1[3], 
+             "w_df"      = service1[3], 
              "w_svpt"    = gsub("^.*/([[:digit:]]+).*$","\\1", service1[4]),
              "w_1stIn"   = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[4]),
              "w_1stWon"  = gsub("^.*\\(([[:digit:]]+)/.*$","\\1", service1[5]),
@@ -504,58 +504,73 @@ ScrapeIdsFromTourney <- function(url) {
     return( data.table(tabid[ nrow(tabid):1, ] ))
 }
 
-    
+### Function which scrapes the data for a single player, including
+### ranking history, playing hand and nationality. It accepts player
+### name and/or id as input
 ScrapePlayer <- function(name, id, db) {
 
     if (missing(id) & missing(name))
         stop(":ScrapePlayer: you must specify at least name or player_id!\n")
 
-    if (missing(id)) {
+    has_other_id <- FALSE
+    if (missing(id)) { 
+        ## check if more than one ID is used
         idw <- db[winner_name==name, unique(winner_id)]
         idl <- db[loser_name==name, unique(loser_id)]
-        ids <- unique(tot_ids <- c(idw, idl))
+        tot_id <- c(idw, idl)
+        ids <- unique(tot_id)
+        ## if several IDs are present, we choose the most common one
         if (length(ids)>1) {
+            has_other_id <- TRUE
             id <- names(which.max(table(tot_id)))
             cat(":ScrapePlayer: several ids for", paste(name, sep=" "), ", going with", id,
                 "; other ids are: ", paste(ids[ids!=id], sep="; "), "\n")
         } else id <- ids
     }
     
+
+    has_other_name <- FALSE
     if (missing(name)) {
+        ## same logic for the names
         naw <- db[winner_id==id, unique(winner_name)]
         nal <- db[loser_id==id, unique(loser_name)]
-        nam <- unique(c(naw, nal))
+        tot_nam <- c(naw, nal)
+        nam <- unique(tot_nam)
         if (length(nam)>1) {
-
-            
-            cat(":ScrapePlayer: several names for id ", id, ", going with", na[1], "\n")
-            name <- name[1]
-        }
+            has_other_name <- TRUE
+            name <- names(which.max(table(tot_nam)))
+            cat(":ScrapePlayer: several names for id ", id, ", going with", name,
+                "; other names are: ", paste(nam[nam!=name], sep="; "), "\n")
+        } else name <- nam
     }
 
     url <- paste0("https://www.atptour.com/en/players/", tolower(gsub(" ", "-", fixed=TRUE, name)), "/", tolower(id),"/rankings-history")
     require(rvest)
     require(httr)
-   
+    
     uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
     html <- read_html(response)
-
+    
     allnodes <- html %>% html_nodes("*") %>% html_attr("class")
-
+    
     if ("mega-table" %in% allnodes)
         table <- html_node(html, "table.mega-table") %>% html_table(header=TRUE)
     else
         table <- data.frame(Date=NA_character_, Singles=NA_character_, Doubles=NA_character_) 
-
+    
     ## Get rid of T for tied
     table$Singles <- gsub(pattern="T", replacement="", table$Singles, fixed=TRUE)
     table$Doubles <- gsub(pattern="T", replacement="", table$Doubles, fixed=TRUE)
-
+    
+    
+    ## birthday
     bday <- NA_character_
     if ("table-birthday" %in% allnodes)
         bday <- html_node(html, ".table-birthday") %>% html_text(trim=TRUE) %>% gsub(pattern="\\(|\\)", replacement="")
     
+
+    ## player hand
     plays <- NA_character_
     if ("table-value" %in% allnodes) {
         plays_tmp <- html_nodes(html, ".table-value") %>% html_text(trim=TRUE)
@@ -566,11 +581,17 @@ ScrapePlayer <- function(name, id, db) {
             plays <- plays_tmp[ip] %>% substr(start=1, stop=1)
     }
 
+    ## nationality
     nationality <- NA_character_
     if ("player-flag-code" %in% allnodes) {
         nationality <- html_nodes(html, ".player-flag-code") %>% html_text(trim=TRUE)
     }
-    ## append bday and plays at end
-    table <- rbind(table, c(plays, bday, nationality))
-    return(table)
+
+    
+    ## pack all informations in a list
+    ret <- list(table=table, plays=plays, bday=bday, nation=nationality, id=id, name=name,
+                other_ids=ifelse(has_other_id, ids[ids!=id], NA_character_),
+                other_names=ifelse(has_other_name, nam[nam!=name], NA_character_),
+                url=url) 
+    return(ret)
 }
