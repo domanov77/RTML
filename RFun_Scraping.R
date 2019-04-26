@@ -1,9 +1,9 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-26 23:42:59 delucia"
+### Time-stamp: "Last modified 2019-04-27 00:17:19 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
-ScrapeYear <- function(year) {
+ScrapeYear <- function(year, verbose=TRUE) {
     require(rvest)
     require(httr)
     
@@ -50,7 +50,7 @@ ScrapeYear <- function(year) {
     tourney_urls <- rep(NA_character_, nrow(table))
     tourney_urls[ind_res] <- urls
 
-    if (FALSE %in% have_results)
+    if ((FALSE %in% have_results) & verbose)
         cat(paste(":ScrapeYear: No results (and no url) for ", paste(title[!have_results], collapse = " ; "), year,"\n"))
     
     ## discriminate between current/monte-carlo/410/live-scores and archive/australasian-championships/580/1915/results
@@ -742,15 +742,16 @@ ScrapeRankingForMatches <- function(matches) {
     for (i in seq_along(to_scrape)) {
         ## start the iteration per tourney
         nfile <- paste0("Rankings/Ranks_", to_scrape[i],".csv")
-        cat(":ScrapeRankingForMatches: looking for rankings on", as.character(to_scrape[i]),"\n")
+        cat(":ScrapeRankingForMatches: looking for rankings on ", as.character(to_scrape[i]))
         if (!file.exists(nfile)) {
             rtab <- ScrapeRankings(to_scrape[i])
             fwrite(rtab, file=nfile)
-            cat(":ScrapeRankingForMatches: rankings saved in file ", nfile,"\n")
+            cat("\n:ScrapeRankingForMatches: rankings retrieved and saved in file ", nfile,"\n")
         } else {
             rtab <- fread(nfile)
+            cat(": file ", nfile,"already present, no need to scrape it\n")
         }
-        ind_matches <- which(matches$date==gsub("-","", unique_tdate[i],fixed=TRUE))
+        ind_matches <- which(matches$date==gsub("-","", tdate[i],fixed=TRUE))
         w <- new$winner_name[ind_matches]
         l <- new$loser_name[ind_matches]
         indw <- match(w, rtab$Player)
@@ -776,7 +777,7 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE) {
     newdb <- copy(db)
 
     this_year <- as.integer(format(Sys.Date(),"%Y"))
-    y <- ScrapeYear(this_year)
+    y <- ScrapeYear(this_year, verbose=FALSE)
 
     current <- grep("current", y$url)
 
@@ -811,14 +812,16 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE) {
             cat(":UpdateDB: writing the new db onto Data/dbtml.csv\n") 
             fwrite(newdb, paste0("Data/dbtml.csv"), quote=FALSE)
         }
-    }
+    } else
+        cat(":UpdateDB: No new archived tourneys/matches to write in the db\n") 
+
 
     ## Now we scrape the results of the "current", which we save separately
     ## today <- format(Sys.Date(),"%Y-%m-%d")
     ## now <- format(Sys.time(),"%Y-%m-%d_%H_%M")
-    ongoing_tourneys <- lapply(playing$url, ScrapeTourney)
-    cat(":UpdateDB: scraping ongoing tourneys\n")
+    cat(":UpdateDB: scraping ongoing tourneys", paste0(playing$tourney_name, collapse=", "),"\n")
         
+    ongoing_tourneys <- lapply(playing$url, ScrapeTourney)
     ind_nodata <- which(is.na(ongoing_tourneys))
     if (length(ind_nodata)> 0) {
         ongoing_tourneys[ind_nodata] <- NULL
@@ -836,9 +839,9 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE) {
 
     if (write_current) {
         cat(":UpdateDB: writing the matches of ongoing tournaments onto Data/ongoing_tourneys.csv\n")
-        fwrite(on_res, "Data/ongoing_tourneys.csv", quote=FALSE)
+        fwrite(on_final, "Data/ongoing_tourneys.csv", quote=FALSE)
     }
-    newdb <- AppendMatches(on_res, newdb)
+    newdb <- AppendMatches(on_final, newdb)
     return(newdb)
 }
 

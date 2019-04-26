@@ -1,17 +1,28 @@
 ### Functions to interrogate the databases of matches
 
-### Time-stamp: "Last modified 2019-04-15 14:16:41 domanov"
+### Time-stamp: "Last modified 2019-04-27 00:07:17 delucia"
 library(data.table)
 
 
 ## Read OUR data and return a data.table
-ReadData <- function(file="Data/20190410-DataTop.csv", davis=FALSE) {
+ReadData <- function(file="Data/dbtml.csv", davis=FALSE, quali=TRUE, current=TRUE) {
     require(data.table)
     ## read the data
     read_timing <- system.time(data <- data.table::fread(file)) ## removed fill=TRUE since I corrected the database!
     cat(paste(":: Read", nrow(data),"matches done in", round(read_timing[3], 5), "s\n")) 
-    
-    
+  
+    if (current) {
+        if (file.exists("Data/ongoing_tourneys.csv")) {
+            read_timing_curr <- system.time(current <- data.table::fread("Data/ongoing_tourneys.csv")) 
+            cat(paste(":: Read Data/ongoing_tourneys.csv with ", nrow(current),"matches done in", round(read_timing_curr[3], 5), "s\n"))
+            data <- AppendMatches(current, data)
+        }
+    }
+
+    if (!quali) {
+        data <- data[!round %in% c("Q1", "Q2", "Q3", "Q4")]
+    }
+  
     ## exclude Davis cup matches and select only relevant columns
     if (!davis) {
         ind_davis <- grep("^Davis", data$tourney_name)
