@@ -29,6 +29,10 @@ alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_
 ## }
 
 ### This is parallelized with mclapply; windows users should use foreach/dopar/doparallel 
+
+##fix all 1975
+alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
+alltourn <- alltourn[year==1975]
 tourneys_lapply <-  parallel::mclapply(alltourn$url, ScrapeTourney, mc.cores=8)
 
 ### this isn't needed anymore
@@ -71,7 +75,23 @@ add_info_from_tour <- function(tourney, matches) {
    return(matches)
 }
 
-allmat <- lapply(seq_along(tt), function(i) add_info_from_tour(tour=at[i], matches=tt[[i]]))
+tt <- rbindlist(tourneys_lapply)
+at <- alltourn[-ind_nodata]
+
+allmat <- lapply(seq_along(tourneys_lapply), function(i) add_info_from_tour(tour=at[i], matches=tourneys_lapply[[i]]))
+all_1975 <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
+
+db <- ReadData("Data/dbtml.csv")
+row_ind <- db[,.I[year== 1975L]] ## Retrieve row number
+db[row_ind]
+## check the rows of the two!
+set(db, row_ind, names(all_1975), as.list(all_1975))
+
+db[db$tourney_id==""]
+set(db, url_matches:=NULL)
+set( db, j=c("url_matches","tourney_id_from_url"), value=NULL )
+fwrite(db, "Data/dbtml.csv", quote=FALSE)
+
 
 all_matches_in_atp_db <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
 

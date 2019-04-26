@@ -30,7 +30,7 @@ unique(a1)
 ### Fix empty tourney_names
 
 
-db[ (winner_name=="John McEnroe" & winner_id=="F020"), : | (loser_name=="John McEnroe" & loser_id=="F020")]
+db[ (winner_name=="John McEnroe" & winner_id=="F020") | (loser_name=="John McEnroe" & loser_id=="F020")]
 
 ## [('Ross Case', 2),
 ## ('Milan Holecek', 2),
