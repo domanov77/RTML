@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-26 12:12:33 delucia"
+### Time-stamp: "Last modified 2019-04-26 16:05:06 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year) {
@@ -12,7 +12,9 @@ ScrapeYear <- function(year) {
     
     response <- GET(page_url, user_agent(uastring))
     html <- read_html(response)
-    
+
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique()
+
     ## first we look for the tournament names
     title <- html_nodes(html, ".tourney-title")%>% html_text()
     title <- gsub("[[:space:]]{2,}","", title)
@@ -30,7 +32,15 @@ ScrapeYear <- function(year) {
 
     ## extract surfaces and indoor/outdoor
     tmpn <- gsub("[[:space:]]{2,}"," ", table$Surface)
-    inout_surf <- t(sapply(strsplit(tmpn, " "), rbind))
+    ## some tourneys are still malformed and do not have Indoor|Outdoor[:space:]Surface!!
+    indoor <- surface <- rep(NA_character_, length(tmpn))
+    indoor[grep("Indoor", tmpn)] <- "Indoor"
+    indoor[grep("Outdoor", tmpn)] <- "Outdoor"
+
+    surface[grep("Hard", tmpn)] <- "Hard"
+    surface[grep("Grass", tmpn)] <- "Grass"
+    surface[grep("Clay", tmpn)] <- "Clay"
+    surface[grep("Carpet", tmpn)] <- "Carpet"
 
     ## extract the urls to each tournament - in the current year this list can be less long!
     have_results <- table$Results=="Results"
@@ -45,18 +55,20 @@ ScrapeYear <- function(year) {
     
     ## discriminate between current/monte-carlo/410/live-scores and archive/australasian-championships/580/1915/results
     has_current <- grep("current", tourney_urls)
+    has_archive <- grep("archive", tourney_urls)
+
+    ## "current"
+    tmpid <- gsub(".*current/(.*)/live-scores","\\1", tourney_urls[has_current])
+    tourney_ids_current <- paste0(year, "_", gsub("^.*?/(.*)$","\\1", tmpid))
+    
     ## retrieve the tourney_id from the urls themselves if there is no "current"
-    tourid <- gsub(".*archive/(.*)/results","\\1", tourney_urls[-has_current])
-    tourney_ids_archive <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tourid) ## remove the name
-    
-    ## change it if there is "current"
-    tourid <- gsub(".*current/(.*)/live-scores","\\1", tourney_urls[has_current])
-    tourney_ids_current <- paste0(year, "_", gsub("^.*?/(.*)$","\\1", tourid))
-    
+    tmpid <- gsub(".*archive/(.*)/results","\\1", tourney_urls[has_archive])
+    tourney_ids_archive <- gsub("^.*/(.*?)/(.*)$","\\2_\\1", tmpid) ## remove the name
+            
     ## bring the ids together
     tourney_ids <- rep(NA_character_, nrow(table))
-    tourney_ids[ has_current] <- tourney_ids_current
-    tourney_ids[-has_current] <- tourney_ids_archive
+    tourney_ids[ has_current ] <- tourney_ids_current
+    tourney_ids[ has_archive ] <- tourney_ids_archive
     
     
     ## commitment should live in table[,6], clean up the "," as
@@ -65,8 +77,8 @@ ScrapeYear <- function(year) {
     
     
     tab <- data.table(date=date, year=year, tourney_name=title,
-                      tourney_id=tourney_ids, surface=inout_surf[,2],
-                      indoor=inout_surf[,1], commitment=commitment,
+                      tourney_id=tourney_ids, surface=surface,
+                      indoor=indoor, commitment=commitment,
                       draw_size=dsize,
                       url=ifelse(is.na(tourney_urls), NA_character_, paste0("https://www.atptour.com", tourney_urls)))
     

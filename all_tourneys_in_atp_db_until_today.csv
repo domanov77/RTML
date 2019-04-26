@@ -632,105 +632,105 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 19741118,1974,Buenos Aires,1974_303,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1974/results
 19741201,1974,Adelaide,1974_2041,Grass,Outdoor,$5000,16,https://www.atptour.com/en/scores/archive/adelaide/2041/1974/results
 19741210,1974,Masters,1974_605,Grass,Outdoor,$100000,8,https://www.atptour.com/en/scores/archive/masters/605/1974/results
-19741221,1975,Australian Open,1975_580,Clay,Outdoor|Grass,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1975/results
-19750101,1975,Nations Cup,1975_615,Clay,Outdoor|Grass,,0,https://www.atptour.com/en/scores/archive/duesseldorf/615/1975/results
-19750106,1975,Auckland,1975_301,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/auckland/301/1975/results
-19750113,1975,Bahamas,1975_2021,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/nassau/2021/1975/results
-19750113,1975,Baltimore,1975_816,Clay,Outdoor|Grass,$30000,16,https://www.atptour.com/en/scores/archive/baltimore/816/1975/results
-19750120,1975,Philadelphia WCT,1975_401,Clay,Outdoor|Grass,$115000,128,https://www.atptour.com/en/scores/archive/philadelphia/401/1975/results
-19750120,1975,Birmingham,1975_650,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/birmingham/650/1975/results
-19750127,1975,Richmond-WCT,1975_802,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/richmond/802/1975/results
-19750128,1975,Dayton,1975_716,Clay,Outdoor|Grass,$30000,16,https://www.atptour.com/en/scores/archive/dayton/716/1975/results
-19750129,1975,Roanoke,1975_2022,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/roanoke/2022/1975/results
-19750203,1975,St. Petersburg WCT,1975_1603,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/st-petersburg/1603/1975/results
-19750203,1975,Little Rock,1975_660,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/little-rock/660/1975/results
-19750205,1975,Basel,1975_328,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/basel/328/1975/results
-19750206,1975,Bologna WCT,1975_312,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/bologna/312/1975/results
-19750210,1975,Toronto WCT,1975_302,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/toronto/302/1975/results
-19750210,1975,Salisbury,1975_355,Clay,Outdoor|Grass,$50000,64,https://www.atptour.com/en/scores/archive/salisbury/355/1975/results
-19750217,1975,Barcelona WCT,1975_267,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/barcelona/267/1975/results
-19750217,1975,Fort Worth WCT,1975_653,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/fort-worth/653/1975/results
-19750217,1975,La Costa WCT,1975_813,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/la-costa/813/1975/results
-19750217,1975,Boca Raton,1975_718,Clay,Outdoor|Grass,$30000,32,https://www.atptour.com/en/scores/archive/boca-raton/718/1975/results
-19750224,1975,Rotterdam WCT,1975_407,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/rotterdam/407/1975/results
-19750224,1975,San Antonio WCT,1975_1602,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/san-antonio/1602/1975/results
-19750224,1975,Fairfield,1975_2023,Clay,Outdoor|Grass,$30000,32,https://www.atptour.com/en/scores/archive/fairfield/2023/1975/results
-19750303,1975,Cairo,1975_206,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/cairo/206/1975/results
-19750304,1975,London WCT,1975_262,Clay,Outdoor|Grass,$60000,16,https://www.atptour.com/en/scores/archive/london/262/1975/results
-19750304,1975,Shreveport,1975_2024,Clay,Outdoor|Grass,$15000,32,https://www.atptour.com/en/scores/archive/shreveport/2024/1975/results
-19750310,1975,Munich WCT,1975_804,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/munich/804/1975/results
-19750310,1975,Sao Paulo WCT,1975_237,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/sao-paulo/237/1975/results
-19750310,1975,Washington WCT,1975_710,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/washington/710/1975/results
-19750311,1975,Hampton,1975_657,Clay,Outdoor|Grass,$37500,32,https://www.atptour.com/en/scores/archive/hampton/657/1975/results
-19750317,1975,Caracas WCT,1975_344,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/caracas/344/1975/results
-19750317,1975,Memphis WCT,1975_7299,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/memphis/7299/1975/results
-19750317,1975,New York,1975_2025,Clay,Outdoor|Grass,$30000,32,https://www.atptour.com/en/scores/archive/new-york/2025/1975/results
-19750324,1975,Atlanta WCT,1975_412,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/atlanta/412/1975/results
-19750324,1975,Monte Carlo WCT,1975_410,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/monte-carlo/410/1975/results
-19750324,1975,Orlando WCT,1975_409,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/orlando/409/1975/results
-19750326,1975,Jackson,1975_656,Clay,Outdoor|Grass,$35000,16,https://www.atptour.com/en/scores/archive/jackson/656/1975/results
-19750331,1975,Tuscon,1975_729,Clay,Outdoor|Grass,$175000,64,https://www.atptour.com/en/scores/archive/tuscon/729/1975/results
-19750407,1975,St. Louis WCT,1975_652,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/st-louis/652/1975/results
-19750407,1975,Barcelona,1975_278,Clay,Outdoor|Grass,$25000,64,https://www.atptour.com/en/scores/archive/barcelona/278/1975/results
-19750411,1975,Johannesburg - WCT,1975_426,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1975/results
-19750414,1975,Denver WCT,1975_389,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/denver/389/1975/results
-19750414,1975,Tokyo WCT,1975_9037,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/tokyo/9037/1975/results
-19750414,1975,Valencia,1975_659,Clay,Outdoor|Grass,$25000,64,https://www.atptour.com/en/scores/archive/valencia/659/1975/results
-19750421,1975,Charlotte WCT,1975_436,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/charlotte/436/1975/results
-19750421,1975,Houston WCT,1975_820,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/houston/820/1975/results
-19750421,1975,Stockholm - WCT,1975_666,Clay,Outdoor|Grass,$60000,32,https://www.atptour.com/en/scores/archive/stockholm/666/1975/results
-19750421,1975,Madrid,1975_2026,Clay,Outdoor|Grass,$25000,64,https://www.atptour.com/en/scores/archive/madrid/2026/1975/results
-19750428,1975,Nice,1975_6120,Clay,Outdoor|Grass,$25000,64,https://www.atptour.com/en/scores/archive/nice/6120/1975/results
-19750430,1975,World Doubles WCT,1975_601,Clay,Outdoor|Grass,$100000,0,https://www.atptour.com/en/scores/archive/mexico-city/601/1975/results
-19750505,1975,Munich,1975_308,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/munich/308/1975/results
-19750505,1975,Florence,1975_310,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/florence/310/1975/results
-19750507,1975,Dallas WCT,1975_610,Clay,Outdoor|Grass,$100000,8,https://www.atptour.com/en/scores/archive/dallas/610/1975/results
-19750512,1975,Las Vegas,1975_413,Clay,Outdoor|Grass,$150000,32,https://www.atptour.com/en/scores/archive/las-vegas/413/1975/results
-19750512,1975,Bournemouth,1975_347,Clay,Outdoor|Grass,$50000,64,https://www.atptour.com/en/scores/archive/bournemouth/347/1975/results
-19750519,1975,Hamburg,1975_414,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1975/results
-19750526,1975,Rome,1975_416,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/rome/416/1975/results
-19750526,1975,Dusseldorf,1975_661,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1975/results
-19750604,1975,Roland Garros,1975_520,Clay,Outdoor|Grass,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1975/results
-19750616,1975,Nottingham,1975_350,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/nottingham/350/1975/results
-19750623,1975,Wimbledon,1975_540,Clay,Outdoor|Grass,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1975/results
-19750707,1975,Bastad,1975_316,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/bastad/316/1975/results
-19750707,1975,Gstaad,1975_314,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1975/results
-19750707,1975,Kitzbuhel,1975_319,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/kitzbuhel/319/1975/results
-19750714,1975,Chicago,1975_411,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/chicago/411/1975/results
-19750714,1975,Hilversum,1975_317,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/hilversum/317/1975/results
-19750714,1975,Istanbul,1975_2027,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/istanbul/2027/1975/results
-19750721,1975,Washington,1975_418,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/washington/418/1975/results
-19750728,1975,Louisville,1975_663,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/louisville/663/1975/results
-19750728,1975,Cincinnati,1975_422,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/cincinnati/422/1975/results
-19750804,1975,Indianapolis,1975_717,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/indianapolis/717/1975/results
-19750804,1975,North Conway,1975_705,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/north-conway/705/1975/results
-19750811,1975,Montreal / Toronto,1975_421,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/montreal/421/1975/results
-19750811,1975,Columbus,1975_343,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/columbus/343/1975/results
-19750818,1975,Boston,1975_417,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/boston/417/1975/results
-19750818,1975,South Orange,1975_707,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/south-orange/707/1975/results
-19750827,1975,US Open,1975_560,Clay,Outdoor|Grass,$166810,128,https://www.atptour.com/en/scores/archive/us-open/560/1975/results
-19750915,1975,Los Angeles,1975_423,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/los-angeles/423/1975/results
-19750915,1975,Bermuda,1975_2014,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/bermuda/2014/1975/results
-19750922,1975,San Francisco,1975_424,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/san-francisco/424/1975/results
-19750929,1975,Maui,1975_324,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/maui/324/1975/results
-19750929,1975,Aviles,1975_2028,Clay,Outdoor|Grass,$25000,32,https://www.atptour.com/en/scores/archive/aviles/2028/1975/results
-19751006,1975,Madrid,1975_309,Clay,Outdoor|Grass,$75000,64,https://www.atptour.com/en/scores/archive/madrid/309/1975/results
-19751006,1975,Melbourne,1975_331,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/melbourne/331/1975/results
-19751013,1975,Sydney Indoor,1975_427,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/sydney/427/1975/results
-19751013,1975,Barcelona,1975_425,Clay,Outdoor|Grass,$75000,64,https://www.atptour.com/en/scores/archive/barcelona/425/1975/results
-19751020,1975,Tehran,1975_2011,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/tehran/2011/1975/results
-19751020,1975,Perth,1975_243,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/perth/243/1975/results
-19751027,1975,Manila,1975_362,Clay,Outdoor|Grass,$75000,32,https://www.atptour.com/en/scores/archive/manila/362/1975/results
-19751027,1975,Paris Indoor,1975_7302,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/paris/7302/1975/results
-19751103,1975,Stockholm,1975_429,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/stockholm/429/1975/results
-19751103,1975,Tokyo,1975_329,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/tokyo/329/1975/results
-19751110,1975,London,1975_2016,Clay,Outdoor|Grass,$75000,64,https://www.atptour.com/en/scores/archive/london/2016/1975/results
-19751110,1975,Buenos Aires,1975_303,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1975/results
-19751110,1975,Hong Kong,1975_336,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/hong-kong/336/1975/results
-19751117,1975,Johannesburg,1975_254,Clay,Outdoor|Grass,$100000,64,https://www.atptour.com/en/scores/archive/johannesburg/254/1975/results
-19751117,1975,Calcutta,1975_680,Clay,Outdoor|Grass,$50000,32,https://www.atptour.com/en/scores/archive/calcutta/680/1975/results
-19751130,1975,Masters,1975_605,Clay,Outdoor|Grass,$130000,8,https://www.atptour.com/en/scores/archive/masters/605/1975/results
-19751221,1975,Sydney Outdoor,1975_338,Clay,Outdoor|Grass,$23500,64,https://www.atptour.com/en/scores/archive/sydney/338/1975/results
+19741221,1975,Australian Open,1975_580,Grass,Outdoor,,64,https://www.atptour.com/en/scores/archive/australian-open/580/1975/results
+19750101,1975,Nations Cup,1975_615,Clay,,,0,https://www.atptour.com/en/scores/archive/duesseldorf/615/1975/results
+19750106,1975,Auckland,1975_301,Grass,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/auckland/301/1975/results
+19750113,1975,Bahamas,1975_2021,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/nassau/2021/1975/results
+19750113,1975,Baltimore,1975_816,Carpet,Indoor,$30000,16,https://www.atptour.com/en/scores/archive/baltimore/816/1975/results
+19750120,1975,Philadelphia WCT,1975_401,Carpet,Indoor,$115000,128,https://www.atptour.com/en/scores/archive/philadelphia/401/1975/results
+19750120,1975,Birmingham,1975_650,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/birmingham/650/1975/results
+19750127,1975,Richmond-WCT,1975_802,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/richmond/802/1975/results
+19750128,1975,Dayton,1975_716,Carpet,Indoor,$30000,16,https://www.atptour.com/en/scores/archive/dayton/716/1975/results
+19750129,1975,Roanoke,1975_2022,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/roanoke/2022/1975/results
+19750203,1975,St. Petersburg WCT,1975_1603,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/st-petersburg/1603/1975/results
+19750203,1975,Little Rock,1975_660,Hard,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/little-rock/660/1975/results
+19750205,1975,Basel,1975_328,Carpet,Indoor,$25000,32,https://www.atptour.com/en/scores/archive/basel/328/1975/results
+19750206,1975,Bologna WCT,1975_312,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/bologna/312/1975/results
+19750210,1975,Toronto WCT,1975_302,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/toronto/302/1975/results
+19750210,1975,Salisbury,1975_355,Carpet,Indoor,$50000,64,https://www.atptour.com/en/scores/archive/salisbury/355/1975/results
+19750217,1975,Barcelona WCT,1975_267,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/barcelona/267/1975/results
+19750217,1975,Fort Worth WCT,1975_653,Hard,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/fort-worth/653/1975/results
+19750217,1975,La Costa WCT,1975_813,Hard,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/la-costa/813/1975/results
+19750217,1975,Boca Raton,1975_718,Clay,Outdoor,$30000,32,https://www.atptour.com/en/scores/archive/boca-raton/718/1975/results
+19750224,1975,Rotterdam WCT,1975_407,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/rotterdam/407/1975/results
+19750224,1975,San Antonio WCT,1975_1602,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/san-antonio/1602/1975/results
+19750224,1975,Fairfield,1975_2023,Carpet,Indoor,$30000,32,https://www.atptour.com/en/scores/archive/fairfield/2023/1975/results
+19750303,1975,Cairo,1975_206,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/cairo/206/1975/results
+19750304,1975,London WCT,1975_262,Carpet,Indoor,$60000,16,https://www.atptour.com/en/scores/archive/london/262/1975/results
+19750304,1975,Shreveport,1975_2024,Carpet,Indoor,$15000,32,https://www.atptour.com/en/scores/archive/shreveport/2024/1975/results
+19750310,1975,Munich WCT,1975_804,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/munich/804/1975/results
+19750310,1975,Sao Paulo WCT,1975_237,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/sao-paulo/237/1975/results
+19750310,1975,Washington WCT,1975_710,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/washington/710/1975/results
+19750311,1975,Hampton,1975_657,Carpet,Indoor,$37500,32,https://www.atptour.com/en/scores/archive/hampton/657/1975/results
+19750317,1975,Caracas WCT,1975_344,Hard,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/caracas/344/1975/results
+19750317,1975,Memphis WCT,1975_7299,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/memphis/7299/1975/results
+19750317,1975,New York,1975_2025,Hard,Indoor,$30000,32,https://www.atptour.com/en/scores/archive/new-york/2025/1975/results
+19750324,1975,Atlanta WCT,1975_412,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/atlanta/412/1975/results
+19750324,1975,Monte Carlo WCT,1975_410,Clay,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/monte-carlo/410/1975/results
+19750324,1975,Orlando WCT,1975_409,Hard,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/orlando/409/1975/results
+19750326,1975,Jackson,1975_656,Carpet,Indoor,$35000,16,https://www.atptour.com/en/scores/archive/jackson/656/1975/results
+19750331,1975,Tuscon,1975_729,Hard,Outdoor,$175000,64,https://www.atptour.com/en/scores/archive/tuscon/729/1975/results
+19750407,1975,St. Louis WCT,1975_652,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/st-louis/652/1975/results
+19750407,1975,Barcelona,1975_278,Clay,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/barcelona/278/1975/results
+19750411,1975,Johannesburg - WCT,1975_426,Hard,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/johannesburg/426/1975/results
+19750414,1975,Denver WCT,1975_389,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/denver/389/1975/results
+19750414,1975,Tokyo WCT,1975_9037,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/tokyo/9037/1975/results
+19750414,1975,Valencia,1975_659,Clay,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/valencia/659/1975/results
+19750421,1975,Charlotte WCT,1975_436,Clay,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/charlotte/436/1975/results
+19750421,1975,Houston WCT,1975_820,Clay,Outdoor,$60000,32,https://www.atptour.com/en/scores/archive/houston/820/1975/results
+19750421,1975,Stockholm - WCT,1975_666,Carpet,Indoor,$60000,32,https://www.atptour.com/en/scores/archive/stockholm/666/1975/results
+19750421,1975,Madrid,1975_2026,Clay,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/madrid/2026/1975/results
+19750428,1975,Nice,1975_6120,Clay,Outdoor,$25000,64,https://www.atptour.com/en/scores/archive/nice/6120/1975/results
+19750430,1975,World Doubles WCT,1975_601,Carpet,Indoor,$100000,0,https://www.atptour.com/en/scores/archive/mexico-city/601/1975/results
+19750505,1975,Munich,1975_308,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/munich/308/1975/results
+19750505,1975,Florence,1975_310,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/florence/310/1975/results
+19750507,1975,Dallas WCT,1975_610,Carpet,Indoor,$100000,8,https://www.atptour.com/en/scores/archive/dallas/610/1975/results
+19750512,1975,Las Vegas,1975_413,Hard,Outdoor,$150000,32,https://www.atptour.com/en/scores/archive/las-vegas/413/1975/results
+19750512,1975,Bournemouth,1975_347,Clay,Outdoor,$50000,64,https://www.atptour.com/en/scores/archive/bournemouth/347/1975/results
+19750519,1975,Hamburg,1975_414,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/hamburg/414/1975/results
+19750526,1975,Rome,1975_416,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/rome/416/1975/results
+19750526,1975,Dusseldorf,1975_661,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/dusseldorf/661/1975/results
+19750604,1975,Roland Garros,1975_520,Clay,Outdoor,,128,https://www.atptour.com/en/scores/archive/roland-garros/520/1975/results
+19750616,1975,Nottingham,1975_350,Grass,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/nottingham/350/1975/results
+19750623,1975,Wimbledon,1975_540,Grass,Outdoor,,128,https://www.atptour.com/en/scores/archive/wimbledon/540/1975/results
+19750707,1975,Bastad,1975_316,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/bastad/316/1975/results
+19750707,1975,Gstaad,1975_314,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/gstaad/314/1975/results
+19750707,1975,Kitzbuhel,1975_319,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/kitzbuhel/319/1975/results
+19750714,1975,Chicago,1975_411,Carpet,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/chicago/411/1975/results
+19750714,1975,Hilversum,1975_317,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/hilversum/317/1975/results
+19750714,1975,Istanbul,1975_2027,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/istanbul/2027/1975/results
+19750721,1975,Washington,1975_418,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/washington/418/1975/results
+19750728,1975,Louisville,1975_663,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/louisville/663/1975/results
+19750728,1975,Cincinnati,1975_422,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/cincinnati/422/1975/results
+19750804,1975,Indianapolis,1975_717,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/indianapolis/717/1975/results
+19750804,1975,North Conway,1975_705,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/north-conway/705/1975/results
+19750811,1975,Montreal / Toronto,1975_421,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/montreal/421/1975/results
+19750811,1975,Columbus,1975_343,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/columbus/343/1975/results
+19750818,1975,Boston,1975_417,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/boston/417/1975/results
+19750818,1975,South Orange,1975_707,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/south-orange/707/1975/results
+19750827,1975,US Open,1975_560,Clay,Outdoor,$166810,128,https://www.atptour.com/en/scores/archive/us-open/560/1975/results
+19750915,1975,Los Angeles,1975_423,Carpet,Indoor,$100000,64,https://www.atptour.com/en/scores/archive/los-angeles/423/1975/results
+19750915,1975,Bermuda,1975_2014,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/bermuda/2014/1975/results
+19750922,1975,San Francisco,1975_424,Carpet,Indoor,$100000,64,https://www.atptour.com/en/scores/archive/san-francisco/424/1975/results
+19750929,1975,Maui,1975_324,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/maui/324/1975/results
+19750929,1975,Aviles,1975_2028,Clay,Outdoor,$25000,32,https://www.atptour.com/en/scores/archive/aviles/2028/1975/results
+19751006,1975,Madrid,1975_309,Clay,Outdoor,$75000,64,https://www.atptour.com/en/scores/archive/madrid/309/1975/results
+19751006,1975,Melbourne,1975_331,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/melbourne/331/1975/results
+19751013,1975,Sydney Indoor,1975_427,Hard,Indoor,$100000,64,https://www.atptour.com/en/scores/archive/sydney/427/1975/results
+19751013,1975,Barcelona,1975_425,Clay,Outdoor,$75000,64,https://www.atptour.com/en/scores/archive/barcelona/425/1975/results
+19751020,1975,Tehran,1975_2011,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/tehran/2011/1975/results
+19751020,1975,Perth,1975_243,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/perth/243/1975/results
+19751027,1975,Manila,1975_362,Clay,Indoor,$75000,32,https://www.atptour.com/en/scores/archive/manila/362/1975/results
+19751027,1975,Paris Indoor,1975_7302,Hard,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/paris/7302/1975/results
+19751103,1975,Stockholm,1975_429,Hard,Indoor,$100000,64,https://www.atptour.com/en/scores/archive/stockholm/429/1975/results
+19751103,1975,Tokyo,1975_329,Clay,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/tokyo/329/1975/results
+19751110,1975,London,1975_2016,Carpet,Indoor,$75000,64,https://www.atptour.com/en/scores/archive/london/2016/1975/results
+19751110,1975,Buenos Aires,1975_303,Clay,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/buenos-aires/303/1975/results
+19751110,1975,Hong Kong,1975_336,Hard,Outdoor,$50000,32,https://www.atptour.com/en/scores/archive/hong-kong/336/1975/results
+19751117,1975,Johannesburg,1975_254,Hard,Outdoor,$100000,64,https://www.atptour.com/en/scores/archive/johannesburg/254/1975/results
+19751117,1975,Calcutta,1975_680,Carpet,Indoor,$50000,32,https://www.atptour.com/en/scores/archive/calcutta/680/1975/results
+19751130,1975,Masters,1975_605,Carpet,Indoor,$130000,8,https://www.atptour.com/en/scores/archive/masters/605/1975/results
+19751221,1975,Sydney Outdoor,1975_338,Grass,Outdoor,$23500,64,https://www.atptour.com/en/scores/archive/sydney/338/1975/results
 19751226,1976,Australian Open,1976_580,Grass,Outdoor,$75000,64,https://www.atptour.com/en/scores/archive/australian-open/580/1976/results
 19760105,1976,Monterrey WCT,1976_345,Carpet,Indoor,$60000,16,https://www.atptour.com/en/scores/archive/monterrey/345/1976/results
 19760105,1976,Auckland,1976_301,Grass,Outdoor,,32,https://www.atptour.com/en/scores/archive/auckland/301/1976/results
@@ -4119,6 +4119,8 @@ date,year,tourney_name,tourney_id,surface,indoor,commitment,draw_size,url
 20190225,2019,Brasil Open,2019_533,Clay,Indoor,$618810,28,https://www.atptour.com/en/scores/archive/sao-paulo/533/2019/results
 20190307,2019,BNP Paribas Open,2019_404,Hard,Outdoor,$9314875,96,https://www.atptour.com/en/scores/archive/indian-wells/404/2019/results
 20190320,2019,Miami Open presented by Itau,2019_403,Hard,Outdoor,$9314875,96,https://www.atptour.com/en/scores/archive/miami/403/2019/results
-20190408,2019,Fayez Sarofim & Co. U.S. Men's Clay Court Championship,2019_717,Clay,Outdoor,$652245,28,https://www.atptour.com/en/scores/current/houston/717/live-scores
-20190408,2019,Grand Prix Hassan II,2019_360,Clay,Outdoor,€586140,32,https://www.atptour.com/en/scores/current/marrakech/360/live-scores
-20190414,2019,Rolex Monte-Carlo Masters,2019_410,Clay,Outdoor,€5585030,56,https://www.atptour.com/en/scores/current/monte-carlo/410/live-scores
+20190408,2019,Fayez Sarofim & Co. U.S. Men's Clay Court Championship,2019_717,Clay,Outdoor,$652245,28,https://www.atptour.com/en/scores/archive/houston/717/2019/results
+20190408,2019,Grand Prix Hassan II,2019_360,Clay,Outdoor,€586140,32,https://www.atptour.com/en/scores/archive/marrakech/360/2019/results
+20190414,2019,Rolex Monte-Carlo Masters,2019_410,Clay,Outdoor,€5585030,56,https://www.atptour.com/en/scores/archive/monte-carlo/410/2019/results
+20190422,2019,Barcelona Open Banc Sabadell,2019_425,Clay,Outdoor,€2746455,48,https://www.atptour.com/en/scores/current/barcelona/425/live-scores
+20190422,2019,Hungarian Open,2019_7648,Clay,Outdoor,€586140,28,https://www.atptour.com/en/scores/current/budapest/7648/live-scores
