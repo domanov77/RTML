@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-26 16:05:06 delucia"
+### Time-stamp: "Last modified 2019-04-26 23:42:59 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year) {
@@ -606,4 +606,316 @@ ScrapePlayer <- function(name, id, db) {
                 other_names=ifelse(has_other_name, nam[nam!=name], NA_character_),
                 url=url) 
     return(ret)
+}
+
+
+
+### Function which scrapes the data for a single player, WITH NO
+### Ranking History, i.e. only playing hand, bday and nationality. It
+### accepts ONLY player name as input
+ScrapePlayerNoRank <- function(name, id) {
+
+    if (missing(id) | missing(name))
+        stop(":ScrapePlayerNoRank: you must specify name and id!\n")
+
+    url <- paste0("https://www.atptour.com/en/players/", tolower(gsub(" ", "-", fixed=TRUE, name)), "/", tolower(id),"/overview")
+    require(rvest)
+    require(httr)
+    
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    response <- GET(as.character(url), user_agent(uastring))
+    html <- read_html(response)
+
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class")
+
+    ## birthday
+    bday <- NA_character_
+    if ("table-birthday" %in% allnodes)
+        bday <- html_node(html, ".table-birthday") %>% html_text(trim=TRUE) %>% gsub(pattern="\\(|\\)", replacement="")
+    
+
+    ## player hand
+    plays <- NA_character_
+    if ("table-value" %in% allnodes) {
+        plays_tmp <- html_nodes(html, ".table-value") %>% html_text(trim=TRUE)
+    
+        ip <- grep("handed", plays_tmp, ignore.case=TRUE)
+ 
+        if (length(ip)>0)
+            plays <- plays_tmp[ip] %>% substr(start=1, stop=1)
+    }
+
+    ## nationality
+    nationality <- NA_character_
+    if ("player-flag-code" %in% allnodes) {
+        nationality <- html_nodes(html, ".player-flag-code") %>% html_text(trim=TRUE)
+    }
+
+    
+    ## pack all informations in a list
+    ret <- list(plays=plays, bday=bday, nation=nationality, id=id, name=name, url=url) 
+    return(ret)
+}
+
+
+
+### Function to scrape all atp rankings (1-5000) for a given week
+ScrapeRankings <- function(date) {
+
+    ret_na <- data.frame("Ranking"=NA_integer_, "Player"=NA_character_, "Age"=NA_integer_, "Points"=NA_integer_, "Tourn_Played"=NA_integer_,   
+                         "Points_Dropping"=NA_integer_, "Next_Best"=NA_integer_) 
+
+    url <- paste0("https://www.atptour.com/en/rankings/singles?rankDate=", date, "&rankRange=1-5000")
+    require(rvest)
+    require(httr)
+    
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    response <- GET(as.character(url), user_agent(uastring))
+    html <- read_html(response)
+    
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique() %>% sort() 
+
+    ## check if the date is present
+    if ("dropdown" %in% allnodes) {
+        all_dates <- html_nodes(html, ".dropdown") %>% html_text(trim=TRUE) 
+        all_dates <- strsplit(gsub(pattern="[[:space:]]{2,}", " ", all_dates[1]), " ")[[1]]
+        if (! gsub("-",".", date, fixed=TRUE) %in% all_dates) {
+            cat(":ScrapeRankings: date is not correct\n")
+            return(ret_na)
+        }
+    }
+    
+    if ("mega-table" %in% allnodes) {
+        table <- html_node(html, "table.mega-table") %>% html_table(header=TRUE)
+        table[, c("Move", "Country")] <- NULL
+        colnames(table) <- gsub(" ", "_", colnames(table), fixed=TRUE)
+        table$Ranking <- as.integer(gsub("T","",table$Ranking, fixed=TRUE))
+        table$Points  <- as.integer(gsub(",","",table$Points, fixed=TRUE))
+        table$Points_Dropping  <- as.integer(gsub(",","",table$Points_Dropping, fixed=TRUE))
+    } else {
+        cat(":ScrapeRankings: no data found, check url and date\n")
+        table <- ret_na
+    }
+    return(table)
+}
+
+### Function which retrieves all ranking dates and returns them as strings
+AvailableRankings <- function() {
+
+    require(rvest)
+    require(httr)
+    
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    url <- "https://www.atptour.com/en/rankings/singles"
+    response <- GET(as.character(url), user_agent(uastring))
+    html <- read_html(response)
+    all_dates <- html_nodes(html, ".dropdown") %>% html_text(trim=TRUE) 
+    all_dates <- strsplit(gsub(pattern="[[:space:]]{2,}", " ", all_dates[1]), " ")[[1]]
+    all_dates <- gsub(pattern=".", "", all_dates, fixed=TRUE)
+    return(rev(all_dates))
+    
+}
+    
+
+## Function which finds the right ranking date from a data.table
+## containing matches (typically as result of ScrapeMatchStats),
+## controls the available rankings, downloads the ranking into
+## Rankings/Rankings/Ranks_DATE.csv and fills the DT with the ranks of
+## the players
+ScrapeRankingForMatches <- function(matches) {
+    fmt_td   <- '%Y%m%d'
+    fmt_bday <- '%Y.%m.%d'
+    ## scrape available rankings from ATP site
+    avranks <- AvailableRankings()
+    
+    tdate <- as.Date(as.character(unique(matches$date)), format=fmt_td)
+    ranks <- as.Date(as.character(avranks), format=fmt_td)
+
+    ind <- rep(NA_integer_, length(tdate))
+    for (i in seq_along(tdate))
+        ind[i] <- which.max(ranks >= tdate[i])
+
+    un_inds <- unique(ind)
+
+    to_scrape <- ranks[un_inds]
+    new <- copy(matches)
+    for (i in seq_along(to_scrape)) {
+        ## start the iteration per tourney
+        nfile <- paste0("Rankings/Ranks_", to_scrape[i],".csv")
+        cat(":ScrapeRankingForMatches: looking for rankings on", as.character(to_scrape[i]),"\n")
+        if (!file.exists(nfile)) {
+            rtab <- ScrapeRankings(to_scrape[i])
+            fwrite(rtab, file=nfile)
+            cat(":ScrapeRankingForMatches: rankings saved in file ", nfile,"\n")
+        } else {
+            rtab <- fread(nfile)
+        }
+        ind_matches <- which(matches$date==gsub("-","", unique_tdate[i],fixed=TRUE))
+        w <- new$winner_name[ind_matches]
+        l <- new$loser_name[ind_matches]
+        indw <- match(w, rtab$Player)
+        indl <- match(l, rtab$Player)
+        set(new, ind_matches, "winner_rank", rtab$Ranking[indw])
+        set(new, ind_matches, "loser_rank",  rtab$Ranking[indl])
+    }
+
+    ## strip the column "tpirney_id_from_url" which was only used as control
+    if ("tourney_id_from_url" %in% colnames(new))
+        set(new, ,"tourney_id_from_url", NULL )
+    return(new)
+}
+
+
+
+
+### Function which automatically updates the db
+UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE) {
+    if (missing(db))
+        db <- ReadData("Data/dbtml.csv")
+
+    newdb <- copy(db)
+
+    this_year <- as.integer(format(Sys.Date(),"%Y"))
+    y <- ScrapeYear(this_year)
+
+    current <- grep("current", y$url)
+
+    playing <- y[ current]
+    archive <- y[-current]
+
+    ## completely missing tourneys which are already finished and
+    ## archived (typically, a few days later they are online)
+    inds <- which(! archive$tourney_id %in% newdb$tourney_id) 
+
+    if (length(inds) > 0) { ## we have whole new tourneys to scrape
+        to_scrape <- archive[inds]
+        cat(":UpdateDB: going to add", paste(to_scrape$tourney_name, collapse=", "), "to the db\n")
+        tourneys <-  lapply(to_scrape$url, ScrapeTourney)
+        
+        ind_nodata <- which(is.na(tourneys))
+        if (length(ind_nodata)> 0) {
+            tourneys[ind_nodata] <- NULL
+            to_scrape <- to_scrape[-ind_nodata]
+        }
+
+        newmatches <- rbindlist(lapply(seq_along(tourneys), function(i) add_info_from_tour(tourney=to_scrape[i], matches=tourneys[[i]])))
+
+        res <- ScrapeMatchStats(newmatches, cores=4) 
+        cat(":UpdateDB: retrieved match statistics\n")
+        res <- ScrapeRankingForMatches(res) 
+        cat(":UpdateDB: retrieved rankings, now adding player info\n")
+        final <- AddPlayerInfo(res, save=TRUE)
+        
+        newdb <- AppendMatches(final, newdb)
+        if (write_ended) {
+            cat(":UpdateDB: writing the new db onto Data/dbtml.csv\n") 
+            fwrite(newdb, paste0("Data/dbtml.csv"), quote=FALSE)
+        }
+    }
+
+    ## Now we scrape the results of the "current", which we save separately
+    ## today <- format(Sys.Date(),"%Y-%m-%d")
+    ## now <- format(Sys.time(),"%Y-%m-%d_%H_%M")
+    ongoing_tourneys <- lapply(playing$url, ScrapeTourney)
+    cat(":UpdateDB: scraping ongoing tourneys\n")
+        
+    ind_nodata <- which(is.na(ongoing_tourneys))
+    if (length(ind_nodata)> 0) {
+        ongoing_tourneys[ind_nodata] <- NULL
+        playing <- playing[-ind_nodata]
+    }
+
+    on_matches <- rbindlist(lapply(seq_along(ongoing_tourneys), function(i) add_info_from_tour(tourney=playing[i], matches=ongoing_tourneys[[i]])))
+
+    on_res <- ScrapeMatchStats(on_matches, cores=4) 
+    cat(":UpdateDB: retrieved match statistics for ongoing tournaments\n")
+    on_res <- ScrapeRankingForMatches(on_res) 
+    cat(":UpdateDB: retrieved rankings for ongoing tournaments, now adding player info\n")
+
+    on_final <- AddPlayerInfo(on_res, save=TRUE)
+
+    if (write_current) {
+        cat(":UpdateDB: writing the matches of ongoing tournaments onto Data/ongoing_tourneys.csv\n")
+        fwrite(on_res, "Data/ongoing_tourneys.csv", quote=FALSE)
+    }
+    newdb <- AppendMatches(on_res, newdb)
+    return(newdb)
+}
+
+
+## workhorse function to add to a DT with matches (or match_stats) the
+## tournament informations from a "tourney" DT
+add_info_from_tour <- function(tourney, matches) {
+    matches$year <- tourney$year
+    matches$date <- tourney$date
+    matches$indoor <- tourney$indoor
+    matches$surface <- tourney$surface
+    matches$commitment <- tourney$commitment
+    matches$draw_size <-  tourney$draw_size
+    matches$tourney_id <- tourney$tourney_id 
+    matches$tourney_name <- tourney$tourney_name
+    return(matches)
+}
+
+
+
+### Function which fills missing informations for a Player from
+### records in the PlayerInfo.RData database; if the player is not
+### already in the db, scrapes those informations from the ATP site
+AddPlayerInfo <- function(dt, save=TRUE) {
+    hdt <- HashNameId(dt)
+    pinfo <- readRDS("Data/PlayersInfo.RData")
+
+    has_info <- sapply(hdt$player, function(x) x %in% names(pinfo))
+    
+    ind_to_scrape <- which(!has_info)
+    if (length(ind_to_scrape)> 0) {
+        scraped <- vector(mode="list", length=length(ind_to_scrape))
+        for (i in seq_along(ind_to_scrape)) {
+            scraped[[i]] <- ScrapePlayerNoRank(hdt[ ind_to_scrape[i],1], hdt[ ind_to_scrape[i],2])
+        }
+        names(scraped) <- hdt[ind_to_scrape, player]
+        pinfo <- c(pinfo, scraped)
+        if (save) {
+            saveRDS(pinfo, "Data/PlayersInfo.RData")
+            cat(":AddPlayerInfo: saved player info for ", paste(names(scraped), collapse=", "), "\n")
+        }
+    }
+
+    for (i in seq(1, nrow(hdt))) {
+        set(hdt, i, "plays",  pinfo[[ hdt$player[i] ]]$plays)
+        set(hdt, i, "bday",   pinfo[[ hdt$player[i] ]]$bday)
+        set(hdt, i, "nation", pinfo[[ hdt$player[i] ]]$nation)
+    }
+    
+    w <- dt$winner_name
+    l <- dt$loser_name
+    indw <- match(w, hdt$player)
+    indl <- match(l, hdt$player)
+    set(dt, , "winner_hand", hdt$plays[indw])
+    set(dt, , "loser_rank",  hdt$plays[indl])
+    
+    set(dt, , "winner_ioc", hdt$nation[indw])
+    set(dt, , "loser_ioc",  hdt$nation[indl])
+
+    ## Compute Age
+    fmt_db <- '%Y%m%d'
+    fmt_bday <- '%Y.%m.%d'
+    agew <- round(as.numeric(as.Date(as.character(dt$date), format=fmt_db)-as.Date(hdt$bday[indw],format=fmt_bday))/365.25,6)
+    agel <- round(as.numeric(as.Date(as.character(dt$date), format=fmt_db)-as.Date(hdt$bday[indl],format=fmt_bday))/365.25,6)
+    
+    set(dt, , "winner_age", agew)
+    set(dt, , "loser_age",  agel)
+
+    return(dt)
+}
+
+
+### Workhorse Function to give a "hash table" of player names and
+### player ids
+HashNameId <- function(dt) {
+    tot <- data.table(cbind(player=c(dt$winner_name, dt$loser_name),
+                            id=c(dt$winner_id, dt$loser_id)))
+    tmp <- unique(tot)
+    return(tmp[order(id)])
 }
