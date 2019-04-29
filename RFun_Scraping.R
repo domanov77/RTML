@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-04-27 00:17:19 delucia"
+### Time-stamp: "Last modified 2019-04-29 14:43:56 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE) {
@@ -169,9 +169,9 @@ ScrapeTourney <- function(url, id, details=FALSE) {
     }
            
     ## now get the players ids
-    ids_players <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="players.*overview", value=TRUE) %>% 
-        gsub(pattern="/en/players/",replacement="",fixed=TRUE) %>% gsub(pattern="/overview",replacement="",fixed=TRUE) %>%
-        gsub(pattern="^.*/",replacement="")%>% toupper()
+    ids_players <-  html_nodes(html, ".day-table-name")%>% html_node("a") %>% html_attr("href") %>%
+        gsub(pattern="/overview",replacement="",fixed=TRUE) %>% gsub(pattern="^.*/",replacement="") %>% toupper()
+
     
     player_id <- matrix( ids_players, ncol=2, byrow=TRUE)
  
@@ -205,18 +205,13 @@ ScrapeTourney <- function(url, id, details=FALSE) {
     tab$score <- gsub("([[:digit:]])-([[:digit:]])([[:digit:]])-([[:digit:]])","\\1\\2-\\3\\4",tab$score)
     ## NB: this doesn't work if the long sets start by 67 or 76!!
     
-    ## extract the urls to single match stats, maybe we can scrape them in future
-    url_matches <- rep(NA_character_, nrow(tab))
-    urls  <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="match-stats", fixed=TRUE, value=TRUE)
-    
-    if (length(urls)!=0) { ## there are match stats, apparently
-        ## if there are walkovers we have less urls than matches!
-        wos <- which(tab$score!="W/O")
-        url_matches[wos] <- urls
+    ## extract the urls to single match stats, maybe to scrape them in future
+    if ("day-table-score" %in% allnodes) {
+        urls <-  html_nodes(html, ".day-table-score")%>% html_node("a") %>% html_attr("href") 
+        tab$url_matches <- urls
+    } else {
+        tab$url_matches <- rep(NA_character_, nrow(tab))
     }
-
-    tab$tourney_id_from_url <- rep(tourney_id, nrow(tab))
-    tab$url_matches <- url_matches
 
      
     ## Find other details: date, surface, draw size... all these info
@@ -837,6 +832,9 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE) {
 
     on_final <- AddPlayerInfo(on_res, save=TRUE)
 
+    ## give "current" the same columns order as in "newdb"
+    setcolorder(on_final, colnames(newdb))
+
     if (write_current) {
         cat(":UpdateDB: writing the matches of ongoing tournaments onto Data/ongoing_tourneys.csv\n")
         fwrite(on_final, "Data/ongoing_tourneys.csv", quote=FALSE)
@@ -896,7 +894,7 @@ AddPlayerInfo <- function(dt, save=TRUE) {
     indw <- match(w, hdt$player)
     indl <- match(l, hdt$player)
     set(dt, , "winner_hand", hdt$plays[indw])
-    set(dt, , "loser_rank",  hdt$plays[indl])
+    set(dt, , "loser_hand",  hdt$plays[indl])
     
     set(dt, , "winner_ioc", hdt$nation[indw])
     set(dt, , "loser_ioc",  hdt$nation[indl])
