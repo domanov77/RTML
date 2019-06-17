@@ -1,128 +1,91 @@
 year,date,tourney_name,tourney_id,surface,indoor,commitment,draw_size,round,winner_id,winner_seed,winner_rank,winner_age,winner_ioc,winner_name,winner_hand,score,loser_id,loser_seed,loser_rank,loser_age,loser_ioc,loser_name,loser_hand,w_ace,w_df,w_svpt,w_1stIn,w_1stWon,w_2ndWon,w_SvGms,w_bpSaved,w_bpFaced,l_ace,l_df,l_svpt,l_1stIn,l_1stWon,l_2ndWon,l_SvGms,l_bpSaved,l_bpFaced,minutes
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,Y268,Q,148,20.709103,SWE,Mikael Ymer,R,6-0 6-3 7-6(5),RA51,Q,183,28.637919,SLO,Blaz Rola,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,T786,PR,82,34.105407,FRA,Jo-Wilfried Tsonga,R,7-6(4) 6-1 4-6 6-3,G967,,121,29.861739,GER,Peter Gojowczyk,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,TC61,,69,25.097878,AUS,Jordan Thompson,R,6-3 6-2 7-6(3),DH50,LL,133,19.972621,ESP,Alejandro Davidovich Fokina,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,RH16,,63,20.424367,NOR,Casper Ruud,R,6-2 7-6(2) 6-0,G858,,79,30.735113,LAT,Ernests Gulbis,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,P09Z,WC,109,19.805613,AUS,Alexei Popyrin,R,3-6 6-3 7-6(10) 6-3,HH26,,61,20.914442,FRA,Ugo Humbert,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,PD31,,38,30.047912,FRA,Benoit Paire,R,6-4 6-7(5) 6-0 6-1,CA99,,83,28.605065,ROU,Marius Copil,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,O449,LL,144,25.859001,GER,Oscar Otte,R,6-3 6-1 4-6 6-0,J267,,92,35.345654,TUN,Malek Jaziri,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,N732,,72,23.660507,JPN,Yoshihito Nishioka,L,6-7(7) 6-0 4-6 6-2 6-3,MK66,,66,24.109514,USA,Mackenzie McDonald,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,MW02,WC,110,20.1013,FRA,Corentin Moutet,L,6-4 7-6(6) 6-4,V717,Q,212,26.576318,RUS,Alexey Vatutin,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,MD56,,68,32.030116,ARG,Leonardo Mayer,R,7-6(3) 6-3 6-0,V708,,105,25.875428,CZE,Jiri Vesely,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,ME82,,48,30.90486,FRA,Adrian Mannarino,L,6-7(5) 6-3 3-6 6-2 6-2,TA12,Q,119,27.408624,ITA,Stefano Travaglia,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,MH16,Q,114,29.574264,GER,Yannick Maden,R,7-6(0) 7-5 6-3,CG33,Q,178,25.295003,BEL,Kimmer Coppejans,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,L949,Alt,104,27.151266,SUI,Henri Laaksonen,R,6-1 6-0 7-6(4),MO44,Q,134,22.080767,ESP,Pedro Martinez,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,K435,,54,35.608487,GER,Philipp Kohlschreiber,R,6-4 6-4 6-7(5) 6-1,H756,,67,32.136893,NED,Robin Haase,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,K966,,55,29.87269,SVK,Martin Klizan,L,3-6 5-7 6-4 6-2 6-3,K926,,51,31.4141,KAZ,Mikhail Kukushkin,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,KI95,,85,19.734428,SRB,Miomir Kecmanovic,R,6-0 6-7(9) 5-7 6-3 6-4,KB09,,81,26.770705,USA,Denis Kudla,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,K336,,94,40.238193,CRO,Ivo Karlovic,R,7-6(4) 7-5 6-7(7) 7-5,L397,,108,37.678303,ESP,Feliciano Lopez,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,HA71,WC,146,23.556468,FRA,Antoine Hoang,R,6-4 0-6 7-6(5) 6-3,D923,,52,27.014374,BIH,Damir Dzumhur,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,HG86,,90,22.247775,RSA,Lloyd Harris,R,6-1 4-6 2-6 6-1 6-2,R685,LL,149,33.837098,CZE,Lukas Rosol,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,G628,,39,32.936345,FRA,Richard Gasquet,R,6-3 6-4 6-3,Z168,,102,31.759069,GER,Mischa Zverev,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,GD64,,37,22.986995,CHI,Cristian Garin,R,7-6(0) 7-5 7-6(7),O522,,59,21.741273,USA,Reilly Opelka,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,FB98,,42,21.574264,USA,Taylor Fritz,R,6-1 6-4 6-1,TA46,,84,26.592745,AUS,Bernard Tomic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,D875,,46,28.027379,BUL,Grigor Dimitrov,R,6-3 6-0 3-6 6-7(4) 6-4,T742,PR,303,34.924025,SRB,Janko Tipsarevic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,DA31,,86,25.941136,BOL,Hugo Dellien,R,6-1 6-3 6-1,GA94,,88,29.533196,IND,Prajnesh Gunneswaran,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,D874,,75,28.637919,ARG,Federico Delbonis,L,6-1 3-6 6-3 6-2,G476,Q,136,35.975359,ESP,Guillermo Garcia-Lopez,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,C882,,47,33.396304,URU,Pablo Cuevas,R,6-4 6-4 6-2,J620,WC,190,22.600958,FRA,Maxime Janvier,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,CE25,Q,147,26.442163,ITA,Salvatore Caruso,R,7-5 4-6 6-3 6-3,MU94,,53,22.056126,ESP,Jaume Munar,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,CD85,,57,27.871321,ESP,Pablo Carreno Busta,R,6-3 6-1 6-2,SH90,,70,30.154689,POR,Joao Sousa,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,CF59,,76,26.173854,ESP,Roberto Carballes Baena,R,6-4 6-4 6-2,MP20,Q,304,22.310746,FRA,Alexandre Muller,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,BK92,,91,21.938398,KAZ,Alexander Bublik,R,7-5 6-7(4) 6-1 7-6(2),M0AC,Q,173,18.579055,GER,Rudolf Molleker,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,BT68,Q,273,20.646133,FRA,Elliot Benchetrit,R,6-3 6-0 6-2,N771,,49,23.756331,GBR,Cameron Norrie,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,BK24,WC,127,25.270363,FRA,Gregoire Barrere,R,6-3 5-7 7-5 6-1,E690,,64,31.496235,AUS,Matthew Ebden,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,A829,,40,29.535934,MDA,Radu Albot,R,7-6(3) 7-6(1) 3-6 6-1,SL08,Q,100,27.843943,USA,Tennys Sandgren,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,KB05,,60,27.241615,SRB,Filip Krajinovic,R,6-2 4-6 6-3 3-6 6-0,TD51,32,34,21.344285,USA,Frances Tiafoe,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,DB63,31,32,23.980835,SRB,Laslo Djere,R,6-3 6-2 7-6(2),R772,,87,31.353867,ESP,Albert Ramos-Vinolas,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,L987,30,35,28.903491,SRB,Dusan Lajovic,R,6-3 6-4 6-4,MJ08,Q,112,24.985626,BRA,Thiago Monteiro,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,BK40,29,31,23.118412,ITA,Matteo Berrettini,R,6-7(3) 6-4 6-4 6-2,A596,,93,33.336071,ESP,Pablo Andujar,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,E831,28,30,24.377823,GBR,Kyle Edmund,R,7-6(1) 5-7 6-4 4-6 7-5,CA12,,41,32.281999,FRA,Jeremy Chardy,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,GB88,27,29,28.465435,BEL,David Goffin,R,6-0 6-2 6-2,BE90,,73,28.928131,LTU,Ricardas Berankis,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,SD32,26,33,34.409309,FRA,Gilles Simon,R,6-3 6-3 6-4,SC77,LL,111,33.382615,UKR,Sergiy Stakhovsky,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,W367,24,28,34.160164,SUI,Stan Wawrinka,R,6-1 6-7(3) 6-2 6-3,KC04,PR,132,26.554415,SVK,Jozef Kovalik,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,V306,23,27,35.526352,ESP,Fernando Verdasco,L,6-3 6-7(4) 6-3 6-2,E687,,80,29.007529,GBR,Daniel Evans,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,PF39,22,26,25.251198,FRA,Lucas Pouille,R,6-3 6-4 7-5,BA98,Q,187,33.629021,ITA,Simone Bolelli,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,DH58,21,25,20.268309,AUS,Alex de Minaur,R,6-1 6-4 6-4,KA98,,89,28.76386,USA,Bradley Klahn,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,SL28,,45,29.084189,GER,Jan-Lennard Struff,R,7-6(1) 6-3 6-4,SU55,20,24,20.112252,CAN,Denis Shapovalov,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,PC11,19,23,29.023956,ARG,Guido Pella,L,7-6(2) 6-4 1-6 6-1,A887,,101,27.805613,ARG,Guido Andreozzi,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,BD06,18,21,31.112936,ESP,Roberto Bautista Agut,R,6-3 6-4 6-2,J386,,65,29.418207,USA,Steve Johnson,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,SM37,17,20,26.773443,ARG,Diego Schwartzman,R,6-3 3-6 7-6(7) 2-6 6-2,F724,,50,27.293634,HUN,Marton Fucsovics,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,M873,WC,252,37.341547,FRA,Nicolas Mahut,R,2-6 6-7(6) 6-4 6-2 6-4,CF01,16,19,26.65024,ITA,Marco Cecchinato,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,LB84,,78,25.776865,ARG,Juan Ignacio Londero,R,6-4 6-1 6-3,BG23,15,16,27.252567,GEO,Nikoloz Basilashvili,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,MC65,14,17,32.731006,FRA,Gael Monfils,R,6-0 6-4 6-1,DA81,,103,26.324435,JPN,Taro Daniel,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,CG80,13,15,22.527036,CRO,Borna Coric,R,6-1 6-7(4) 6-4 6-4,BH09,,95,29.853525,SLO,Aljaz Bedene,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,H996,,43,28.188912,FRA,Pierre-Hugues Herbert,R,4-6 4-6 6-3 6-2 7-5,MM58,12,14,23.285421,RUS,Daniil Medvedev,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,C977,11,13,30.655715,CRO,Marin Cilic,R,6-3 7-5 6-1,F586,,96,29.998631,ITA,Thomas Fabbiano,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,KE29,10,11,23.011636,RUS,Karen Khachanov,R,6-1 6-1 6-4,SK94,PR,,28.626968,GER,Cedrik-Marcel Stebe,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,F510,9,12,32.005476,ITA,Fabio Fognini,R,6-3 6-0 3-6 6-3,SA93,,71,35.258042,ITA,Andreas Seppi,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,D683,8,9,30.669405,ARG,Juan Martin del Potro,R,3-6 6-2 6-1 6-4,J551,,58,23.622177,CHI,Nicolas Jarry,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,N552,7,7,29.404517,JPN,Kei Nishikori,R,6-2 6-3 6-4,HB64,WC,151,22.579055,FRA,Quentin Halys,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,TE51,6,6,20.785763,GRE,Stefanos Tsitsipas,R,6-2 6-2 7-6(4),MN13,,116,23.945243,GER,Maximilian Marterer,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,Z355,5,5,22.097194,GER,Alexander Zverev,R,7-6(4) 6-3 2-6 6-7(5) 6-3,MH30,,56,29.946612,AUS,John Millman,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,TB69,4,4,25.724846,AUT,Dominic Thiem,R,6-4 4-6 7-6(5) 6-2,PL56,WC,131,22.023272,USA,Tommy Paul,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,F324,3,3,37.79603,SUI,Roger Federer,R,6-2 6-4 6-4,SU87,,74,24.041068,ITA,Lorenzo Sonego,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-2 6-1 6-3,H997,Q,180,27.531828,GER,Yannick Hanfmann,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R128,D643,1,1,32.010951,SRB,Novak Djokovic,R,6-4 6-2 6-2,HB71,,44,22.283368,POL,Hubert Hurkacz,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,TC61,,69,25.097878,AUS,Jordan Thompson,R,6-3 6-4 6-7(2) 6-3,K336,,94,40.238193,CRO,Ivo Karlovic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,SL28,,45,29.084189,GER,Jan-Lennard Struff,R,7-6(2) 7-6(3) 6-7(4) 6-2,A829,,40,29.535934,MDA,Radu Albot,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,PD31,,38,30.047912,FRA,Benoit Paire,R,6-2 6-2 5-7 6-7(6) 1-19,H996,,43,28.188912,FRA,Pierre-Hugues Herbert,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,M873,WC,252,37.341547,FRA,Nicolas Mahut,R,6-3 6-3 6-3,K435,,54,35.608487,GER,Philipp Kohlschreiber,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,LB84,,78,25.776865,ARG,Juan Ignacio Londero,R,6-2 3-6 6-3 6-4,G628,,39,32.936345,FRA,Richard Gasquet,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,KB05,,60,27.241615,SRB,Filip Krajinovic,R,6-4 6-4 6-7(1) 3-6 8-6,CF59,,76,26.173854,ESP,Roberto Carballes Baena,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,DB63,31,32,23.980835,SRB,Laslo Djere,R,6-4 7-6(4) 6-4,P09Z,WC,109,19.805613,AUS,Alexei Popyrin,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,L987,30,35,28.903491,SRB,Dusan Lajovic,R,6-3 6-3 6-4,BT68,Q,273,20.646133,FRA,Elliot Benchetrit,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,RH16,,63,20.424367,NOR,Casper Ruud,R,6-4 7-5 6-3,BK40,29,31,23.118412,ITA,Matteo Berrettini,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,C882,,47,33.396304,URU,Pablo Cuevas,R,7-6(3) 6-3 2-1 RET,E831,28,30,24.377823,GBR,Kyle Edmund,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,GB88,27,29,28.465435,BEL,David Goffin,R,6-2 6-4 6-3,KI95,,85,19.734428,SRB,Miomir Kecmanovic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,CE25,Q,147,26.442163,ITA,Salvatore Caruso,R,6-1 6-2 6-4,SD32,26,33,34.409309,FRA,Gilles Simon,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,W367,24,28,34.160164,SUI,Stan Wawrinka,R,6-1 6-4 6-0,GD64,,37,22.986995,CHI,Cristian Garin,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,HA71,WC,146,23.556468,FRA,Antoine Hoang,R,6-4 3-6 7-6(5) 7-5,V306,23,27,35.526352,ESP,Fernando Verdasco,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,K966,,55,29.87269,SVK,Martin Klizan,L,7-6(4) 2-6 6-3 3-6 9-7,PF39,22,26,25.251198,FRA,Lucas Pouille,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,CD85,,57,27.871321,ESP,Pablo Carreno Busta,R,6-3 6-1 6-1,DH58,21,25,20.268309,AUS,Alex de Minaur,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,MW02,WC,110,20.1013,FRA,Corentin Moutet,L,6-3 6-1 2-6 7-5,PC11,19,23,29.023956,ARG,Guido Pella,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,BD06,18,21,31.112936,ESP,Roberto Bautista Agut,R,6-2 6-3 6-2,FB98,,42,21.574264,USA,Taylor Fritz,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,MD56,,68,32.030116,ARG,Leonardo Mayer,R,4-6 6-3 6-4 7-5,SM37,17,20,26.773443,ARG,Diego Schwartzman,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,MC65,14,17,32.731006,FRA,Gael Monfils,R,6-3 6-4 6-4,ME82,,48,30.90486,FRA,Adrian Mannarino,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,CG80,13,15,22.527036,CRO,Borna Coric,R,6-2 6-3 7-6(2),HG86,,90,22.247775,RSA,Lloyd Harris,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,D875,,46,28.027379,BUL,Grigor Dimitrov,R,6-7(3) 6-4 4-6 7-6(2) 6-3,C977,11,13,30.655715,CRO,Marin Cilic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,KE29,10,11,23.011636,RUS,Karen Khachanov,R,6-3 7-6(6) 0-6 7-5,BK24,WC,127,25.270363,FRA,Gregoire Barrere,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,F510,9,12,32.005476,ITA,Fabio Fognini,R,6-4 3-6 6-3 6-3,D874,,75,28.637919,ARG,Federico Delbonis,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,D683,8,9,30.669405,ARG,Juan Martin del Potro,R,5-7 6-4 6-2 6-7(5) 6-2,N732,,72,23.660507,JPN,Yoshihito Nishioka,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,N552,7,7,29.404517,JPN,Kei Nishikori,R,4-6 6-4 6-4 6-4,T786,PR,82,34.105407,FRA,Jo-Wilfried Tsonga,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,TE51,6,6,20.785763,GRE,Stefanos Tsitsipas,R,4-6 6-0 6-3 7-5,DA31,,86,25.941136,BOL,Hugo Dellien,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,Z355,5,5,22.097194,GER,Alexander Zverev,R,6-1 6-3 7-6(3),Y268,Q,148,20.709103,SWE,Mikael Ymer,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,TB69,4,4,25.724846,AUT,Dominic Thiem,R,6-3 6-7(6) 6-3 7-5,BK92,,91,21.938398,KAZ,Alexander Bublik,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,F324,3,3,37.79603,SUI,Roger Federer,R,6-4 6-3 6-4,O449,LL,144,25.859001,GER,Oscar Otte,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-1 6-2 6-4,MH16,Q,114,29.574264,GER,Yannick Maden,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R64,D643,1,1,32.010951,SRB,Novak Djokovic,R,6-1 6-4 6-3,L949,Alt,104,27.151266,SUI,Henri Laaksonen,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,PD31,,38,30.047912,FRA,Benoit Paire,R,6-2 4-6 7-6(1) RET,CD85,,57,27.871321,ESP,Pablo Carreno Busta,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,MD56,,68,32.030116,ARG,Leonardo Mayer,R,3-6 7-6(3) 6-4 7-6(3),M873,WC,252,37.341547,FRA,Nicolas Mahut,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,LB84,,78,25.776865,ARG,Juan Ignacio Londero,R,2-6 6-3 6-4 5-7 6-4,MW02,WC,110,20.1013,FRA,Corentin Moutet,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,W367,24,28,34.160164,SUI,Stan Wawrinka,R,7-6(5) 7-6(4) 7-6(8),D875,,46,28.027379,BUL,Grigor Dimitrov,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,MC65,14,17,32.731006,FRA,Gael Monfils,R,6-3 6-2 6-3,HA71,WC,146,23.556468,FRA,Antoine Hoang,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,SL28,,45,29.084189,GER,Jan-Lennard Struff,R,4-6 6-1 4-6 7-6(1) 1-19,CG80,13,15,22.527036,CRO,Borna Coric,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,KE29,10,11,23.011636,RUS,Karen Khachanov,R,6-1 6-4 6-3,K966,,55,29.87269,SVK,Martin Klizan,L,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,F510,9,12,32.005476,ITA,Fabio Fognini,R,7-6(5) 6-4 4-6 6-1,BD06,18,21,31.112936,ESP,Roberto Bautista Agut,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,D683,8,9,30.669405,ARG,Juan Martin del Potro,R,6-4 6-4 6-0,TC61,,69,25.097878,AUS,Jordan Thompson,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,N552,7,7,29.404517,JPN,Kei Nishikori,R,6-4 6-7(6) 6-3 4-6 8-6,DB63,31,32,23.980835,SRB,Laslo Djere,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,TE51,6,6,20.785763,GRE,Stefanos Tsitsipas,R,7-5 6-3 6-7(5) 7-6(6),KB05,,60,27.241615,SRB,Filip Krajinovic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,Z355,5,5,22.097194,GER,Alexander Zverev,R,6-4 6-2 4-6 1-6 6-2,L987,30,35,28.903491,SRB,Dusan Lajovic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,TB69,4,4,25.724846,AUT,Dominic Thiem,R,6-3 4-6 6-2 7-5,C882,,47,33.396304,URU,Pablo Cuevas,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,F324,3,3,37.79603,SUI,Roger Federer,R,6-3 6-1 7-6(8),RH16,,63,20.424367,NOR,Casper Ruud,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-1 6-3 4-6 6-3,GB88,27,29,28.465435,BEL,David Goffin,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R32,D643,1,1,32.010951,SRB,Novak Djokovic,R,6-3 6-3 6-2,CE25,Q,147,26.442163,ITA,Salvatore Caruso,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,KE29,10,11,23.011636,RUS,Karen Khachanov,R,7-5 6-3 3-6 6-3,D683,8,9,30.669405,ARG,Juan Martin del Potro,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,N552,7,7,29.404517,JPN,Kei Nishikori,R,6-2 6-7(8) 6-2 6-7(8) 6-2,PD31,,38,30.047912,FRA,Benoit Paire,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,W367,24,28,34.160164,SUI,Stan Wawrinka,R,7-6(6) 5-7 6-4 3-6 8-6,TE51,6,6,20.785763,GRE,Stefanos Tsitsipas,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,Z355,5,5,22.097194,GER,Alexander Zverev,R,3-6 6-2 6-2 7-6(5),F510,9,12,32.005476,ITA,Fabio Fognini,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,TB69,4,4,25.724846,AUT,Dominic Thiem,R,6-4 6-4 6-2,MC65,14,17,32.731006,FRA,Gael Monfils,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,F324,3,3,37.79603,SUI,Roger Federer,R,6-2 6-3 6-3,MD56,,68,32.030116,ARG,Leonardo Mayer,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-2 6-3 6-3,LB84,,78,25.776865,ARG,Juan Ignacio Londero,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,R16,D643,1,1,32.010951,SRB,Novak Djokovic,R,6-3 6-2 6-2,SL28,,45,29.084189,GER,Jan-Lennard Struff,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,QF,TB69,4,4,25.724846,AUT,Dominic Thiem,R,6-2 6-4 6-2,KE29,10,11,23.011636,RUS,Karen Khachanov,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,QF,F324,3,3,37.79603,SUI,Roger Federer,R,7-6(4) 4-6 7-6(5) 6-4,W367,24,28,34.160164,SUI,Stan Wawrinka,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,QF,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-1 6-1 6-3,N552,7,7,29.404517,JPN,Kei Nishikori,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,QF,D643,1,1,32.010951,SRB,Novak Djokovic,R,7-5 6-2 6-2,Z355,5,5,22.097194,GER,Alexander Zverev,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,SF,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-3 6-4 6-2,F324,3,3,37.79603,SUI,Roger Federer,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,SF,TB69,4,4,25.724846,AUT,Dominic Thiem,R,6-2 3-6 7-5 5-7 7-5,D643,1,1,32.010951,SRB,Novak Djokovic,R,,,,,,,,,,,,,,,,,,,
-2019,20190526,Roland Garros,2019_520,Clay,Outdoor,€20060000,128,F,N409,2,2,32.977413,ESP,Rafael Nadal,L,6-3 5-7 6-1 6-1,TB69,4,4,25.724846,AUT,Dominic Thiem,R,,,,,,,,,,,,,,,,,,,
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,BK24,8,116,25.311431,FRA,Gregoire Barrere,R,6-3 6-4,MP13,W,282,22.401095,IND,Sasi Kumar Mukund,R,7,3,66,44,32,14,10,4,4,3,2,53,28,21,13,9,0,2,62
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,SC77,7,121,33.423682,UKR,Sergiy Stakhovsky,R,6-3 6-4,MB53,,150,33.615332,ESP,Adrian Menendez-Maceiras,R,12,5,58,36,32,11,10,2,2,2,4,62,37,26,11,9,3,5,78
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,P09Z,6,103,19.84668,AUS,Alexei Popyrin,R,4-6 6-3 7-6(3),BH87,,257,27.164956,AUS,Maverick Banes,,19,0,101,64,50,22,16,4,6,7,4,108,63,43,26,15,9,11,113
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,L397,5,108,37.71937,ESP,Feliciano Lopez,L,7-6(1) 7-5,PC68,W,469,31.556468,GER,Tim Puetz,R,9,5,89,48,40,19,12,6,7,16,7,87,51,40,13,12,7,9,105
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,GB61,,205,28.722793,CRO,Viktor Galovic,R,4-6 6-3 6-4,SP24,4,106,23.934292,CAN,Brayden Schnur,R,7,3,113,69,44,21,15,9,13,9,5,81,49,32,13,14,4,9,117
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,BA65,,170,34.502396,GER,Dustin Brown,R,7-5 6-4,I165,3,96,32.755647,UZB,Denis Istomin,R,11,2,50,32,31,13,11,0,0,8,0,73,53,35,13,11,2,4,57
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,BK92,2,85,21.979466,KAZ,Alexander Bublik,R,6-0 6-3,MI01,,247,28.648871,JPN,Hiroki Moriya,R,17,3,51,30,26,10,8,2,2,1,3,49,24,13,10,7,2,6,52
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q1,V490,,250,31.926078,ITA,Matteo Viola,R,6-7(6) 7-6(0) 2-1 RET,GA94,1,91,29.574264,IND,Prajnesh Gunneswaran,L,1,4,108,74,53,22,14,6,6,4,2,88,56,45,17,13,0,0,122
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q2,BA65,,170,34.502396,GER,Dustin Brown,R,6-2 7-6(2),BK24,8,116,25.311431,FRA,Gregoire Barrere,R,11,4,67,45,34,14,10,3,3,5,2,61,33,25,15,10,2,4,62
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q2,GB61,,205,28.722793,CRO,Viktor Galovic,R,6-4 2-6 6-4,SC77,7,121,33.423682,UKR,Sergiy Stakhovsky,R,13,3,95,66,46,15,14,5,7,9,7,77,41,35,18,14,2,4,107
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q2,P09Z,6,103,19.84668,AUS,Alexei Popyrin,R,6-3 7-5,V490,,250,31.926078,ITA,Matteo Viola,R,10,0,57,38,28,12,10,0,1,1,5,68,45,29,8,11,3,7,67
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,Q2,L397,5,108,37.71937,ESP,Feliciano Lopez,L,7-5 6-4,BK92,2,85,21.979466,KAZ,Alexander Bublik,R,10,5,60,29,26,20,11,1,1,15,8,80,45,38,12,11,4,6,79
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,T786,,79,34.146475,FRA,Jo-Wilfried Tsonga,R,6-3 6-0,Z168,W,114,31.800137,GER,Mischa Zverev,L,13,2,45,33,29,6,8,0,0,2,5,41,23,14,6,7,5,9,56
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,SD32,,37,34.450376,FRA,Gilles Simon,R,4-6 6-2 6-3,G967,,120,29.902806,GER,Peter Gojowczyk,R,10,2,94,51,37,22,14,9,11,3,2,87,52,34,17,13,8,12,107
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,PF39,W,26,25.292266,FRA,Lucas Pouille,R,6-3 3-6 7-6(7),L397,Q,108,37.71937,ESP,Feliciano Lopez,L,13,2,97,59,45,22,15,2,3,18,3,95,59,48,21,15,5,6,108
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,KB09,,84,26.811773,USA,Denis Kudla,R,6-3 6-2,GB61,Q,205,28.722793,CRO,Viktor Galovic,R,7,0,45,27,23,11,9,0,1,3,1,55,41,23,4,8,2,6,59
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,KI95,,83,19.775496,SRB,Miomir Kecmanovic,R,4-6 7-5 6-3,K435,,51,35.649555,GER,Philipp Kohlschreiber,R,7,4,93,64,51,15,16,5,7,7,4,87,55,43,14,15,5,8,116
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,F724,,52,27.334702,HUN,Marton Fucsovics,R,7-6(5) 6-4,MU94,,74,22.097194,ESP,Jaume Munar,R,5,5,73,43,35,14,11,4,6,4,3,74,47,34,12,11,5,8,91
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,BA65,Q,170,34.502396,GER,Dustin Brown,R,6-4 7-6(3),MH30,,56,29.98768,AUS,John Millman,R,16,4,74,44,37,17,11,4,5,4,3,73,43,30,18,11,3,5,72
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,BK40,,30,23.15948,ITA,Matteo Berrettini,R,6-3 6-4,KE17,,36,24.120465,AUS,Nick Kyrgios,R,10,2,50,30,25,16,10,0,0,8,2,49,34,25,6,9,1,3,53
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,SL28,,38,29.125257,GER,Jan-Lennard Struff,R,7-5 6-4,SU55,8,25,20.15332,CAN,Denis Shapovalov,L,14,2,76,44,35,18,11,5,5,6,4,66,37,27,16,11,5,7,85
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,AG37,7,21,18.836413,CAN,Felix Auger-Aliassime,R,7-5 6-3,G858,,90,30.776181,LAT,Ernests Gulbis,R,4,3,59,35,30,16,11,1,1,6,4,58,34,25,13,10,3,5,86
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,R975,6,18,28.451745,CAN,Milos Raonic,R,6-7(6) 6-4 7-6(4),P09Z,Q,103,19.84668,AUS,Alexei Popyrin,R,31,5,102,50,47,33,17,1,2,12,4,107,70,58,20,17,5,7,132
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R32,MC65,5,16,32.772074,FRA,Gael Monfils,R,7-5 5-7 7-6(6),J386,,78,29.459274,USA,Steve Johnson,R,15,6,116,80,51,21,18,5,9,3,3,133,83,57,23,18,8,12,148
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,SL28,,38,29.125257,GER,Jan-Lennard Struff,R,6-2 6-2,KI95,,83,19.775496,SRB,Miomir Kecmanovic,R,15,4,56,37,31,7,8,2,2,1,3,51,29,17,11,8,4,8,58
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,AG37,7,21,18.836413,CAN,Felix Auger-Aliassime,R,7-5 6-4,SD32,,37,34.450376,FRA,Gilles Simon,R,15,5,59,39,31,9,11,2,4,3,4,67,36,24,15,11,3,7,90
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,R975,6,18,28.451745,CAN,Milos Raonic,R,6-4 6-7(5) 7-6(1),T786,,79,34.146475,FRA,Jo-Wilfried Tsonga,R,24,8,112,65,54,27,17,4,4,15,3,102,65,55,22,17,2,3,147
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,KB09,,84,26.811773,USA,Denis Kudla,R,7-5 6-7(3) 7-6(3),MC65,5,16,32.772074,FRA,Gael Monfils,R,4,4,108,65,50,23,18,3,7,11,6,114,81,53,16,18,1,6,138
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,F724,,52,27.334702,HUN,Marton Fucsovics,R,6-7(4) 6-2 7-5,BG23,4,17,27.293634,GEO,Nikoloz Basilashvili,R,12,4,102,54,42,24,16,5,7,3,13,118,64,41,29,16,12,17,135
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,PF39,W,26,25.292266,FRA,Lucas Pouille,R,7-6(6) 4-6 6-2,MM58,3,13,23.326489,RUS,Daniil Medvedev,R,3,6,99,61,46,18,15,4,6,19,9,110,67,48,19,15,9,12,121
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,BK40,,30,23.15948,ITA,Matteo Berrettini,R,6-4 6-2,KE29,2,9,23.052704,RUS,Karen Khachanov,R,5,3,47,30,27,10,9,0,0,4,2,61,42,27,8,9,2,5,68
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,R16,BA65,Q,170,34.502396,GER,Dustin Brown,R,6-4 6-7(3) 6-3,Z355,1 W,5,22.138261,GER,Alexander Zverev,R,11,7,114,69,49,27,16,13,14,21,14,104,72,59,9,15,7,10,120
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,QF,SL28,,38,29.125257,GER,Jan-Lennard Struff,R,6-4 6-4,PF39,W,26,25.292266,FRA,Lucas Pouille,R,12,3,51,25,22,18,10,0,0,7,5,69,36,26,17,10,9,11,69
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,QF,BK40,,30,23.15948,ITA,Matteo Berrettini,R,6-3 6-3,KB09,,84,26.811773,USA,Denis Kudla,R,10,1,47,29,26,11,9,0,0,3,1,63,37,24,12,9,4,7,72
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,QF,AG37,7,21,18.836413,CAN,Felix Auger-Aliassime,R,7-6(3) 6-7(2) 7-6(2),BA65,Q,170,34.502396,GER,Dustin Brown,R,30,3,116,77,64,23,18,4,5,9,6,124,81,56,28,18,6,7,148
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,QF,R975,6,18,28.451745,CAN,Milos Raonic,R,6-4 6-4,F724,,52,27.334702,HUN,Marton Fucsovics,R,12,4,53,36,32,10,10,1,1,7,7,60,31,24,12,10,0,2,73
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,SF,BK40,,30,23.15948,ITA,Matteo Berrettini,R,6-4 7-5,SL28,,38,29.125257,GER,Jan-Lennard Struff,R,8,4,57,37,33,13,11,2,2,7,2,62,36,28,15,11,2,4,74
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,SF,AG37,7,21,18.836413,CAN,Felix Auger-Aliassime,R,W/O,R975,6,18,28.451745,CAN,Milos Raonic,R,,,,,,,,,,,,,,,,,,,
+2019,20190610,MercedesCup,2019_321,Grass,Outdoor,€754540,28,F,BK40,,30,23.15948,ITA,Matteo Berrettini,R,6-4 7-6(11),AG37,7,21,18.836413,CAN,Felix Auger-Aliassime,R,6,2,71,44,41,16,11,0,0,16,1,76,52,44,12,11,5,6,107
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,CE25,8,122,26.483231,ITA,Salvatore Caruso,R,6-3 6-2,HA28,,172,26.42026,SVK,Filip Horansky,R,0,3,56,34,22,14,9,4,6,1,4,47,28,15,5,8,1,6,63
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,S0AG,,219,17.815195,ITA,Jannik Sinner,R,6-7(6) 7-6(5) 6-2,L797,7,139,31.600274,SVK,Lukas Lacko,R,12,5,102,57,44,24,16,2,4,14,9,114,67,48,19,16,4,8,118
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,DH50,6,129,20.013689,ESP,Alejandro Davidovich Fokina,R,6-2 6-4,M873,W,189,37.382615,FRA,Nicolas Mahut,R,5,0,56,31,25,12,9,4,5,2,5,65,42,25,9,9,6,10,69
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,PL56,5,138,22.064339,USA,Tommy Paul,R,6-4 6-3,GC89,,156,26.576318,BLR,Egor Gerasimov,R,3,2,68,35,24,21,10,2,3,4,1,51,33,24,8,9,1,4,68
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,BC72,,195,31.8987,GER,Daniel Brands,R,6-4 6-2,BI81,4,135,26.425736,AUS,Alex Bolt,L,5,2,56,37,28,12,9,9,9,4,0,47,29,24,7,9,4,7,58
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,GC88,,160,25.878166,USA,Marcos Giron,R,6-2 5-7 6-2,J380,3,117,29.984942,TPE,Jason Jung,R,4,2,86,49,38,19,14,9,11,3,4,103,68,36,21,14,6,11,121
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,F586,2,104,30.039699,ITA,Thomas Fabbiano,R,4-6 6-3 6-1,RH24,W,408,20.188912,FIN,Emil Ruusuvuori,R,0,0,84,65,42,14,13,5,6,3,1,81,50,35,13,13,10,14,99
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q1,A622,,213,31.45243,ITA,Andrea Arnaboldi,L,4-6 6-4 6-2,KA98,1,89,28.804928,USA,Bradley Klahn,L,1,4,90,60,41,14,14,4,8,6,10,90,49,33,15,14,6,12,110
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q2,CE25,8,122,26.483231,ITA,Salvatore Caruso,R,6-3 3-6 6-3,GC88,,160,25.878166,USA,Marcos Giron,R,5,3,90,64,45,11,14,2,5,5,5,95,53,37,17,13,9,13,128
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q2,DH50,6,129,20.013689,ESP,Alejandro Davidovich Fokina,R,7-6(5) 7-5,A622,,213,31.45243,ITA,Andrea Arnaboldi,L,7,3,78,45,34,22,12,3,3,0,3,83,50,38,17,12,6,7,93
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q2,PL56,5,138,22.064339,USA,Tommy Paul,R,7-5 6-4,BC72,,195,31.8987,GER,Daniel Brands,R,4,2,75,44,34,16,11,4,5,2,1,63,39,25,12,11,5,8,76
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,Q2,S0AG,,219,17.815195,ITA,Jannik Sinner,R,6-4 6-2,F586,2,104,30.039699,ITA,Thomas Fabbiano,R,5,0,60,41,28,10,9,1,2,0,4,70,52,28,8,9,9,13,77
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,TC61,,62,25.138946,AUS,Jordan Thompson,R,3-6 6-1 6-4,PL56,Q,138,22.064339,USA,Tommy Paul,R,3,3,79,45,35,18,13,1,3,3,0,72,38,26,19,13,4,8,102
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,SA93,,72,35.29911,ITA,Andreas Seppi,R,7-6(10) 7-5,F586,L,104,30.039699,ITA,Thomas Fabbiano,R,10,2,96,60,40,19,12,4,7,3,3,89,57,39,12,12,2,6,117
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,ME82,,44,30.945927,FRA,Adrian Mannarino,L,6-2 6-1,D776,W,224,30.721424,NED,Thiemo de Bakker,R,3,0,42,21,17,16,8,0,0,9,4,55,32,22,4,7,9,13,59
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,K926,,47,31.455168,KAZ,Mikhail Kukushkin,R,5-7 6-4 6-4,SU87,,76,24.082136,ITA,Lorenzo Sonego,R,0,2,93,61,47,18,16,3,4,7,3,91,53,42,21,16,2,4,127
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,J551,,60,23.663244,CHI,Nicolas Jarry,R,7-6(4) 6-3,S0AG,Q,219,17.815195,ITA,Jannik Sinner,R,10,0,66,43,31,13,11,1,3,1,2,58,35,20,15,10,0,3,81
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,H996,,45,28.229979,FRA,Pierre-Hugues Herbert,R,6-4 7-5,E690,,66,31.537303,AUS,Matthew Ebden,R,13,5,65,43,35,9,11,2,4,5,5,69,45,32,7,11,7,11,82
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,H756,,67,32.17796,NED,Robin Haase,R,5-7 7-6(2) 7-6(4),HH26,,64,20.95551,FRA,Ugo Humbert,L,15,3,112,69,55,24,18,3,5,18,3,114,70,57,23,18,3,4,146
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,FB98,,41,21.615332,USA,Taylor Fritz,R,7-6(2) 6-4,R09X,W,211,20.068446,AUT,Jurij Rodionov,L,14,2,73,41,33,20,11,7,7,8,0,65,39,30,16,11,2,3,79
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,G628,8,42,32.977413,FRA,Richard Gasquet,R,6-7(3) 7-6(5) 6-4,BH09,,93,29.894593,SLO,Aljaz Bedene,R,8,2,93,64,50,13,17,0,3,21,3,120,80,55,20,17,8,12,146
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,GD64,7,32,23.028063,CHI,Cristian Garin,R,6-1 6-4,CE25,Q,122,26.483231,ITA,Salvatore Caruso,R,4,1,50,26,21,16,9,3,4,1,1,53,37,20,6,8,3,7,66
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,TD51,6,35,21.385352,USA,Frances Tiafoe,R,6-2 7-6(0),SH90,,71,30.195756,POR,Joao Sousa,R,6,3,60,37,32,12,10,0,1,7,1,74,47,30,14,10,9,12,74
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R32,GB88,5,33,28.506502,BEL,David Goffin,R,6-0 6-2,DH50,Q,129,20.013689,ESP,Alejandro Davidovich Fokina,R,5,1,34,22,20,8,7,0,0,1,2,46,35,16,4,7,5,10,48
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,G628,8,42,32.977413,FRA,Richard Gasquet,R,6-4 6-3,K926,,47,31.455168,KAZ,Mikhail Kukushkin,R,8,1,57,36,26,12,9,1,2,1,3,71,38,25,13,10,9,13,84
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,GD64,7,32,23.028063,CHI,Cristian Garin,R,7-5 7-5,H756,,67,32.17796,NED,Robin Haase,R,3,2,78,47,30,15,12,6,9,8,5,79,44,28,14,12,7,12,105
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,TC61,,62,25.138946,AUS,Jordan Thompson,R,6-3 6-2,TD51,6,35,21.385352,USA,Frances Tiafoe,R,5,1,50,41,30,7,9,2,3,1,3,54,35,22,6,8,1,5,66
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,GB88,5,33,28.506502,BEL,David Goffin,R,6-3 7-5,H996,,45,28.229979,FRA,Pierre-Hugues Herbert,R,13,2,72,45,33,15,11,1,2,6,2,66,40,26,13,10,3,6,91
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,ME82,,44,30.945927,FRA,Adrian Mannarino,L,1-6 6-3 6-4,V306,4,34,35.56742,ESP,Fernando Verdasco,L,1,4,88,52,30,21,13,8,12,5,2,71,48,32,11,13,0,4,102
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,DH58,3,24,20.309377,AUS,Alex de Minaur,R,7-5 6-3,SA93,,72,35.29911,ITA,Andreas Seppi,R,1,0,65,35,22,23,11,2,3,3,4,61,29,23,14,10,5,8,87
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,CG80,2 W,14,22.568104,CRO,Borna Coric,R,4-6 6-3 6-3,FB98,,41,21.615332,USA,Taylor Fritz,R,14,0,80,55,45,13,14,3,4,7,2,75,44,34,17,14,0,3,102
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,R16,J551,,60,23.663244,CHI,Nicolas Jarry,R,6-4 3-6 6-4,TE51,1,6,20.826831,GRE,Stefanos Tsitsipas,R,13,2,79,46,35,22,14,5,6,6,5,88,52,39,19,15,2,4,120
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,QF,G628,8,42,32.977413,FRA,Richard Gasquet,R,7-6(8) 6-4,J551,,60,23.663244,CHI,Nicolas Jarry,R,6,1,86,62,46,13,11,4,4,14,2,74,42,29,21,11,3,4,104
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,QF,ME82,,44,30.945927,FRA,Adrian Mannarino,L,4-6 7-5 6-3,GB88,5,33,28.506502,BEL,David Goffin,R,4,6,114,76,46,20,16,8,13,4,10,90,40,26,24,15,6,12,145
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,QF,TC61,,62,25.138946,AUS,Jordan Thompson,R,4-6 6-2 6-3,DH58,3,24,20.309377,AUS,Alex de Minaur,R,5,1,94,59,42,18,14,5,8,0,6,75,50,35,10,13,1,6,118
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,QF,CG80,2 W,14,22.568104,CRO,Borna Coric,R,6-7(4) 6-3 7-6(6),GD64,7,32,23.028063,CHI,Cristian Garin,R,16,1,106,75,58,14,16,4,6,7,5,107,61,47,25,17,4,8,150
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,SF,TC61,,62,25.138946,AUS,Jordan Thompson,R,7-5 6-3,G628,8,42,32.977413,FRA,Richard Gasquet,R,11,2,74,45,34,14,11,4,5,3,0,72,38,26,17,10,10,13,101
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,SF,ME82,,44,30.945927,FRA,Adrian Mannarino,L,4-6 6-3 7-6(4),CG80,2 W,14,22.568104,CRO,Borna Coric,R,3,4,99,63,47,15,16,2,5,9,1,95,56,38,20,15,4,7,157
+2019,20190610,Libema Open,2019_440,Grass,Outdoor,€711275,28,F,ME82,,44,30.945927,FRA,Adrian Mannarino,L,7-6(7) 6-3,TC61,,62,25.138946,AUS,Jordan Thompson,R,4,2,89,54,38,20,11,6,7,5,0,70,49,32,9,10,2,4,121
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,BH09,8,92,29.913758,SLO,Aljaz Bedene,R,6-2 7-6(2),Z254,,245,31.216975,EST,Jurgen Zopp,R,11,4,60,36,32,9,10,0,1,3,1,76,55,31,10,10,10,13,78
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,W503,W,212,32.350445,GBR,James Ward,R,6-1 6-4,GA94,7,95,29.593429,IND,Prajnesh Gunneswaran,L,5,0,44,22,19,17,9,0,0,2,1,55,30,18,14,8,3,6,55
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,PL56,,138,22.083504,USA,Tommy Paul,R,6-1 6-4,KA98,6,89,28.824093,USA,Bradley Klahn,L,2,1,52,32,26,13,9,2,2,2,1,52,31,20,8,8,5,8,58
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,DH50,,133,20.032854,ESP,Alejandro Davidovich Fokina,R,6-4 7-6(3),TA46,5,102,26.652977,AUS,Bernard Tomic,R,4,4,73,54,38,9,11,1,3,4,2,77,50,33,11,11,3,6,76
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,K336,4,83,40.298426,CRO,Ivo Karlovic,R,6-3 7-5,PB22,,140,31.003422,CAN,Peter Polansky,R,16,1,58,31,27,20,11,4,4,6,3,62,37,27,13,10,0,2,67
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,BK92,3,85,21.998631,KAZ,Alexander Bublik,R,6-2 1-6 6-3,D0CO,W,507,17.483915,GBR,Jack Draper,L,14,3,80,50,33,13,12,11,15,5,7,66,33,25,12,12,2,7,82
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,CF59,2,72,26.234086,ESP,Roberto Carballes Baena,R,6-2 5-7 6-4,P09Z,,101,19.865845,AUS,Alexei Popyrin,R,7,3,83,51,40,20,15,0,1,13,3,91,55,43,15,15,11,14,110
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q1,M873,W,191,37.40178,FRA,Nicolas Mahut,R,6-3 6-7(4) 7-6(6),J551,1,55,23.682409,CHI,Nicolas Jarry,R,3,6,106,61,40,28,17,2,6,7,6,105,57,40,24,16,6,11,140
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q2,W503,W,212,32.350445,GBR,James Ward,R,7-6(4) 6-4,K336,4,83,40.298426,CRO,Ivo Karlovic,R,8,2,61,31,27,22,11,0,0,15,1,73,44,37,14,11,6,7,80
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q2,BK92,3,85,21.998631,KAZ,Alexander Bublik,R,6-4 7-6(4),PL56,,138,22.083504,USA,Tommy Paul,R,14,8,82,53,41,11,11,5,7,2,3,74,43,33,13,11,5,8,78
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q2,BH09,8,92,29.913758,SLO,Aljaz Bedene,R,7-6(5) 3-6 6-1,CF59,2,72,26.234086,ESP,Roberto Carballes Baena,R,13,2,82,45,38,20,14,4,6,9,5,112,61,40,29,14,7,10,135
+2019,20190617,Fever-Tree Championships,2019_311,Grass,Outdoor,€2219150,32,Q2,M873,W,191,37.40178,FRA,Nicolas Mahut,R,7-5 4-6 6-3,DH50,,133,20.032854,ESP,Alejandro Davidovich Fokina,R,8,3,85,57,45,16,16,2,4,4,5,82,56,39,15,15,5,8,100
