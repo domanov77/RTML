@@ -39,12 +39,53 @@ ConsecutivePresences <- function(tourney, db) {
 }
 
 wimb <- ConsecutivePresences("Wimbledon", db)
+
+OutputTableToPng(wimb[1:30,], "ConsecutiveWimbledonApparitions.png")
+
 halle <- ConsecutivePresences("Halle", db)
-
-wimb[1:20]
-OutputTableToPng(wimb[1:20,], "ConsecutiveWimbledonApparitions.png")
-
 halle[1:30]
+
+
+ConsecutivePresences2 <- function(tourney, db) {
+    ## consider all the years for the given tournament
+    all_tourn <- db[tourney_name %in% tourney]
+    ## find all players who won at least one match
+    allplayers <- sort(unique(all_tourn$winner_name))
+    ## find all the years where each players appears
+    presence <- lapply(allplayers, YearsPresenceByName, all_tourn)
+    names(presence) <- allplayers
+    ## check the consecutive streak
+    streak <- lapply(presence, LongestConsecutive)
+
+    ## length of the streak
+    nstreak <- sapply(streak, function(x) x$n)
+    ## start and end
+    years   <- as.data.frame(t(sapply(streak, function(x) range(x$years))))
+    colnames(years) <- c("First", "Last")
+    
+    ## all together
+    tab <- data.table(Name=names(nstreak), ConsPres=nstreak, First=years$First, Last=years$Last, row.names = NULL)
+    setorder(tab, -ConsPres)
+    return(tab)
+}
+UO2 <- ConsecutivePresences2(c("US Open","US Championships"), db)
+OutputTableToPng(UO2[1:30,], "ConsecutiveUSOpen.png")
+OutputTableToPng(UO[1:30,], "ConsecutiveUSOpen_openera.png")
+
+
+
+AO2 <- ConsecutivePresences2(c("Australian Open","Australasian Championships"), db)
+OutputTableToPng(AO2[1:30,], "ConsecutiveAO.png")
+
+RG <-  ConsecutivePresences2(c("Roland Garros","French Championships"), db)
+
+OutputTableToPng(RG[1:30,], "ConsecutiveRG.png")
+
+
+fwrite(AO2, "LongestConsecutivePresenceAO.csv")
+fwrite(RG, "LongestConsecutivePresenceRG.csv")
+fwrite(wimb, "LongestConsecutivePresenceW.csv")
+fwrite(UO2, "LongestConsecutivePresenceUO.csv")
 
 
 ###### old code
