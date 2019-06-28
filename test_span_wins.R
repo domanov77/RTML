@@ -71,3 +71,15 @@ OutputTableToPng(out, "tentative_largest_span3.png")
 ## 
 ## fwrite(dbtop, "Data/20190410-DataTop.csv")
 ## 
+>
+
+TotMatchesByYear <- function(name) {
+    w <- db2[ winner_name==name, .N, by=.(year)]
+    l <- db2[  loser_name==name, .N, by=.(year)]
+    ret <- merge(w, l, by="year")
+    colnames(ret) <- c("year", "wins", "loss")
+    return(ret)
+}
+TotMatchesByYear("Roger Federer")
+TotMatchesByYear("Rafael Nadal")
+TotMatchesByYear("Novak Djokovic")

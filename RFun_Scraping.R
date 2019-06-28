@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-05-20 19:02:40 delucia"
+### Time-stamp: "Last modified 2019-06-28 16:30:11 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
@@ -60,7 +60,7 @@ ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
     have_results <- table$Results=="Results"
     ind_res <- which(have_results)
     
-    urls  <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="results$|live-scores$", value=TRUE)
+    urls  <- html_nodes(html, "a") %>% html_attr("href") %>% grep(pattern="results$|live-scores$", value=TRUE) ## |live-scores$
     tourney_urls <- rep(NA_character_, nrow(table))
     tourney_urls[ind_res] <- urls
 
@@ -107,7 +107,7 @@ ScrapeTourney <- function(url, id, details=FALSE, save_html=FALSE, from_disk=FAL
     
     if (is.na(url) | url=="") return(NA_character_)
     
-
+    url <- gsub("live-scores", "results", url, fixed=TRUE)
     ## discriminate between:
     ## current/monte-carlo/410/live-scores and 
     ## archive/australasian-championships/580/1915/results
@@ -119,7 +119,7 @@ ScrapeTourney <- function(url, id, details=FALSE, save_html=FALSE, from_disk=FAL
         name_url   <- gsub("(^.*?)/.*$","\\1", tourid) 
     } else {
         ## change it if there is "current"
-        tourid <- gsub(".*current/(.*)/live-scores","\\1", url)
+        tourid <- gsub(".*current/(.*)/results","\\1", url)
         tourney_id <- paste0("2019_", gsub("^.*?/(.*)$","\\1", tourid))
         name_url   <- gsub("(^.*?)/.*$","\\1", tourid) 
     }
@@ -838,8 +838,8 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE, save_html=FALSE
 
     current <- grep("current", y$url)
 
-    playing <- y[ current]
-    archive <- y[-current]
+    playing <<- y[ current]
+    archive <<- y[-current]
 
     ## completely missing tourneys which are already finished and
     ## archived (typically, a few days later they are online)
@@ -877,7 +877,7 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE, save_html=FALSE
     ## today <- format(Sys.Date(),"%Y-%m-%d")
     ## now <- format(Sys.time(),"%Y-%m-%d_%H_%M")
     cat(":UpdateDB: scraping ongoing tourneys", paste0(playing$tourney_name, collapse=", "),"\n")
-        
+
     ongoing_tourneys <- lapply(playing$url, ScrapeTourney)
     ind_nodata <- which(is.na(ongoing_tourneys))
     if (length(ind_nodata)> 0) {

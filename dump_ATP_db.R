@@ -12,13 +12,13 @@ for (i in seq_along(years)) {
 
 alltourn <- rbindlist(dbyears)
 
-fwrite(alltourn, file = "all_tourneys_in_atp_db_until_today.csv", eol="\n", quote=FALSE)
+fwrite(alltourn, file = "20190620_all_tourneys_in_atp_db_until_today.csv", eol="\n", quote=FALSE)
 
 ## The data.table alltourn (4101 rows) as of today 2019 04 09
 ## contains all urls for tourney results. Now we can scrape for the tournaments
 ## and afterwards for each single match!
 
-alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
+prev <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
 
 ### scrape the tournaments
 ## tourneys <- vector(mode="list", length=length(alltourn$url))
@@ -31,9 +31,9 @@ alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_
 ### This is parallelized with mclapply; windows users should use foreach/dopar/doparallel 
 
 ##fix all 1975
-alltourn <- fread(file = "all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
+alltourn <- fread(file = "20190620_all_tourneys_in_atp_db_until_today.csv",na.strings=NA_character_)
 alltourn <- alltourn[year==1975]
-tourneys_lapply <-  parallel::mclapply(alltourn$url, ScrapeTourney, mc.cores=8)
+tourneys_lapply <-  parallel::mclapply(alltourn$url, ScrapeTourney, save_html=TRUE, mc.cores=8)
 
 ### this isn't needed anymore
 ## tourneys_lapply_id <-  parallel::mclapply(alltourn$url, ScrapeIdsFromTourney, mc.cores=4)
@@ -81,7 +81,7 @@ at <- alltourn[-ind_nodata]
 allmat <- lapply(seq_along(tourneys_lapply), function(i) add_info_from_tour(tour=at[i], matches=tourneys_lapply[[i]]))
 all_1975 <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
 
-db <- ReadData("Data/dbtml.csv")
+db <- ReadData()
 row_ind <- db[,.I[year== 1975L]] ## Retrieve row number
 db[row_ind]
 ## check the rows of the two!
@@ -95,6 +95,7 @@ fwrite(db, "Data/dbtml.csv", quote=FALSE)
 
 all_matches_in_atp_db <- rbindlist(allmat, use.names=TRUE, fill=TRUE)
 
+db2 <- all_matches_in_atp_db 
 
 db19 <- rbindlist(tt, use.names=TRUE, fill=TRUE)
 
@@ -112,7 +113,7 @@ all_matches_in_atp_db[tourney_id!=tourney_id_from_url] ## ok, only marrakech and
 
 
 ## write everything in a csv
-fwrite(all_matches_in_atp_db, file = "all_matches_in_atp_db_until_2019_nostat.csv", eol="\n")
+fwrite(all_matches_in_atp_db, file = "all_matches_in_atp_db_until_20190620_nostat.csv", eol="\n")
 
 
 atp <- all_matches_in_atp_db
