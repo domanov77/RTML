@@ -1,30 +1,42 @@
 ################### largest distance between 2 wins 
 source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
-library(parallel)
 
 ## read OUR db
-system.time(db <- ReadData())
+## dbtml <- UpdateDB(write_ended=TRUE, write_current=TRUE, save_html=TRUE)
 
-YearsPresenceByName <- function(name, alltou) sort(unique(as.numeric(alltou[winner_name==name | loser_name==name, .(year)]$year)))
+system.time(dbtml <- ReadData(quali=FALSE))
 
-LongestConsecutive <- function(vec) { 
+YearsOfPresenceByPlayerName <- function(name, alltou) sort(unique(as.numeric(alltou[winner_name==name | loser_name==name, .(year)]$year)))
+
+LongestConsecutiveSeq <- function(vec) { 
     temp <- cumsum(c(1, diff(vec) - 1))
     temp2 <- rle(temp)
     a <- vec[which(temp == with(temp2, values[which.max(lengths)]))]
     return(list(n=length(a), years=a))
 }
 
-ConsecutivePresences <- function(tourney, db) {
+ConsecutivePresences <- function(tourney, min_round, no2019=TRUE, db=dbtml) {
     ## consider all the years for the given tournament
-    all_tourn <- db[tourney_name==tourney]
-    ## find all players who won at least one match
-    allplayers <- sort(unique(all_tourn$winner_name))
+    all_tourn <- db[(tourney_name %in% tourney)]
+
+    ## optionally, don#t consider 2019
+    if (no2019)
+        all_tourn <- all_tourn[year < 2019]
+        
+    ## optionally, restrict to a given round
+    if (!missing(min_round)) {
+        ## consider only from the given round on
+        all_tourn <- all_tourn[round==min_round]
+    }
+    ## find all players who appear (either winner or loser)
+    allplayers <- sort(unique(c(all_tourn$winner_name,all_tourn$loser_name)))
+
     ## find all the years where each players appears
-    presence <- lapply(allplayers, YearsPresenceByName, all_tourn)
+    presence <- lapply(allplayers, YearsOfPresenceByPlayerName, all_tourn)
     names(presence) <- allplayers
     ## check the consecutive streak
-    streak <- lapply(presence, LongestConsecutive)
+    streak <- lapply(presence, LongestConsecutiveSeq)
 
     ## length of the streak
     nstreak <- sapply(streak, function(x) x$n)
@@ -38,54 +50,36 @@ ConsecutivePresences <- function(tourney, db) {
     return(tab)
 }
 
-wimb <- ConsecutivePresences("Wimbledon", db)
 
-OutputTableToPng(wimb[1:30,], "ConsecutiveWimbledonApparitions.png")
 
-halle <- ConsecutivePresences("Halle", db)
+## Consecutive presences in the slams MAIN DRAWS
+AO <- ConsecutivePresences(c("Australian Open","Australasian Championships"), no2019=FALSE, db=dbtml)
+RG <- ConsecutivePresences(c("Roland Garros","French Championships"), no2019=FALSE, db=dbtml)
+WI <- ConsecutivePresences("Wimbledon", no2019=FALSE, db=dbtml) 
+UO <- ConsecutivePresences(c("US Open","US Championships"), db=dbtml)
+
+## pictures
+OutputTableToPng(AO[1:30,], "Consecutive_AO.png")
+OutputTableToPng(RG[1:30,], "Consecutive_RG.png")
+OutputTableToPng(WI[1:30,], "Consecutive_WI.png")
+OutputTableToPng(UO[1:30,], "Consecutive_UO.png")
+## csvs
+fwrite(AO, "Consecutive_AO.csv")
+fwrite(RG, "Consecutive_RG.csv")
+fwrite(WI, "Consecutive_WI.csv")
+fwrite(UO, "Consecutive_UO.csv")
+
+## Restrict to reaching the R64 (second) round 
+WI_R64 <- ConsecutivePresences("Wimbledon", min_round="R64", no2019=TRUE, db=dbtml) ## no2019=TRUE is needed here to make sure partial updates don't mess with the records
+OutputTableToPng(WI_R64[1:30,], "Consecutive_WI_R64.png")
+fwrite(WI_R64, "Consecutive_WI_R64.csv")
+
+
+
+## Try other tournaments
+halle <- ConsecutivePresences("Halle", no2019=FALSE, db=dbtml)
 halle[1:30]
 
-
-ConsecutivePresences2 <- function(tourney, db) {
-    ## consider all the years for the given tournament
-    all_tourn <- db[tourney_name %in% tourney]
-    ## find all players who won at least one match
-    allplayers <- sort(unique(all_tourn$winner_name))
-    ## find all the years where each players appears
-    presence <- lapply(allplayers, YearsPresenceByName, all_tourn)
-    names(presence) <- allplayers
-    ## check the consecutive streak
-    streak <- lapply(presence, LongestConsecutive)
-
-    ## length of the streak
-    nstreak <- sapply(streak, function(x) x$n)
-    ## start and end
-    years   <- as.data.frame(t(sapply(streak, function(x) range(x$years))))
-    colnames(years) <- c("First", "Last")
-    
-    ## all together
-    tab <- data.table(Name=names(nstreak), ConsPres=nstreak, First=years$First, Last=years$Last, row.names = NULL)
-    setorder(tab, -ConsPres)
-    return(tab)
-}
-UO2 <- ConsecutivePresences2(c("US Open","US Championships"), db)
-OutputTableToPng(UO2[1:30,], "ConsecutiveUSOpen.png")
-OutputTableToPng(UO[1:30,], "ConsecutiveUSOpen_openera.png")
-
-
-
-AO2 <- ConsecutivePresences2(c("Australian Open","Australasian Championships"), db)
-OutputTableToPng(AO2[1:30,], "ConsecutiveAO.png")
-
-RG <-  ConsecutivePresences2(c("Roland Garros","French Championships"), db)
-
-OutputTableToPng(RG[1:30,], "ConsecutiveRG.png")
-
-
-fwrite(AO2, "LongestConsecutivePresenceAO.csv")
-fwrite(RG, "LongestConsecutivePresenceRG.csv")
-fwrite(wimb, "LongestConsecutivePresenceW.csv")
-fwrite(UO2, "LongestConsecutivePresenceUO.csv")
 
 
 ###### old code

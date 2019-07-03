@@ -1,6 +1,6 @@
 ### Functions to interrogate the databases of matches
 
-### Time-stamp: "Last modified 2019-04-27 00:07:17 delucia"
+### Time-stamp: "Last modified 2019-07-03 14:08:00 delucia"
 library(data.table)
 
 
@@ -20,7 +20,11 @@ ReadData <- function(file="Data/dbtml.csv", davis=FALSE, quali=TRUE, current=TRU
     }
 
     if (!quali) {
+        before <- nrow(data)
         data <- data[!round %in% c("Q1", "Q2", "Q3", "Q4")]
+        after <- nrow(data)
+        cat(":: Removed", before-after, "qualification matches\n")
+
     }
   
     ## exclude Davis cup matches and select only relevant columns
