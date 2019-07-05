@@ -46,7 +46,7 @@ ConsecutivePresences <- function(tourney, min_round, no2019=TRUE, db=dbtml) {
     
     ## all together
     tab <- data.table(Name=names(nstreak), ConsPres=nstreak, First=years$First, Last=years$Last, row.names = NULL)
-    setorder(tab, -ConsPres)
+    setorder(tab, -ConsPres, -Last)
     return(tab)
 }
 
@@ -74,7 +74,22 @@ WI_R64 <- ConsecutivePresences("Wimbledon", min_round="R64", no2019=TRUE, db=dbt
 OutputTableToPng(WI_R64[1:30,], "Consecutive_WI_R64.png")
 fwrite(WI_R64, "Consecutive_WI_R64.csv")
 
+WI_R32 <- ConsecutivePresences("Wimbledon", min_round="R32", no2019=TRUE, db=dbtml)
+WI_R16 <- ConsecutivePresences("Wimbledon", min_round="R16", no2019=TRUE, db=dbtml)
+WI_QF <- ConsecutivePresences("Wimbledon", min_round="QF", no2019=TRUE, db=dbtml)
+WI_SF <- ConsecutivePresences("Wimbledon", min_round="SF", no2019=TRUE, db=dbtml)
+WI_F <- ConsecutivePresences("Wimbledon", min_round="F", no2019=TRUE, db=dbtml)
+OutputTableToPng(WI_R16[1:30,], "Consecutive_WI_R16.png")
+OutputTableToPng(WI_QF[1:30,], "Consecutive_WI_QF.png")
+OutputTableToPng(WI_SF[1:30,], "Consecutive_WI_SF.png")
+OutputTableToPng(WI_F[ConsPres>1], "Consecutive_WI_F.png")
+fwrite(WI_R16, "Consecutive_WI_R16.csv")
+fwrite(WI_QF, "Consecutive_WI_QF.csv")
+fwrite(WI_SF, "Consecutive_WI_SF.csv")
+fwrite(WI_F, "Consecutive_WI_F.csv")
 
+## How many wimbledons are in the db
+unique(dbtml[tourney_name=="Wimbledon",year])
 
 ## Try other tournaments
 halle <- ConsecutivePresences("Halle", no2019=FALSE, db=dbtml)
