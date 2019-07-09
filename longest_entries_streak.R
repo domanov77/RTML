@@ -135,43 +135,82 @@ halle[1:30]
 
 db <- dbtml
 
-fin  <- db[tourney_name=="Wimbledon" & round=="F", .(winner_name, loser_name, year)]
-allfin <- sort(unique(c(fin$winner_name, fin$loser_name)))
 
-w <- db[tourney_name=="Wimbledon" ,.N ,by=.(year)]
-
-MatchDefeatedFinalists <- function(player, finalists, tdb) {
+DefeatedFinalists <- function(player, finalists, tdb) {
     allmatches <- tdb[winner_name==player, .(loser_name)]
-    res <-  sum(allmatches$loser_name %in% finalists)
+    ## res <-  sum(allmatches$loser_name %in% finalists)
+    inds <-  which(allmatches$loser_name %in% finalists)
+    defeated <- allmatches$loser_name[inds]
     ## cat(paste(player, "defeated" , res, "finalists in ", tourney, unique(tdb$year) ))
-    return(res)
+    return(list(player=player, defs=defeated))
 }
 
-AllPart <- function(tourney, y, db=dbtml) {
+PreviousWinners <- function(tourney, y, win=FALSE, n, db=dbtml) {
+    ## list of all participants in that tourney in that year; we start from 3R because we seek for at least 3 wins against former finalists or winners
     a <- db[tourney_name%in%tourney & year==y & round=="R32",.(winner_name, loser_name)]
-    tot <- unique(c(a$winner_name, a$loser_name))
+    allplayers <- unique(c(a$winner_name, a$loser_name))
     
+    ## Find out all the finalists/winners in that tourney until the previous year!
     fin  <- db[tourney_name%in%tourney & round=="F" & year < y, .(winner_name, loser_name, year)]
-    allfin <- sort(unique(c(fin$winner_name))) ## , fin$loser_name
-
+    if (win) { ## we look for former winners
+        allfin <- sort(unique(c(fin$winner_name)))
+    } else {
+        allfin <- sort(unique(c(fin$winner_name, fin$loser_name)))
+    }
+    
+    ## take just all matches of this year's tourney
     tdb <- db[tourney_name%in%tourney & year==y]
-    res <- sapply(tot, MatchDefeatedFinalists, finalists=allfin, tdb=tdb)
-    return(res)
+    
+    ## look which of those players defeated former finalists
+    res <- lapply(allplayers, DefeatedFinalists, finalists=allfin, tdb=tdb)
+    
+    ## strip the results from the unsignificant ones
+    inds <- which(sapply(res, function(x) length(x$defs))>n)
+    ret <- res[inds]
+
+    return(ret)
 }
  
+## Function to print nicely the results
+PrintThree <- function(res) {
+    if (length(res)==0) {
+        cat("No results\n")
+    } else {
+        y <- names(res)
+        tourney <- attr(res, "tourney")
+        cat(paste(tourney, collapse=" or "),":\n")
+        for (i in seq_along(y)) {
+            cat(paste(y[i], ": ", res[[i]][[1]]$player, " defs. ", paste(res[[i]][[1]]$defs, collapse=", "),"\n"))
+        }
+    }
+}
 
-ThreeFinalists <- function(tourney) { 
-   allyears <- unique(dbtml[tourney_name%in%tourney, .(year)]$year)
-   tots <- lapply(allyears, function(x) AllPart(tourney=tourney, y=x))
-   names(tots) <- allyears
-   Find <- function(vec) names(vec)[vec>2]
-   yy <- sapply(tots, Find)
-   inds <- which(sapply(yy, length)>0)
-   return(yy[inds])
+
+## Checks who won against n or more former winners or finalists of a tourney in a particular editions
+ThreeFinalists <- function(tourney, winners=FALSE, n=2, print=TRUE, db=dbtml) { 
+    ## all available years of tourney in the db
+    allyears <- unique(db[tourney_name%in%tourney, .(year)]$year)
+    
+    ## Checks for a given year the wins of each participants against former winners or finalists
+    tots <- lapply(allyears, function(x) PreviousWinners(tourney=tourney, y=x, win=winners, n=n))
+    names(tots) <- allyears
+    
+    inds <- which(sapply(tots, length) > 0)
+    ret <- tots[inds]
+    attr(ret, "tourney") <- tourney
+    if (print)
+        PrintThree(ret)
+    return(ret)
 }
     
-    
-ThreeFinalists(c("Australasian Championships","Australian Open"))
-ThreeFinalists(c("French Championships", "Roland Garros"))
-ThreeFinalists("Wimbledon")
-ThreeFinalists(c("US Championships", "US Open"))
+rAOw <- ThreeFinalists(c("Australasian Championships","Australian Open"), n=2, winners=TRUE)
+rAOf <- ThreeFinalists(c("Australasian Championships","Australian Open"), n=2, winners=FALSE)
+
+rRGw <- ThreeFinalists(c("French Championships", "Roland Garros"), n=2, winners=TRUE)
+rRGf <- ThreeFinalists(c("French Championships", "Roland Garros"), n=2, winners=FALSE)
+
+rWIw <- ThreeFinalists("Wimbledon", winners=TRUE)
+rWIf <- ThreeFinalists("Wimbledon", winners=FALSE)
+
+rUOw <- ThreeFinalists(c("US Championships", "US Open"), winners=TRUE)
+rUOf <- ThreeFinalists(c("US Championships", "US Open"), winners=FALSE)
