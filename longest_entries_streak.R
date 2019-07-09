@@ -133,3 +133,45 @@ halle[1:30]
 ## 
 ## OutputTableToPng(tab[1:20,], "ConsecutiveWimbledonApparitions.png")
 
+db <- dbtml
+
+fin  <- db[tourney_name=="Wimbledon" & round=="F", .(winner_name, loser_name, year)]
+allfin <- sort(unique(c(fin$winner_name, fin$loser_name)))
+
+w <- db[tourney_name=="Wimbledon" ,.N ,by=.(year)]
+
+MatchDefeatedFinalists <- function(player, finalists, tdb) {
+    allmatches <- tdb[winner_name==player, .(loser_name)]
+    res <-  sum(allmatches$loser_name %in% finalists)
+    ## cat(paste(player, "defeated" , res, "finalists in ", tourney, unique(tdb$year) ))
+    return(res)
+}
+
+AllPart <- function(tourney, y, db=dbtml) {
+    a <- db[tourney_name%in%tourney & year==y & round=="R32",.(winner_name, loser_name)]
+    tot <- unique(c(a$winner_name, a$loser_name))
+    
+    fin  <- db[tourney_name%in%tourney & round=="F" & year < y, .(winner_name, loser_name, year)]
+    allfin <- sort(unique(c(fin$winner_name))) ## , fin$loser_name
+
+    tdb <- db[tourney_name%in%tourney & year==y]
+    res <- sapply(tot, MatchDefeatedFinalists, finalists=allfin, tdb=tdb)
+    return(res)
+}
+ 
+
+ThreeFinalists <- function(tourney) { 
+   allyears <- unique(dbtml[tourney_name%in%tourney, .(year)]$year)
+   tots <- lapply(allyears, function(x) AllPart(tourney=tourney, y=x))
+   names(tots) <- allyears
+   Find <- function(vec) names(vec)[vec>2]
+   yy <- sapply(tots, Find)
+   inds <- which(sapply(yy, length)>0)
+   return(yy[inds])
+}
+    
+    
+ThreeFinalists(c("Australasian Championships","Australian Open"))
+ThreeFinalists(c("French Championships", "Roland Garros"))
+ThreeFinalists("Wimbledon")
+ThreeFinalists(c("US Championships", "US Open"))
