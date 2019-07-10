@@ -214,3 +214,7 @@ rWIf <- ThreeFinalists("Wimbledon", winners=FALSE)
 
 rUOw <- ThreeFinalists(c("US Championships", "US Open"), winners=TRUE)
 rUOf <- ThreeFinalists(c("US Championships", "US Open"), winners=FALSE)
+
+rUOw2 <- ThreeFinalists(c("US Championships", "US Open"), winners=TRUE, n=1)
+rAOw2 <- ThreeFinalists(c("Australasian Championships","Australian Open"), n=1, winners=TRUE)
+

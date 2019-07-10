@@ -159,6 +159,25 @@ h2h  <- function(name1, name2, db) {
 }
 
 
+BagelsByPlayer <- function(name, given=TRUE, db) {
+    wins <- db[winner_name==name, score]
+    setsw <- unlist(strsplit(paste(wins, collapse=" "), " ", fixed=TRUE))
+
+    if(given){
+        bagw <- grep("6-0", setsw, fixed=TRUE)
+        loss <- db[loser_name==name, score]
+        setsl <- unlist(strsplit(paste(loss, collapse=" "), " ", fixed=TRUE))
+        bagl <- grep("0-6", setsl, fixed=TRUE)
+    } else {
+        bagw <- grep("0-6", setsw, fixed=TRUE)
+        loss <- db[loser_name==name, score]
+        setsl <- unlist(strsplit(paste(loss, collapse=" "), " ", fixed=TRUE))
+        bagl <- grep("6-0", setsl, fixed=TRUE)
+    }
+    return(length(bagw) + length(bagl)) 
+
+}
+
 ### Quick/dirty output as table using gridExtra, outputting to pdf 
 ### and using pdftoppm and imagemagick to resize and trim to png
 OutputTableToPng <- function(table, file) {
