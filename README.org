@@ -1,4 +1,15 @@
 * Dommy's R code (and some data) to perform tennis-related statistics
+** Update 20190723
+
+This stuff is beginning to be more structured and useful. Upon pulling
+from this repo you will get the latest tournaments, matches and
+players which I pushed to github. However You can just run a local
+update by simply issuing: 
+
+: $ Rscript AutoUpdate.R
+
+This command will scrape all the new data from the ATP website since
+my last update.
 
 ** Update 20190508
 
