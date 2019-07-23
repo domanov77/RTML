@@ -9,6 +9,7 @@ db <- UpdateDB(db, write_ended=TRUE, write_current=TRUE, save_html=TRUE)
 
 db <- UpdateDB(db, write_ended=FALSE, write_current=FALSE, save_html=TRUE)
 
+db <- UpdateDB(write_ended=TRUE, write_current=TRUE, save_html=TRUE)
 
 ## bug fix
 db <- ReadData("Data/dbtml.csv", davis=FALSE, quali=TRUE, current=FALSE)
