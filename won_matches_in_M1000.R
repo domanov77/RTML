@@ -5,6 +5,8 @@ source("RFun_Scraping.R")
 ## Now read OUR db
 system.time(db <- ReadData("Data/dbtml.csv", davis=FALSE, quali=FALSE))
 
+
+## dbtml now should be consistent
 masters <- c("ATP Masters 1000 Canada",
              "ATP Masters 1000 Cincinnati",
              "ATP Masters 1000 Essen",
@@ -19,12 +21,14 @@ masters <- c("ATP Masters 1000 Canada",
              "ATP Masters 1000 Stockholm",
              "ATP Masters 1000 Stuttgart")
 
+
 dbm <- db[tourney_name %in% masters,]
-list <- dbm[,.N,by=winner_name]
-setorder(list, -N, na.last=FALSE)
-head(list)
-
-
+out <- dbm[,.N,by=winner_name]
+setorder(out, -N, na.last=FALSE)
+head(out)
 
 aa <- dbm[round=="F", year, by=tourney_name]
 setorder(aa, year)
+
+OutputTableToPng(head(out,20), "MatchesWonInMasters.png")
+OutputTableToPng(aa, "ConsideredMasters.png")
