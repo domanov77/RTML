@@ -16,9 +16,9 @@ res_paris_2017 <- ScrapeMatchStats(res_paris_2017, cores=4)
 ## currently playing tournament, Houston (as of 20190409)
 houston <- ScrapeTourney("https://www.atptour.com/en/scores/current/houston/717/results")
 
-## scrape the match stats for a given tournament 
+## scrape the match stats for a given tournament
 ## (actually for any table containing url_matches field)
-## NB: PARALLELIZED (WIN/Linux/Mac) with cores defaulting to 8 
+## NB: PARALLELIZED (WIN/Linux/Mac) with cores defaulting to 8
 ## to make many concurrent requests. It is safe to use much larger values
 ## (e.g. 32)
 houston <- ScrapeMatchStats(houston, cores=8)
@@ -53,7 +53,7 @@ all.equal(atp_matches_2016_for, atp_matches_2016_lapply) ## TRUE
 
 
 
-## Fixed data retrival error!!! Before we did not check if the winner was always 
+## Fixed data retrival error!!! Before we did not check if the winner was always
 ## the left player in the stats page, now this is fixed
 
 ## Check with Brisbane 2019
@@ -63,7 +63,27 @@ brisb <- ScrapeMatchStats(brisb)
 ## Check with the live-score of current tourney: Marrakech
 marrakech <- ScrapeMatchStats(ScrapeTourney(url="https://www.atptour.com/en/scores/current/marrakech/360/live-scores"))
 ## try the pipe syntax
-marrakech2 <- ScrapeTourney(url="https://www.atptour.com/en/scores/current/marrakech/360/live-scores") %>% ScrapeMatchStats() 
+marrakech2 <- ScrapeTourney(url="https://www.atptour.com/en/scores/current/marrakech/360/live-scores") %>% ScrapeMatchStats()
 
 all.equal(marrakech, marrakech2) ## true
 OutputTableToPng(marrakech, "marrakech.png")
+
+
+
+## retrieve stats for RG 2019
+y19 <- ScrapeYear(2019)
+rg <- ScrapeTourney(url=y19[32,"url"]) %>% ScrapeMatchStats()
+rt<- ScrapeTourney(url="https://www.atptour.com/en/scores/archive/roland-garros/520/2019/results")
+
+aa <- add_info_from_tour(tourney=y19[32,], matches=rg)
+db <- AppendMatches(aa, dbtml)
+fwrite(db, paste0("Data/dbtml.csv"), quote=FALSE)
+
+w1 <- ScrapeTourney(url="https://www.atptour.com/en/scores/archive/wimbledon/540/2019/results", details=TRUE, from_disk=TRUE)
+w2 <- ScrapeMatchStats(w1)
+w2 <- ScrapeRankingForMatches(w2, save_html=FALSE)
+w2 <- add_info_from_tour(tourney=y19[39,], matches=w2)
+
+final <- AddPlayerInfo(w2)
+db <- AppendMatches(final, dbtml)
+rt<- ScrapeTourney(url="https://www.atptour.com/en/scores/archive/roland-garros/520/2019/results")

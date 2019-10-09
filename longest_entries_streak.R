@@ -1,15 +1,15 @@
-################### largest distance between 2 wins 
+################### largest distance between 2 wins
 source("RFun_DataPrep.R")
 source("RFun_Scraping.R")
 
 ## read OUR db
 ## dbtml <- UpdateDB(write_ended=TRUE, write_current=TRUE, save_html=TRUE)
 
-system.time(dbtml <- ReadData(quali=FALSE))
+system.time(dbtml <- ReadData(quali=TRUE))
 
 YearsOfPresenceByPlayerName <- function(name, alltou) sort(unique(as.numeric(alltou[winner_name==name | loser_name==name, .(year)]$year)))
 
-LongestConsecutiveSeq <- function(vec) { 
+LongestConsecutiveSeq <- function(vec) {
     temp <- cumsum(c(1, diff(vec) - 1))
     temp2 <- rle(temp)
     a <- vec[which(temp == with(temp2, values[which.max(lengths)]))]
@@ -23,7 +23,7 @@ ConsecutivePresences <- function(tourney, min_round, no2019=TRUE, db=dbtml) {
     ## optionally, don#t consider 2019
     if (no2019)
         all_tourn <- all_tourn[year < 2019]
-        
+
     ## optionally, restrict to a given round
     if (!missing(min_round)) {
         ## consider only from the given round on
@@ -43,7 +43,7 @@ ConsecutivePresences <- function(tourney, min_round, no2019=TRUE, db=dbtml) {
     ## start and end
     years   <- as.data.frame(t(sapply(streak, function(x) range(x$years))))
     colnames(years) <- c("First", "Last")
-    
+
     ## all together
     tab <- data.table(Name=names(nstreak), ConsPres=nstreak, First=years$First, Last=years$Last, row.names = NULL)
     setorder(tab, -ConsPres, -Last)
@@ -55,7 +55,7 @@ ConsecutivePresences <- function(tourney, min_round, no2019=TRUE, db=dbtml) {
 ## Consecutive presences in the slams MAIN DRAWS
 AO <- ConsecutivePresences(c("Australian Open","Australasian Championships"), no2019=FALSE, db=dbtml)
 RG <- ConsecutivePresences(c("Roland Garros","French Championships"), no2019=FALSE, db=dbtml)
-WI <- ConsecutivePresences("Wimbledon", no2019=FALSE, db=dbtml) 
+WI <- ConsecutivePresences("Wimbledon", no2019=FALSE, db=dbtml)
 UO <- ConsecutivePresences(c("US Open","US Championships"), db=dbtml)
 
 ## pictures
@@ -69,7 +69,7 @@ fwrite(RG, "Consecutive_RG.csv")
 fwrite(WI, "Consecutive_WI.csv")
 fwrite(UO, "Consecutive_UO.csv")
 
-## Restrict to reaching the R64 (second) round 
+## Restrict to reaching the R64 (second) round
 WI_R64 <- ConsecutivePresences("Wimbledon", min_round="R64", no2019=TRUE, db=dbtml) ## no2019=TRUE is needed here to make sure partial updates don't mess with the records
 OutputTableToPng(WI_R64[1:30,], "Consecutive_WI_R64.png")
 fwrite(WI_R64, "Consecutive_WI_R64.csv")
@@ -103,34 +103,34 @@ halle[1:30]
 ## colnames(years) <- c("Begin", "End")
 ## tab <- data.table(Name=names(nstreak), ConsPres=nstreak, Begin=years$Begin, End=years$End, row.names = NULL)
 ## setorder(tab, -ConsPres)
-## 
-##     
+##
+##
 ## wimb <- db[tourney_name=="Wimbledon"]
-## 
+##
 ## YearsPresenceByName <- function(name) sort(unique(as.numeric(wimb[winner_name==name | loser_name==name, .(year)]$year)))
-## 
+##
 ## allplayers <- sort(unique(wimb$winner_name))
 ## presence <- lapply(allplayers, YearsPresenceByName)
 ## names(presence) <- allplayers
-## 
-## 
+##
+##
 ## vec <- presence[[2123]]
-## 
-## LongestConsecutive <- function(vec) { 
+##
+## LongestConsecutive <- function(vec) {
 ##     temp <- cumsum(c(1, diff(vec) - 1))
 ##     temp2 <- rle(temp)
 ##     a <- vec[which(temp == with(temp2, values[which.max(lengths)]))]
 ##     return(list(n=length(a), years=a))
 ## }
-## 
+##
 ## streak <- mclapply(presence, LongestConsecutive, mc.cores=4)
-## 
+##
 ## nstreak <- sapply(streak, function(x) x$n)
 ## years   <- as.data.frame(t(sapply(streak, function(x) range(x$years))))
 ## colnames(years) <- c("Begin", "End")
 ## tab <- data.table(Name=names(nstreak), ConsPres=nstreak, Begin=years$Begin, End=years$End, row.names = NULL)
 ## setorder(tab, -ConsPres)
-## 
+##
 ## OutputTableToPng(tab[1:20,], "ConsecutiveWimbledonApparitions.png")
 
 db <- dbtml
@@ -149,7 +149,7 @@ PreviousWinners <- function(tourney, y, win=FALSE, n, db=dbtml) {
     ## list of all participants in that tourney in that year; we start from 3R because we seek for at least 3 wins against former finalists or winners
     a <- db[tourney_name%in%tourney & year==y & round=="R32",.(winner_name, loser_name)]
     allplayers <- unique(c(a$winner_name, a$loser_name))
-    
+
     ## Find out all the finalists/winners in that tourney until the previous year!
     fin  <- db[tourney_name%in%tourney & round=="F" & year < y, .(winner_name, loser_name, year)]
     if (win) { ## we look for former winners
@@ -157,20 +157,20 @@ PreviousWinners <- function(tourney, y, win=FALSE, n, db=dbtml) {
     } else {
         allfin <- sort(unique(c(fin$winner_name, fin$loser_name)))
     }
-    
+
     ## take just all matches of this year's tourney
     tdb <- db[tourney_name%in%tourney & year==y]
-    
+
     ## look which of those players defeated former finalists
     res <- lapply(allplayers, DefeatedFinalists, finalists=allfin, tdb=tdb)
-    
+
     ## strip the results from the unsignificant ones
     inds <- which(sapply(res, function(x) length(x$defs))>n)
     ret <- res[inds]
 
     return(ret)
 }
- 
+
 ## Function to print nicely the results
 PrintThree <- function(res) {
     if (length(res)==0) {
@@ -187,14 +187,14 @@ PrintThree <- function(res) {
 
 
 ## Checks who won against n or more former winners or finalists of a tourney in a particular editions
-ThreeFinalists <- function(tourney, winners=FALSE, n=2, print=TRUE, db=dbtml) { 
+ThreeFinalists <- function(tourney, winners=FALSE, n=2, print=TRUE, db=dbtml) {
     ## all available years of tourney in the db
     allyears <- unique(db[tourney_name%in%tourney, .(year)]$year)
-    
+
     ## Checks for a given year the wins of each participants against former winners or finalists
     tots <- lapply(allyears, function(x) PreviousWinners(tourney=tourney, y=x, win=winners, n=n))
     names(tots) <- allyears
-    
+
     inds <- which(sapply(tots, length) > 0)
     ret <- tots[inds]
     attr(ret, "tourney") <- tourney
@@ -202,7 +202,7 @@ ThreeFinalists <- function(tourney, winners=FALSE, n=2, print=TRUE, db=dbtml) {
         PrintThree(ret)
     return(ret)
 }
-    
+
 rAOw <- ThreeFinalists(c("Australasian Championships","Australian Open"), n=2, winners=TRUE)
 rAOf <- ThreeFinalists(c("Australasian Championships","Australian Open"), n=2, winners=FALSE)
 
