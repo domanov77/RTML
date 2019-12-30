@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-12-30 18:46:26 delucia"
+### Time-stamp: "Last modified 2019-12-30 19:02:36 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
@@ -1055,7 +1055,7 @@ ScrapeAllRanks <- function(chunk){
 
     n <- 1
     if (length(ind_to_scrape)> 0) {
-        for (i in seq_along(ind_to_scrape)) {
+        for (i in ind_to_scrape) {
             cat(paste(":: ", n, ") Scraping ", pinfo[[i]]$name, ".."))
             pinfo[[i]]$rankingshistory <- ScrapePlayerRankingsHistory(pinfo[[i]]$name, pinfo[[i]]$id)
             cat(" Done \n ")
