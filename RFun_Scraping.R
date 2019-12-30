@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-12-30 17:38:50 delucia"
+### Time-stamp: "Last modified 2019-12-30 18:46:26 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
@@ -1044,24 +1044,25 @@ ScrapePlayerRankingsHistory <- function(player, id, save_html=FALSE) {
     return(table)
 }
 
-ScrapeAllRanks <- function(save=TRUE){
+ScrapeAllRanks <- function(chunk){
+    
     pinfo <- readRDS("Data/PlayersInfo.RData")
+    if (missing(chunk))
+        chunk <- seq(1, length(pinfo))
     has_history <- sapply(pinfo, function(x) "rankingshistory" %in% names(x))
 
-    ind_to_scrape <- which(!has_history)
+    ind_to_scrape <- intersect(chunk, which(!has_history))
+
+    n <- 1
     if (length(ind_to_scrape)> 0) {
         for (i in seq_along(ind_to_scrape)) {
-            cat(paste(":: Scraping ", pinfo[[i]]$name, ".."))
+            cat(paste(":: ", n, ") Scraping ", pinfo[[i]]$name, ".."))
             pinfo[[i]]$rankingshistory <- ScrapePlayerRankingsHistory(pinfo[[i]]$name, pinfo[[i]]$id)
             cat(" Done \n ")
+            n <- n +1
         }
-
-        if (save) {
-            saveRDS(pinfo, "Data/PlayersInfo.RData")
-            cat(":AddPlayerInfo: saved player info for ", paste(names(scraped), collapse=", "), "\n")
-        }
+        
+        saveRDS(pinfo, "Data/PlayersInfo.RData")
+            
     }
-
-
-    
 }
