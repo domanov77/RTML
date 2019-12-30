@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-06-28 16:30:11 delucia"
+### Time-stamp: "Last modified 2019-12-30 17:38:50 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
@@ -670,6 +670,14 @@ ScrapePlayerNoRank <- function(name, id) {
     
     uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
+
+    if (response$status_code!=200) {
+        cat(paste("Player: ", name, " - id: ", id, " - Status=",response$status_code,"\n"))
+        ret <- list(plays=NA, bday=NA, nation=NA, id=id, name=name, url=url) 
+        return(ret)
+    }
+    
+
     html <- read_html(response)
 
     allnodes <- html %>% html_nodes("*") %>% html_attr("class")
@@ -783,40 +791,54 @@ ScrapeRankingForMatches <- function(matches, save_html=FALSE) {
     fmt_bday <- '%Y.%m.%d'
     ## scrape available rankings from ATP site
     avranks <- AvailableRankings()
-    
+
+    ## tourney date (unique occurrence)
     tdate <- as.Date(as.character(unique(matches$date)), format=fmt_td)
     ranks <- as.Date(as.character(avranks), format=fmt_td)
 
+    ## find which available ranking immediately precedes the "tdate"
     ind <- rep(NA_integer_, length(tdate))
     for (i in seq_along(tdate))
         ind[i] <- which.max(ranks >= tdate[i])
 
-    un_inds <- unique(ind)
-
-    to_scrape <- ranks[un_inds]
+    ## tdate[i] <-> ranks[ pointer_rank[i] ]
+    pointer_rank <- ind-1
+    pointer_rank[pointer_rank==0] <- NA 
+    
     new <- copy(matches)
-    for (i in seq_along(to_scrape)) {
-        ## start the iteration per tourney
-        nfile <- paste0("Rankings/Ranks_", to_scrape[i],".csv")
-        cat(":ScrapeRankingForMatches: looking for rankings on ", as.character(to_scrape[i]))
-        if (!file.exists(nfile)) {
-            rtab <- ScrapeRankings(to_scrape[i], save_html=save_html)
-            fwrite(rtab, file=nfile)
-            cat("\n:ScrapeRankingForMatches: rankings retrieved and saved in file ", nfile,"\n")
+    
+    for (i in seq_along(pointer_rank)) {
+        ## start the iteration
+        if (!is.na(pointer_rank[i])) {
+            cat("tdate[i] <-> ranks[ pointer_rank[i] ] ", as.character(tdate[i]), " <-> ", as.character(ranks[ pointer_rank[i] ]), "\n")
+            nfile <- paste0("Rankings/Ranks_", ranks[ pointer_rank[i] ],".csv")
+            cat(":ScrapeRankingForMatches: looking for rankings on ", as.character(ranks[ pointer_rank[i] ]))
+            if (!file.exists(nfile)) {
+                rtab <- ScrapeRankings(ranks[ pointer_rank[i] ], save_html=save_html)
+                fwrite(rtab, file=nfile)
+                cat("\n:ScrapeRankingForMatches: rankings retrieved and saved in file ", nfile,"\n")
+            } else {
+                rtab <- fread(nfile)
+                cat(": file ", nfile,"already present, no need to scrape it\n")
+            }
+
+            if (nrow(rtab)<100)
+                cat("::ScrapeRankingForMatches - rankingss for ", as.character(ranks[ pointer_rank[i] ]), " contain ", nrow(rtab), " records\n")
+            ## find the actual lines in the dt containing the matches
+            ind_matches <- which(matches$date==gsub("-","", tdate[i],fixed=TRUE))
+        
+            w <- new$winner_name[ind_matches]
+            l <- new$loser_name[ind_matches]
+            indw <- match(w, rtab$Player)
+            indl <- match(l, rtab$Player)
+            set(new, ind_matches, "winner_rank", rtab$Ranking[indw])
+            set(new, ind_matches, "loser_rank",  rtab$Ranking[indl])
         } else {
-            rtab <- fread(nfile)
-            cat(": file ", nfile,"already present, no need to scrape it\n")
+            cat(paste("Tourney date ", tdate[i], " predates the first ATP ranking!\n"))
         }
-        ind_matches <- which(matches$date==gsub("-","", tdate[i],fixed=TRUE))
-        w <- new$winner_name[ind_matches]
-        l <- new$loser_name[ind_matches]
-        indw <- match(w, rtab$Player)
-        indl <- match(l, rtab$Player)
-        set(new, ind_matches, "winner_rank", rtab$Ranking[indw])
-        set(new, ind_matches, "loser_rank",  rtab$Ranking[indl])
     }
 
-    ## strip the column "tpirney_id_from_url" which was only used as control
+    ## strip the column "tourney_id_from_url" which was only used as control
     if ("tourney_id_from_url" %in% colnames(new))
         set(new, ,"tourney_id_from_url", NULL )
     return(new)
@@ -981,4 +1003,65 @@ HashNameId <- function(dt) {
                             id=c(dt$winner_id, dt$loser_id)))
     tmp <- unique(tot)
     return(tmp[order(id)])
+}
+
+
+
+
+## Function which scrapes ranking history for a given player
+ScrapePlayerRankingsHistory <- function(player, id, save_html=FALSE) {
+    ## https://www.atptour.com/en/players/stefan-edberg/e004/rankings-history
+    ## url <- "https://www.atptour.com/en/players/stefan-edberg/e004/rankings-history"
+
+    if (missing(id) | missing(player))
+        stop(":ScrapePlayerRankingsHistory: you must specify name and id!\n")
+
+    url <- paste0("https://www.atptour.com/en/players/",
+                  tolower(gsub(" ", "-", fixed=TRUE, player)), "/", tolower(id),
+                  "/rankings-history")
+
+    require(rvest)
+    require(httr)
+
+    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    response <- GET(as.character(url), user_agent(uastring))
+    if (save_html) {
+        saved_url <- paste0("PlayerRankingsHistory_", date, ".html")
+        cat(content(response, "text"), file=saved_url)
+    }
+ 
+    html <- read_html(response)
+    
+    allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique() %>% sort() 
+    
+    if ("mega-table" %in% allnodes) {
+        table <- html_node(html, "table.mega-table") %>% html_table(header=TRUE)
+        table[, c("Doubles")] <- NULL
+    } else {
+        cat(":ScrapeRankings: no data found, check url and date\n")
+        table <- NA
+    }
+    return(table)
+}
+
+ScrapeAllRanks <- function(save=TRUE){
+    pinfo <- readRDS("Data/PlayersInfo.RData")
+    has_history <- sapply(pinfo, function(x) "rankingshistory" %in% names(x))
+
+    ind_to_scrape <- which(!has_history)
+    if (length(ind_to_scrape)> 0) {
+        for (i in seq_along(ind_to_scrape)) {
+            cat(paste(":: Scraping ", pinfo[[i]]$name, ".."))
+            pinfo[[i]]$rankingshistory <- ScrapePlayerRankingsHistory(pinfo[[i]]$name, pinfo[[i]]$id)
+            cat(" Done \n ")
+        }
+
+        if (save) {
+            saveRDS(pinfo, "Data/PlayersInfo.RData")
+            cat(":AddPlayerInfo: saved player info for ", paste(names(scraped), collapse=", "), "\n")
+        }
+    }
+
+
+    
 }
