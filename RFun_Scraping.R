@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-12-30 19:02:36 delucia"
+### Time-stamp: "Last modified 2019-12-31 10:35:34 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
@@ -860,8 +860,8 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE, save_html=FALSE
 
     current <- grep("current", y$url)
 
-    playing <<- y[ current]
-    archive <<- y[-current]
+    playing <- y[ current]
+    archive <- y[-current]
 
     ## completely missing tourneys which are already finished and
     ## archived (typically, a few days later they are online)
@@ -1025,8 +1025,14 @@ ScrapePlayerRankingsHistory <- function(player, id, save_html=FALSE) {
 
     uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
+
+    if (response$status_code!=200) {
+        cat(":: PlayerRankings page not present\n")
+        return(NA)
+    }
+
     if (save_html) {
-        saved_url <- paste0("PlayerRankingsHistory_", date, ".html")
+        saved_url <- paste0("PlayerRankingsHistory_", id, ".html")
         cat(content(response, "text"), file=saved_url)
     }
  
