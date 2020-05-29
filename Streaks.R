@@ -7,8 +7,11 @@ LoadTMLdb <- function(basedir=".", current=TRUE, davis=FALSE) {
         ind <- match(paste0(basedir,"/ongoing_tourneys.csv"), lf)
         lf <- lf[-ind]
     }
-    tots <- lapply(lf, data.table::fread, fill=TRUE)
-    db <- rbindlist(tots)
+    tim <- system.time({
+        tots <- lapply(lf, data.table::fread, fill=TRUE)
+        db <- rbindlist(tots)
+    })
+    cat(":: Loading of", length(lf), "csv files completed in", round(tim[3], 3), "s\n")
 
     if (!davis) {
         db  <- db[tourney_level!="D", ]
@@ -21,95 +24,135 @@ PlayerMatches <- function(name, db) {
     db[winner_name==name | loser_name==name, ]
 }
 
-## Function to find the longest streak in a sequence
-LongestSequence <- function(vec, target=TRUE) {
-    if (!target %in% vec)
-        return(list(n=0, pos=0))
-    tmp <- rle(vec)
-    inds_of_target <- which(tmp$values==target)
-    nmax <- max(tmp$lengths[inds_of_target])
-    ind_max_target <- which(tmp$lengths[inds_of_target] == nmax)
-    ## nstreak <- length(ind_max_target)
-    ## if (nstreak > 1) cat("Warning: longest streak of ",nmax," repeats ", nstreak, "times. Taking the first one!\n")
+##' @title Find all subsequences longer than "cutoff" in a sequence
+##' @param name Player name
+##' @param dt data.table with matches of all players
+##' @param cutoff Minimal length of the streak
+##' @param win logical. If TRUE, look for streaks of wins, if FALSE
+##'     for losses
+##' @param breaks logical. If TRUE includes to returned matches the
+##'     last before the streak and the first after
+##' @return A list containing all streaks as data.table
+##' @author dommy
+LongestSequences <- function(name, dt, cutoff=10, win=TRUE, breaks=TRUE, verbose=FALSE) {
+    ## subset the matches of that player
+    matches <- PlayerMatches(name, dt)
 
-    imax <- which(tmp$lengths==nmax & tmp$values==target)[1]
-    ##    cat("imax =", imax, "; nstreak=", nstreak, "; nmax=", nmax, "\n")
-    posinvec <- sum(tmp$lengths[seq(1,imax-1)])+1
-    return(list(n=nmax, pos=posinvec))
-}
-
-## workhorse function to be iterated per player name
-ExtractStreak <- function(name, tab){
-    matches <- PlayerMatches(name, tab)
-    ## encode the wins as TRUE
-    enc <- matches$winner_name == name
-    ## find the FIRST occurrence of the single longest win streak
-    streak <- LongestSequence(enc, target=TRUE)
-    return(list(length=streak$n, matches=matches[c(streak$pos,streak$pos+streak$n), ]))
-}
-
-
-
-StreakBySurface <- function(db, surf) {
-    ## first we restrict the db to the given surface
-    sdb <- db[surface==surf, ]
+    ## if win is TRUE, we encode the wins as TRUE
+    if (win) {
+        vec <- matches$winner_name == name
+    } else {
+        vec <- matches$loser_name == name
+    }
     
+    ## check if there is at least a TRUE in the sequence
+    if (!(TRUE %in% vec)) 
+        return(NA)
+        
+    ## use rle() to find all subsequences within vec
+    tmp <- rle(vec)
+    
+    ## need to subset "tmp" in order to match the target value
+    ## (default: TRUE, but can be anything)
+    inds_of_streak <- which(tmp$values==TRUE & tmp$lengths > cutoff)
+
+    ## check if there is at least one streak that made the cutoff
+    if (length(inds_of_streak) == 0) 
+        return(NA)
+    
+    ## backtransform the rle encoding in order to find the beginning
+    ## of each streak in the original "vec" sequence
+    posinvec <- sapply(inds_of_streak, function(i) sum(tmp$lengths[seq(1,i-1)])+1 )
+    streak_len <- tmp$lengths[inds_of_streak]
+
+    ord <- order(streak_len, decreasing = TRUE)
+    
+    ## Return a list whose elements are data.tables containing all
+    ## matches in the streak. If "breaks==TRUE" INCLUDE matches before
+    ## and after!
+    if (breaks)
+        res <- lapply(seq_along(posinvec), function(x) matches[seq(posinvec[x]-1, posinvec[x] + streak_len[x]), ] )
+    else
+        res <- lapply(seq_along(posinvec), function(x) matches[seq(posinvec[x], posinvec[x] + streak_len[x] -1), ] )
+
+    return(res[ord])
+}
+
+## Flatten a list where elements itself can be a list
+flatten <- function(lst) {
+    do.call(c, lst)
+}
+
+
+## Generic function which extracts all streaks of wins (win==TRUE) or
+## losses (win==FALSE) of at least "cutoff" matches from a data.table
+## (which must be subsetted beforehand, i.e. for surface or tourney!).
+Streaks <- function(db, cutoff=10, win=TRUE, breaks=TRUE) {
+
     ## find all names in this sdb
-    all_names <- sort(unique(c(sdb$winner_name, sdb$loser_name)))
+    all_names <- sort(unique(c(db$winner_name, db$loser_name)))
 
     ## iterate on each name to find the single longest streak
-    all_streak <- lapply(all_names, ExtractStreak, tab=sdb)
+    all_streak <- lapply(all_names, LongestSequences,
+                         dt=db, cutoff=cutoff, win=win, breaks=breaks)
+    
     names(all_streak) <- all_names
-    return(all_streak)
+    unordered <- all_streak[!is.na(all_streak)]
+
+    ## now we extract the useful info and order the list of matches
+    ## start from the correct names repetitions
+    nstreak <- sapply(unordered, length)
+    ## flatten the list
+    flat <- flatten(unordered)
+
+    ## compute how many matches are in the streaks
+    lengths <- sapply(flat, nrow, USE.NAMES = FALSE)
+
+    ## account for the 2 matches before and after the streak if they
+    ## are included in the list (argument "breaks" is TRUE)
+    if (breaks)
+        lengths <- lengths - 2
+
+    ## find walkovers
+    walk <- sapply(flat, function(x) length(grep("W/O", x$score, fixed = TRUE)))
+    
+    ## order the longest streaks
+    ord <- order(lengths, decreasing = TRUE)
+    info <- data.frame(name=rep(names(nstreak), times=nstreak)[ord], N=lengths[ord], WO=walk)
+    rownames(info) <- NULL
+    
+    return(list(info=info, matches=flat[ord]))
 }
 
 
 
+#################################### examples
 
 ## Load db (change basedir if needed, i.e. ".")
-db <- LoadTMLdb(basedir="TML-Database", davis=TRUE, current=FALSE)
+db <- LoadTMLdb(basedir="TML-Database", davis=FALSE, current=TRUE)
 
+## wins on grass
+grass <- Streaks(db[surface=="Grass", ], win=TRUE, cutoff=20, breaks=FALSE)
 
-## on grass
-grass_str <- StreakBySurface(db, surf="Grass")
-tot_grass <- sapply(grass_str, "[[", "length")
-tot_grass[order(tot_grass, decreasing=TRUE)[1:10] ]
+## overall results as ordered table
+grass$info
+
+## all matches of the first streak without last loss and first one ("breaks" was FALSE)
+grass$matches[[1]]
 
 ## on clay
-clay_str <- StreakBySurface(db, surf="Clay")
-tot_clay <- sapply(clay_str, "[[", "length")
-tot_clay[order(tot_clay, decreasing=TRUE)[1:10] ]
-
+clay <- Streaks(db[surface=="Clay",], cutoff=20, breaks=TRUE)
+clay$info
 
 ## on hard
-hard_str <- StreakBySurface(db, surf="Hard")
-tot_hard <- sapply(hard_str, "[[", "length")
-tot_hard[order(tot_hard, decreasing=TRUE)[1:10] ]
+hard <- Streaks(db[surface=="Hard",], cutoff=30)
+hard$info
 
 
+## losses streaks
+los <- Streaks(db, cutoff=10, win=FALSE, breaks=TRUE)
 
+los$info[los$info$name=="Mischa Zverev",] ## 101
 
+los$matches[[101]]
 
-
-
-############# For Debugging
-## surf <- "Grass"
-## sdb <- db[surface==surf, ]
-    
-## ## find all names in this sdb
-## all_names <- sort(unique(c(sdb$winner_name, sdb$loser_name)))
-
-## rr <- vector(mode="list", length=length(all_names))
-## for (i in seq_along(all_names)) {
-##     cat(":: Doing ", all_names[i], "... ")
-##     rr[[i]] <- ExtractStreak(all_names[i], tab=sdb)
-##     cat("[OK]\n")
-## }
-
-## name <- "Aaron Krickstein"
-## tab <- sdb
-## matches <- PlayerMatches(name, tab)
-## ## encode the wins as TRUE
-## enc <- matches$winner_name == name
-## ## find the FIRST occurrence of the single longest win streak
-## streak <- LongestSequence(enc, target=TRUE)
