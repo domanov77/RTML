@@ -32,3 +32,5 @@ db[tourney_id=="2016_96" & winner_name=="Gilles Simon" & round=="R64", l_SvGms:=
 
 db[w_SvGms==0 | l_SvGms ==0]
 fwrite(db, "Data/dbtml.csv", quote=FALSE)
+
+

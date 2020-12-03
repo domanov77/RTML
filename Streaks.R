@@ -1,7 +1,6 @@
-library(data.table)
-
 ## Function to load Top's db
 LoadTMLdb <- function(basedir=".", current=TRUE, davis=FALSE) {
+    require(data.table)
     lf <- list.files(path=basedir, pattern=".csv", full.names=TRUE)
     if ((!current) & (paste0(basedir,"/ongoing_tourneys.csv") %in% lf)) {
         ind <- match(paste0(basedir,"/ongoing_tourneys.csv"), lf)
@@ -131,6 +130,12 @@ Streaks <- function(db, cutoff=10, win=TRUE, breaks=TRUE) {
 ## Load db (change basedir if needed, i.e. ".")
 db <- LoadTMLdb(basedir="TML-Database", davis=FALSE, current=TRUE)
 
+db$year <- round(db$tourney_date, -4) / 1E4
+
+triple <- db[ (score=="6-0 6-0 6-0") & (year > 1967) & (tourney_level=="G"), c("year","tourney_name", "winner_name","score", "loser_name", "round")]
+
+OutputTableToPng(triple,file="Bagels.png")
+
 ## wins on grass
 grass <- Streaks(db[surface=="Grass", ], win=TRUE, cutoff=20, breaks=FALSE)
 
@@ -156,3 +161,10 @@ los$info[los$info$name=="Mischa Zverev",] ## 101
 
 los$matches[[101]]
 
+## all american players ever in top 20
+source("RFun_DataPrep.R")
+
+allp <- unique(db[(winner_ioc=="USA")&(!is.na(winner_rank)), list(winner_name, winner_rank), by=.(winner_rank)])
+br <- allp[, .(br=min(winner_rank)), by=winner_name]
+setorder(br, br)
+br[br<21,]

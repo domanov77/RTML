@@ -1,6 +1,6 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2019-12-31 10:35:34 delucia"
+### Time-stamp: "Last modified 2020-12-03 18:26:17 delucia"
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
@@ -12,7 +12,7 @@ ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
     if (nchar(as.character(year)) == 4) { 
     
         ## we need to scrape
-        uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+        uastring <- "" ##"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
         page_url <- paste0("https://www.atptour.com/en/scores/results-archive?year=", year)
     
         response <- GET(page_url, user_agent(uastring))
@@ -129,7 +129,7 @@ ScrapeTourney <- function(url, id, details=FALSE, save_html=FALSE, from_disk=FAL
 
     if (!from_disk) {
         ## we need to scrape
-        uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+        uastring <- ""## "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
         response <- GET(as.character(url), user_agent(uastring))
         ## are we gonna save it on disk?
         if (save_html) {
@@ -144,7 +144,7 @@ ScrapeTourney <- function(url, id, details=FALSE, save_html=FALSE, from_disk=FAL
     html <- read_html(response)
     allnodes <- html %>% html_nodes("*") %>% html_attr("class") %>% unique()
 
-    table <- html_nodes(html, "table.day-table")%>% html_table(header=FALSE)
+    table <- html_nodes(html, "table.day-table")%>% html_table(header=FALSE, fill = TRUE, trim=TRUE)
     
     if (length(table)==0) {
         cat(":ScrapeTourney: No results for ", name_url, " present\n")
@@ -267,7 +267,7 @@ ScrapeTourney <- function(url, id, details=FALSE, save_html=FALSE, from_disk=FAL
             else
                 tab$tourney_name <- id
             
-### tourney_date and year are known already    
+            ## tourney_date and year are known already    
             ## date <- tmpn[length(tmpn)]
             ## date <- unlist(strsplit( date, " - "))[2]
             ## year <- unlist(strsplit( date, "\\."))[1]
@@ -341,7 +341,7 @@ ScrapeMatch <- function(url, winner, save_html=FALSE, from_disk=FALSE) {
     require(httr)
 
     if (!from_disk) {
-        uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+        uastring <- ""## "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
         page_url <- paste0("https://www.atptour.com", url)
     
         response <- GET(page_url, user_agent(uastring))
@@ -516,7 +516,7 @@ ScrapeIdsFromTourney <- function(url) {
     tourid <- gsub(".*archive/(.*)/results","\\1", url)
     tid <- paste0(rev(unlist(strsplit(tourid, "/")))[1:2], collapse="_")
     
-    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    uastring <- "" ##Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
     html <- read_html(response)
 
@@ -596,7 +596,7 @@ ScrapePlayer <- function(name, id, db, save_html=FALSE) {
     require(rvest)
     require(httr)
     
-    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    uastring <- "" ## "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     if (!from_disk) {
         response <- GET(as.character(url), user_agent(uastring))
         if (save_html) {
@@ -668,7 +668,7 @@ ScrapePlayerNoRank <- function(name, id) {
     require(rvest)
     require(httr)
     
-    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    uastring <- "" ## "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
 
     if (response$status_code!=200) {
@@ -724,7 +724,7 @@ ScrapeRankings <- function(date, save_html=FALSE, from_disk=FALSE) {
     require(httr)
     
     if (!from_disk) {
-        uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+        uastring <- "" ##"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
         response <- GET(as.character(url), user_agent(uastring))
         if (save_html) {
             saved_url <- paste0("rankings_", date, ".html")
@@ -769,7 +769,7 @@ AvailableRankings <- function() {
     require(rvest)
     require(httr)
     
-    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    uastring <- "" ## "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     url <- "https://www.atptour.com/en/rankings/singles"
     response <- GET(as.character(url), user_agent(uastring))
     html <- read_html(response)
@@ -858,10 +858,19 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE, save_html=FALSE
     this_year <- as.integer(format(Sys.Date(),"%Y"))
     y <- ScrapeYear(this_year, verbose=FALSE, save_html=save_html)
 
-    current <- grep("current", y$url)
-
-    playing <- y[ current]
-    archive <- y[-current]
+    ## First, don't bother with ATP Cup
+    atpcup <- grep("atp-cup", y$url)
+    if (length(atpcup)>0)
+        y <- y[-atpcup,]
+    
+    current_inds <- grep("current", y$url)
+    if (length(current_inds)>0){
+        playing <- y[ current_inds]
+        archive <- y[-current_inds]
+    } else {
+        archive <- y
+        playing <- NULL
+    }
 
     ## completely missing tourneys which are already finished and
     ## archived (typically, a few days later they are online)
@@ -878,7 +887,10 @@ UpdateDB <- function(db, write_ended=FALSE, write_current=FALSE, save_html=FALSE
             to_scrape <- to_scrape[-ind_nodata]
         }
 
-        newmatches <- rbindlist(lapply(seq_along(tourneys), function(i) add_info_from_tour(tourney=to_scrape[i], matches=tourneys[[i]])))
+        newmatches <- rbindlist(lapply(seq_along(tourneys),
+                                       function(i)
+                                           add_info_from_tour(tourney=to_scrape[i], matches=tourneys[[i]]))
+                                )
 
         res <- ScrapeMatchStats(newmatches, cores=4, save_html=save_html) 
         cat(":UpdateDB: retrieved match statistics\n")
@@ -1023,7 +1035,7 @@ ScrapePlayerRankingsHistory <- function(player, id, save_html=FALSE) {
     require(rvest)
     require(httr)
 
-    uastring <- "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+    uastring <- ""  ## "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
     response <- GET(as.character(url), user_agent(uastring))
 
     if (response$status_code!=200) {
