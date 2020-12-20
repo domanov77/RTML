@@ -1,6 +1,6 @@
 ### Functions to interrogate the databases of matches
 
-### Time-stamp: "Last modified 2019-07-03 14:08:00 delucia"
+### Time-stamp: "Last modified 2020-12-16 18:04:00 delucia"
 library(data.table)
 
 

@@ -130,6 +130,17 @@ Streaks <- function(db, cutoff=10, win=TRUE, breaks=TRUE) {
 ## Load db (change basedir if needed, i.e. ".")
 db <- LoadTMLdb(basedir="TML-Database", davis=FALSE, current=TRUE)
 
+
+## 3 R128 encounters on hard in grand slams
+r1 <- db[ (tourney_level=="G") & (round=="R128") & (surface=="Hard"), c("winner_name","loser_name")]
+
+aa <- t(apply(r1, 1, sort))
+bb <- apply(aa, 1, paste, collapse=" vs ")
+
+which.max(table(bb)) ## Joao Sousa vs Jordan Thompson 
+
+
+
 db$year <- round(db$tourney_date, -4) / 1E4
 
 triple <- db[ (score=="6-0 6-0 6-0") & (year > 1967) & (tourney_level=="G"), c("year","tourney_name", "winner_name","score", "loser_name", "round")]

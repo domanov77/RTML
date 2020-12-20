@@ -1,6 +1,7 @@
 ### Functions to scrape ATP database of matches
 
-### Time-stamp: "Last modified 2020-12-03 18:26:17 delucia"
+### Time-stamp: "Last modified 2020-12-15 18:01:08"
+
 
 ### Function to scrape all tourneys for a given year in the db
 ScrapeYear <- function(year, verbose=TRUE, save_html=FALSE) {
